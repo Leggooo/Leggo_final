@@ -5,7 +5,7 @@
 <head>
 	<meta charset='UTF-8' />
 	<title>회원가입 : LEGGO</title>
- 	<!-- <link rel="stylesheet" href="/leggo/css/member/login.css" />
+<!--  	<link rel="stylesheet" href="/leggo/css/member/login.css" />
 	<link rel="stylesheet" href="/leggo/css/member/login1.css" /> -->
 </head>
 <body id="signup" class="">
@@ -21,43 +21,43 @@
         					<div class="col-xs-6">
 							<div class="field">
 								<input type="text" id="user_id"
-									name="sign_up[id]" required="required"
+									name="user_id" required="required"
 									placeholder="아이디" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="password" id="pass"
-									name="sign_up[password][first]" required="required"
+									name="pass" required="required"
 									placeholder="비밀번호" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="password" id="pass_second"
-									name="sign_up[password][second]" required="required"
+									required="required"
 									placeholder="비밀번호 확인" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="text" id="pass_hint"
-									name="sign_up[pass_hint]" required="required"
+									name="pass_hint" required="required"
 									placeholder="비밀번호 힌트" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="text" id="pass_ans"
-									name="sign_up[pass_answer]" required="required"
+									name="pass_ans" required="required"
 									placeholder="비밀번호 답변" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="text" id="user_name"
-									name="sign_up[name]" required="required"
+									name="user_name" required="required"
 									placeholder="이름" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="text" id="birth"
-									name="sign_up[birth]" required="required"
-									placeholder="생년월일" class="form-control" />
+									name="birth" required="required"
+									placeholder="YYYYMMDD" class="form-control" />
 							</div>
 							</div>
                        		<div class="col-xs-6">
 							<div class="field">
-	                            <select id="gender" name="sign_up[gender]" class="form-control" aria-label="성별">
+	                            <select id="gender" name="gender" class="form-control" aria-label="성별">
 	                                <option value="" selected>성별</option>
 	                                        <option value="M">남자</option>
 	                                        <option value="F">여자</option>
@@ -65,43 +65,41 @@
                        		</div>
 							<div class="field">
 								<input type="text" id="tel"
-									name="sign_up[tel]" required="required"
-									placeholder="일반전화 번호" class="form-control" />
+									name="tel" placeholder="일반전화 번호" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="tel" id="mobile"
-									name="sign_up[tel]" required="required"
+									name="mobile" required="required"
 									placeholder="휴대전화 번호" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="text" id="postcode"
-									name="sign_up[postcode]" required="required"
-									placeholder="우편번호" class="form-control1" />
+									name="postcode" placeholder="우편번호" class="form-control" />
 								<button type="button" class="blue-btn half-width mb15" onclick="execDaumPostcode()">우편번호 찾기</button>
 							</div>
 							<div class="field">
 								<input type="text" id="addr"
-									name="sign_up[address]" required="required"
-									placeholder="주소" class="form-control" />
+									name="addr" placeholder="주소" class="form-control" />
 							</div>
 							<div class="field">
 								<input type="text" id="email"
-									name="sign_up[email]" required="required"
+									name="email" required="required"
 									placeholder="본인 확인 이메일" class="form-control" />
 							</div>
 							<div class="field">
-								<input type="radio" name="sign_up[emailrecv]" value="이메일 수신 여부Y" /> Y
-								<input type="radio" name="sign_up[emailrecv]" value="이메일 수신 여부N" /> N
+								<label for="recv_email">이메일 수신 여부</label>
+								<input type="radio" name="recv_email" value="Y" /> 수신
+								<input type="radio" name="recv_email" value="N" /> 비수신
 							</div>
-							<input type="radio" name="fruit" value="사과" /> 사과
-							<input type="radio" name="fruit" value="바나나" checked="checked" /> 바나나
 							<div class="field">
-								<input type="radio" name="sign_up[textrecv]" value="문자 수신 여부" />문자
+								<label for="recv_text">문자 수신 여부</label>
+								<input type="radio" name="recv_text" value="Y" /> 수신
+								<input type="radio" name="recv_text" value="N" /> 비수신
 							</div>
 							</div>
 							<div class="field">
 								<label>
-								<input type="checkbox" id="trader_sign_up_agree" name="trader_sign_up[agree]" value="test"/>
+								<input type="checkbox" id="trader_sign_up_agree" value="test"/>
 								다음을 읽고 동의합니다 <br/>
 									<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 사용</a>,
 									<a	href="/leggo/signUpTerms.do" target="_blank"> 위치정보 제공</a> 과 

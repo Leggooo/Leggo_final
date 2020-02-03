@@ -18,7 +18,7 @@
 		<put-attribute name="content" value="/WEB-INF/include/content.jsp" />
 	</definition>
 	
-	<definition name="testTemplate" template="/WEB-INF/layout/introLayout.jsp">
+	<definition name="testTemplate" template="/WEB-INF/layout/testLayout.jsp">
 		<put-attribute name="content" value="/WEB-INF/include/content.jsp" />
 	</definition>
 	

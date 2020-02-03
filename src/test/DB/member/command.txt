@@ -1,0 +1,19 @@
+create table member
+(
+user_id varchar2(20) primary key,
+pass varchar2(20) not null,
+pass_hint varchar2(60) not null,
+pass_ans varchar2(60) not null,
+user_name varchar2(30) not null,
+birth date not null,
+gender char(1) check(gender in ('M','F')),
+tel varchar2(15),
+mobile varchar2(15) not null,
+addr varchar2(180),
+postcode varchar2(10),
+email varchar2(50),
+recv_email char(1) check(recv_email in ('Y','N')),
+recv_text char(1) check(recv_text in ('Y','N')),
+reg_date date not null,
+lastlogin date
+);
