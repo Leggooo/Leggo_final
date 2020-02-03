@@ -16,7 +16,7 @@
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 45%">
 						<br>
-						<form action="/member/join" method="post" class="auth-form">
+						<form action="/leggo/index.do" method="post" class="auth-form">
 							<h1>가입 완료!</h1>
 							<div class="field">
 								<input class="form-control" type="text" id="user_id" name="user_id" value="" placeholder='가입자 아이디' disabled="disabled"/>
@@ -27,7 +27,7 @@
 							<div class="field">
 								<input class="form-control" type="text" id="sign_up_email" name="sign_up[email]" placeholder="가입자 이메일" disabled="disabled"/>
 							</div>
-							<button href="#" class="submit blue-btn full-width" >로그인</button>
+							<a href="/leggo/login.do" class="submit blue-btn full-width" >로그인하기</a>
 						</form>
 					</div>
 				</div>

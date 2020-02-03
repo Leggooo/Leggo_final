@@ -31,8 +31,8 @@
 </body>
 
 <!-- Scripts -->
-<script src="/leggo/js/jquery.min.js"></script>
+<!-- <script src="/leggo/js/jquery.min.js"></script>
 <script src="/leggo/js/browser.min.js"></script>
 <script src="/leggo/js/breakpoints.min.js"></script>
-<script src="/leggo/js/main.js"></script>
+<script src="/leggo/js/main.js"></script> -->
 </html>

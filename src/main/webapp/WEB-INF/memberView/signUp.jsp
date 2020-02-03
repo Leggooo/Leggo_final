@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset='UTF-8' />
 	<title>회원가입 : LEGGO</title>
-<!-- 	<link rel="stylesheet" href="/leggo/css/member/login.css" />
+ 	<!-- <link rel="stylesheet" href="/leggo/css/member/login.css" />
 	<link rel="stylesheet" href="/leggo/css/member/login1.css" /> -->
 </head>
 <body id="signup" class="">
@@ -14,7 +15,7 @@
 			<div id="page-content">
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 50%">
-						<form name="sign_up" method="post" class="auth-form">
+						<form name="sign_up" action="/leggo/signUpSucc.do" method="post" class="auth-form">
 							<h1>회원가입</h1>
 							<div class="row">
         					<div class="col-xs-6">
@@ -89,24 +90,28 @@
 									placeholder="본인 확인 이메일" class="form-control" />
 							</div>
 							<div class="field">
-								<input type="radio" id="recv_email"	name="sign_up[emailrecv]" value="이메일 수신 여부" />이메일
+								<input type="radio" name="sign_up[emailrecv]" value="이메일 수신 여부Y" /> Y
+								<input type="radio" name="sign_up[emailrecv]" value="이메일 수신 여부N" /> N
 							</div>
+							<input type="radio" name="fruit" value="사과" /> 사과
+							<input type="radio" name="fruit" value="바나나" checked="checked" /> 바나나
 							<div class="field">
-								<input type="radio" id="recv_text" name="sign_up[textrecv]" value="문자 수신 여부" />문자
+								<input type="radio" name="sign_up[textrecv]" value="문자 수신 여부" />문자
 							</div>
 							</div>
 							<div class="field">
 								<label>
-								<input type="checkbox" id="trader_sign_up_agree" name="trader_sign_up[agree]" required="required" value="1" />
+								<input type="checkbox" id="trader_sign_up_agree" name="trader_sign_up[agree]" value="test"/>
 								다음을 읽고 동의합니다 <br/>
-									<a	href="/leggo/html/member/agree.jsp" target="_blank"> 개인정보 사용</a>,
-									<a	href="/leggo/html/member/agree.jsp" target="_blank"> 위치정보 제공</a> 과 <a	href="/leggo/html/member/agree.jsp" target="_blank"> 개인정보 보호 정책 </a>
+									<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 사용</a>,
+									<a	href="/leggo/signUpTerms.do" target="_blank"> 위치정보 제공</a> 과 
+									<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 보호 정책 </a>
 								</label>
 							</div>
-							<button type="submit" class="blue-btn full-width mb15">가입하기</button>
+							<input type="submit" id="submitBtn" value="가입하기">
 							<div class="text-center mt15">
-								이미 계정이 있으신가요? <a class="recover"
-									href="/leggo/html/member/login.jsp">로그인 하기</a>
+								이미 계정이 있으신가요?
+								<a class="recover" href="/leggo/login.do">로그인 하기</a>
 							</div>
 							</div>
 						</form>
@@ -141,8 +146,8 @@
                     extraRoadAddr = ' (' + extraRoadAddr + ')';
                 }
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sign_up_postcode').value = data.zonecode;
-                document.getElementById("sign_up_address").value = roadAddr;
+                document.getElementById('postcode').value = data.zonecode;
+                document.getElementById("addr").value = roadAddr;
             }
         }).open();
     }
