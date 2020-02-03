@@ -12,8 +12,6 @@
 <body id="login" class="main_frame">
 	<div class="container-flex">
 		<div id="page-wrap">
-		
-		
 			<a href="#" class="logo-center"><img src="/leggo/images/LeggoLogo.png" alt=""></a>
 			<div id="page-content">
 				<div class="text-center">
