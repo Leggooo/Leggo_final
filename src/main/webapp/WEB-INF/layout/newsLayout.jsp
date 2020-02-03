@@ -18,14 +18,16 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div>
-		<!-- TOP -->
-		<tiles:insertAttribute name="top"></tiles:insertAttribute>
-	</div>
-	<div>
-		<!-- CONTENT -->
-		<tiles:insertAttribute name="content"></tiles:insertAttribute>
-	</div>
+	<div class="container" style="overflow:auto;">
+		<div class="row">	
+			<!-- TOP -->
+			<tiles:insertAttribute name="top"></tiles:insertAttribute>
+		</div>
+		<div>
+			<!-- CONTENT -->
+			<tiles:insertAttribute name="content"></tiles:insertAttribute>
+		</div>
+	</div>>
 </body>
 
 <!-- Scripts -->
