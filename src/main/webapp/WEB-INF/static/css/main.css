@@ -65,14 +65,14 @@ input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
-
-input, select, textarea {
+/* 20200204 이정윤 라디오버튼
+ input, select, textarea {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
 }
-
+ */
 /* Page */
 
 	@-moz-keyframes load-spinner {
@@ -266,7 +266,7 @@ input, select, textarea {
 		}
 
 	}
-
+ 
 /* Typography */
 
 	html {
@@ -291,7 +291,7 @@ input, select, textarea {
 			}
 
 		}
-
+ 
 	body, input, select, textarea {
 		color: rgba(0, 0, 0, 0.75);
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
@@ -723,7 +723,7 @@ input, select, textarea {
 	textarea {
 		padding: 0.75rem 1rem;
 	}
-
+/* 20200204 이정윤 라디오버튼
 	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
@@ -737,7 +737,7 @@ input, select, textarea {
 		width: 1rem;
 		z-index: -1;
 	}
-
+ */
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;

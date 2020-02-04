@@ -5,8 +5,8 @@
 <head>
 	<meta charset='UTF-8' />
 	<title>Login : LEGGO</title>
-	<link rel="stylesheet" href="/leggo/css/member/login.css" />
-	<link rel="stylesheet" href="/leggo/css/member/login1.css" />
+<!-- 	<link rel="stylesheet" href="/leggo/css/member/login.css" />
+	<link rel="stylesheet" href="/leggo/css/member/login1.css" /> -->
 </head>
 <body id="login" class="main_frame">
 	<div class="container-flex">
@@ -16,7 +16,7 @@
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 45%">
 						<br>
-						<form action="/leggo/main.do" method="post" class="auth-form">
+						<form action="/leggo/login.do" method="post" class="auth-form">
 							<h1>로그인</h1>
 							<div class="field">
 								<input class="form-control" type="text" id="user_id" name="user_id" value="" placeholder='아이디' />
