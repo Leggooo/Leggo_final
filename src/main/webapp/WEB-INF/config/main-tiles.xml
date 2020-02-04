@@ -22,6 +22,12 @@
 		<put-attribute name="content" value="/WEB-INF/include/content.jsp" />
 	</definition>
 	
+	<definition name="boardTemplate" template="/WEB-INF/layout/boardLayout.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/include/menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/include/content.jsp" />
+	</definition>
+	
 	
 	<definition name="main" extends="mainTemplate"></definition>
 	
@@ -30,4 +36,6 @@
 	<definition name="intro" extends="introTemplate"></definition>
 
 	<definition name="test" extends="testTemplate"></definition>
+	
+	<definition name="board" extends="boardTemplate"></definition>
 </tiles-definitions>
