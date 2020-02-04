@@ -65,14 +65,14 @@ input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
-
-input, select, textarea {
+/* 20200204 ì´ì •ìœ¤ ë¼ë””ì˜¤ë²„íŠ¼
+ input, select, textarea {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
 }
-
+ */
 /* Page */
 
 	@-moz-keyframes load-spinner {
@@ -723,7 +723,7 @@ input, select, textarea {
 	textarea {
 		padding: 0.75rem 1rem;
 	}
-
+/* 20200204 ì´ì •ìœ¤ ë¼ë””ì˜¤ë²„íŠ¼
 	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
@@ -737,7 +737,7 @@ input, select, textarea {
 		width: 1rem;
 		z-index: -1;
 	}
-
+ */
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
@@ -4318,7 +4318,7 @@ footer p a:hover {
 
 
 
-/* ========== ÁØ¼º´Ô css(³×ºñ°ÔÀÌ¼Ç ¸ŞÀÎ) =========================================================================================================================== */
+/* ========== ï¿½Ø¼ï¿½ï¿½ï¿½ css(ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½) =========================================================================================================================== */
 
 #back {
 	background-color: #ffffff;
@@ -4351,7 +4351,7 @@ footer p a:hover {
 	color: black;
 	font-size: 50pt;
 	font: bold;
-	font-family: HY°ß°íµñ;
+	font-family: HYï¿½ß°ï¿½ï¿½;
 }
 
 #input {
