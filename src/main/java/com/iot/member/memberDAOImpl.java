@@ -1,6 +1,5 @@
 package com.iot.member;
 
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,7 @@ public class memberDAOImpl implements memberDAO {
 	}
 
 	@Override
-	public int delete(memberVO user, HttpSession session) {
-		System.out.println("DAOImpl에서 delete 실행");
-		user = (memberVO)session.getAttribute("user");
+	public int delete(memberVO user) {
 		return sqlSession.delete("com.iot.member.withdrawal", user);
 	}
 
@@ -31,5 +28,4 @@ public class memberDAOImpl implements memberDAO {
 	public memberVO login(memberVO loginUser) {
 		return sqlSession.selectOne("com.iot.member.login", loginUser);
 	}
-
 }

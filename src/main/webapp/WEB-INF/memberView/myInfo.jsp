@@ -21,7 +21,7 @@
 							<div class="row">
         					<div class="col-xs-6">
 							<div class="field">
-								<label for="user_id"> 아이디</label>
+								<label for="user_id" title="아이디"> 아이디</label>
 								<input type="text" id="user_id"
 									name="user_id" disabled="disabled"
 									value="<%= user.getUser_id() %>" class="form-control" />

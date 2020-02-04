@@ -63,16 +63,24 @@ public class memberController {
 		return "myInfo";
 	}
 	
-	@RequestMapping("/modifyMyInfo.do")
-	public String modifyMyInfo(memberVO loginUserInfo, HttpServletRequest request) {
-		
-		request.setAttribute("user", loginUserInfo);
-		return "redirect:/myinfo.do";
+	@RequestMapping(value="/modifyMyInfo.do", method=RequestMethod.POST)
+	public String modifyMyInfo(memberVO user, HttpSession session) {
+		memberVO loginInfo = (memberVO)session.getAttribute("user");
+		user.setUser_id(loginInfo.getUser_id());
+		user.setPass(loginInfo.getPass());
+		memberVO modifiedUser = service.modifyMyInfo(user);
+		if(modifiedUser!=null) {
+			session.setAttribute("user", modifiedUser);
+			return "redirect:/myInfo.do";
+		}else {
+			return "myInfo";
+		}
 	}
 	
 	@RequestMapping("/withdrawal.do")
-	public String withdrawal(memberVO user, HttpSession session) {
-		int result = service.delete(user, session);
+	public String withdrawal(HttpSession session) {
+		memberVO user = (memberVO)session.getAttribute("user");
+		int result = service.delete(user);
 		/*System.out.println("탈퇴 결과:"+result);*/
 		if(result==1) {
 			session.invalidate();

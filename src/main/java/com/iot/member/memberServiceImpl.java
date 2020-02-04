@@ -1,7 +1,5 @@
 package com.iot.member;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -17,15 +15,20 @@ public class memberServiceImpl implements memberService {
 	}
 
 	@Override
-	public int delete(memberVO user, HttpSession session) {
-		int result = dao.delete(user, session);
+	public int delete(memberVO user) {
+		int result = dao.delete(user);
 		System.out.println("delete결과:"+result);
 		return result;
 	}
 
 	@Override
-	public int modifyMyInfo(memberVO user) {
-		return dao.modifyMyInfo(user);
+	public memberVO modifyMyInfo(memberVO user) {
+		memberVO modifiedUser = null;
+		int result = dao.modifyMyInfo(user);
+		if(result==1) {
+			modifiedUser = dao.login(user);
+		}
+		return modifiedUser;
 	}
 
 	@Override
