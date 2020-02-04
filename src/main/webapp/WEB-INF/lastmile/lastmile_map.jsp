@@ -7,7 +7,6 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	
 	<div class="content color1 span-4" id="map" style="height: 100%;">
 		<script>
 			var container = document.getElementById('map');
