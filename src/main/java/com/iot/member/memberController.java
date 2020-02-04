@@ -25,7 +25,7 @@ public class memberController {
 		System.out.println("로그인정보:"+user);
 		String viewName = "";
 		if(user!=null) {
-			System.out.println("sessiont 생성");
+			System.out.println("session 생성");
 			HttpSession ses = request.getSession();
 			ses.setAttribute("user", user);
 			viewName = "main";
