@@ -15,7 +15,7 @@
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 45%">
 						<br>
-						<form action="/member/reset_password" method="post" class="auth-form">
+						<form action="/resetPwd.do" method="post" class="auth-form">
 							<h1>비밀번호 재설정</h1>
 							<div class="field">
 								<input class="form-control" type="text" id="user_id" name="user_id" value="" placeholder='아이디' />
