@@ -15,7 +15,6 @@
 	<div class="boardouter">
 		<div class="boardtop">
 		
-		
 		</div>
 		<div class="boardcontainer"> 
 			<table class="boardtable table-hover table table-striped"> 
@@ -94,7 +93,7 @@
 				<li><a href="#">다음</a></li> 
 				</ul> 
 			</div>
-			<div class="boardsearch">
+			<div class="boardmainsearch">
 				<input type="text" placeholder="검색어 입력">
 				<input type="button" name="search" onclick="" value="검색">
 			</div>

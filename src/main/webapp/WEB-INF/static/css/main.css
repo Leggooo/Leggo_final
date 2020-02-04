@@ -3849,15 +3849,18 @@ html *{
     top: .35rem;
     left: 0;
     font-size: .875rem;
+    width: 100%;
 }
 
 .container .bmd-form-group .form-control, .bmd-form-group input::placeholder, .bmd-form-group label {
     line-height: 1.1;
+    width: 100%;
 }
 
 .container .form-control, .is-focused .form-control {
     background-image: linear-gradient(0deg,#9c27b0 2px,
     rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0) !important;
+    width: 100%;
 }
 
 .is-focused [class*=" bmd-label"], .is-focused [class^=bmd-label] {
@@ -4318,7 +4321,7 @@ footer p a:hover {
 
 
 
-/* ========== ÁØ¼º´Ô css(³×ºñ°ÔÀÌ¼Ç ¸ÞÀÎ) =========================================================================================================================== */
+/* ========== ï¿½Ø¼ï¿½ï¿½ï¿½ css(ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½) =========================================================================================================================== */
 
 #back {
 	background-color: #ffffff;
@@ -4351,7 +4354,7 @@ footer p a:hover {
 	color: black;
 	font-size: 50pt;
 	font: bold;
-	font-family: HY°ß°íµñ;
+	font-family: HYï¿½ß°ï¿½ï¿½;
 }
 
 #input {

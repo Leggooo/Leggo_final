@@ -9,8 +9,11 @@
 	<body>
 	
 	<!-- Sidebar/menu -->
-	<div class="w3-sidebar" id="sidebar"><br>
-	 <div id="menubtn">
+	<div class="boardtop">
+		
+		</div>
+	<div id="freesidebar">
+	 <div id="freemenubtn">
 		  <a href="#" onclick="" class="w3-button">공지사항</a> 
 		  <a href="#" onclick="" class="w3-button">자유게시판</a> 
 		  <a href="#" onclick="" class="w3-button">FAQ</a>

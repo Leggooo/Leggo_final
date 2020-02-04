@@ -1,9 +1,11 @@
 @charset "EUC-KR";
 		
-		#sidebar{
-			z-index:3;
-			width:30%;
+		#freesidebar{
+			width:100%;
 			font-weight:bold;
+			margin: auto;
+			text-align: center;
+			margin-top: 10px;
 			
 		}
 		
@@ -13,12 +15,9 @@
 			background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
 		}
 		
-/* 		#mainlogo{
-			width: 70%
-		} */
-		
-		#menubtn{
+		#freemenubtn{
 			text-align: center;
+			margin:auto;
 		}
 		
 		#freehead{
@@ -41,7 +40,7 @@
 		}
 		
 		.w3-button{
-			width: 60%;
+			width: 100%;
 			background-color: #365da2;
 			margin-top: 10px;
 			margin-bottom: 10px;
@@ -49,6 +48,7 @@
 			padding-bottom: 25px;
 			border-radius: 10px;
 			text-align: center;	
+			color: white;
 		}
 		.boardouter{
 			height: 100%;
@@ -56,7 +56,7 @@
 		}
 		.boardtop{
 			width: 100%;
-			padding: 2%;
+			padding-bottom: 20px;
 		}
 		.boardcontainer{
 			width: 100%;
@@ -65,7 +65,6 @@
 			margin-bottom: 3%;
 			text-align:center;
 			border: 1px solid #365da2;
-			background-color: #2f5597;
 			border-radius: 10px;
 		}
 		.boardtable{
@@ -85,9 +84,8 @@
 			margin: auto;
 			text-align: center;
 		}
-		.boardsearch{
+		.boardmainsearch{
 			float:right;
-			margin-right: 5%;
 		}
 		.boardwritecontent{
 			resize: none;
