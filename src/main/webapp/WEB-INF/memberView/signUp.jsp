@@ -5,8 +5,8 @@
 <head>
 	<meta charset='UTF-8' />
 	<title>회원가입 : LEGGO</title>
-<!--  	<link rel="stylesheet" href="/leggo/css/member/login.css" />
-	<link rel="stylesheet" href="/leggo/css/member/login1.css" /> -->
+<!--   	<link rel="stylesheet" href="/leggo/css/member/login.css" />
+	<link rel="stylesheet" href="/leggo/css/member/login1.css" />  -->
 </head>
 <body id="signup" class="">
 	<div class="container-flex">
