@@ -22,10 +22,10 @@ public class memberController {
 	public String login(memberVO loginUserInfo, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		memberVO user = service.login(loginUserInfo);
-		System.out.println("로그인정보:"+user);
+		/*System.out.println("로그인정보:"+user);*/
 		String viewName = "";
 		if(user!=null) {
-			System.out.println("session 생성");
+			/*System.out.println("session 생성");*/
 			HttpSession ses = request.getSession();
 			ses.setAttribute("user", user);
 			viewName = "main";
@@ -54,7 +54,7 @@ public class memberController {
 	@RequestMapping(value="/signUpSucc.do", method=RequestMethod.POST)
 	public String signUpSucc(memberVO user) {
 		int result = service.insert(user);
-		System.out.println("insert result?:"+result);
+		/*System.out.println("insert result?:"+result);*/
 		return "signUpSucc";
 	}
 	
@@ -63,9 +63,29 @@ public class memberController {
 		return "myInfo";
 	}
 	
-	@RequestMapping("/modifyMyInfo.do")
-	public String modifyMyInfo() {
-		return "modifyMyInfo";
+	@RequestMapping(value="/modifyMyInfo.do", method=RequestMethod.POST)
+	public String modifyMyInfo(memberVO user, HttpSession session) {
+		memberVO loginInfo = (memberVO)session.getAttribute("user");
+		user.setUser_id(loginInfo.getUser_id());
+		user.setPass(loginInfo.getPass());
+		memberVO modifiedUser = service.modifyMyInfo(user);
+		if(modifiedUser!=null) {
+			session.setAttribute("user", modifiedUser);
+			return "redirect:/myInfo.do";
+		}else {
+			return "myInfo";
+		}
 	}
 	
+	@RequestMapping("/withdrawal.do")
+	public String withdrawal(HttpSession session) {
+		memberVO user = (memberVO)session.getAttribute("user");
+		int result = service.delete(user);
+		/*System.out.println("탈퇴 결과:"+result);*/
+		if(result==1) {
+			session.invalidate();
+		}
+		//탈퇴 후 로그인 페이지로 이동
+		return "redirect:/login.do";
+	}
 }

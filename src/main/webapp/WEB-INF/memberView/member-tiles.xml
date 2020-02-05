@@ -23,12 +23,8 @@
 		<put-attribute name="content" value="/WEB-INF/memberView/signUpSucc.jsp" />
 	</definition>
 	
-	<definition name="myInfo" extends="newsTemplate">
+	<definition name="myInfo" extends="mainTemplate">
 		<put-attribute name="content" value="/WEB-INF/memberView/myInfo.jsp" />
 	</definition>
 	
-	<definition name="modifyMyInfo" extends="newsTemplate">
-		<put-attribute name="content" value="/WEB-INF/memberView/modifyMyInfo.jsp" />
-	</definition>
-
 </tiles-definitions>
