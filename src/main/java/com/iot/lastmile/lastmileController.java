@@ -9,4 +9,9 @@ public class lastmileController {
 	public String lastmile() {
 		return "lastmile";
 	}
+	
+	@RequestMapping("/kakaomap.do")
+	public String findRoadTest() {
+		return "lastmile_findRoad";
+	}
 }
