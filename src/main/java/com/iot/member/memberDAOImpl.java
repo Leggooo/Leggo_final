@@ -1,5 +1,6 @@
 package com.iot.member;
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,20 +16,16 @@ public class memberDAOImpl implements memberDAO {
 
 	@Override
 	public int delete(memberVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete("com.iot.member.withdrawal", user);
 	}
 
 	@Override
-	public int update(memberVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int modifyMyInfo(memberVO user) {
+		return sqlSession.update("com.iot.member.modifyMyInfo", user);
 	}
 
 	@Override
 	public memberVO login(memberVO loginUser) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne("com.iot.member.login", loginUser);
 	}
-
 }

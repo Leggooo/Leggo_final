@@ -11,24 +11,29 @@ public class memberServiceImpl implements memberService {
 	memberDAO dao;
 	@Override
 	public int insert(memberVO user) {
-		System.out.println("serviceImpl insert:"+user);
 		return dao.insert(user);
 	}
 
 	@Override
 	public int delete(memberVO user) {
-		return dao.delete(user);
+		int result = dao.delete(user);
+		System.out.println("delete결과:"+result);
+		return result;
 	}
 
 	@Override
-	public int update(memberVO user) {
-		return dao.update(user);
+	public memberVO modifyMyInfo(memberVO user) {
+		memberVO modifiedUser = null;
+		int result = dao.modifyMyInfo(user);
+		if(result==1) {
+			modifiedUser = dao.login(user);
+		}
+		return modifiedUser;
 	}
 
 	@Override
 	public memberVO login(memberVO loginUser) {
 		memberVO user = dao.login(loginUser);
-		System.out.println("loginInfo:"+user);
 		return user;
 	}
 

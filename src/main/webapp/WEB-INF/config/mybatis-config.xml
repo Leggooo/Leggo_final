@@ -3,11 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
+  
+ <!-- VO path와 SQL mapper명시 -->
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.iot.member.memberVO" alias="member"/>
+		<!-- <typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/> -->
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/member.xml"/>
+		<!-- <mapper resource="mapper/freeboard.xml"/> -->
 	</mappers>
 </configuration>
