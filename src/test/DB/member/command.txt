@@ -1,3 +1,15 @@
+conn system/manager
+
+create user leggo identified by leggo;
+
+grant connect,resource to leggo;
+
+conn leggo/leggo;
+
+set linesize 300;
+
+set pagesize 300;
+
 create table member
 (
 user_id varchar2(20) primary key,
@@ -91,4 +103,3 @@ insert into member values(
 	sysdate
 );
 commit;
-

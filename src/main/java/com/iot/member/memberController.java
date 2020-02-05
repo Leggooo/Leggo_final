@@ -19,7 +19,7 @@ public class memberController {
 	}
 
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(memberVO loginUserInfo, HttpServletRequest request) {
+	public ModelAndView login(memberVO loginUserInfo, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		memberVO user = service.login(loginUserInfo);
 		/*System.out.println("로그인정보:"+user);*/
@@ -28,12 +28,12 @@ public class memberController {
 			/*System.out.println("session 생성");*/
 			HttpSession ses = request.getSession();
 			ses.setAttribute("user", user);
-			viewName = "main";
+			viewName = "mainmenu";
 		}else {
 			viewName = "login";
 		}
 		mav.setViewName(viewName);
-		return "login";
+		return mav;
 	}
 
 	@RequestMapping("/signUp.do")
