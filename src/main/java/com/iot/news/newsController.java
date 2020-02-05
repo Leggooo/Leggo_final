@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class newsController {
 	@RequestMapping("/news.do")
 	public String news() {
+		/*https://news.naver.com/*/
 		return "news";
 	}
 }

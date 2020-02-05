@@ -17,7 +17,7 @@ public class memberController {
 	public String loginPage(HttpSession session) {
 		memberVO user = (memberVO)session.getAttribute("user");
 		if(user!=null) {
-			return "mainmenu";
+			return "redirect:/menu.do";
 		}else {
 		return "login";
 		}
