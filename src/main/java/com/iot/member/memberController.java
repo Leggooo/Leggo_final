@@ -14,8 +14,13 @@ public class memberController {
 	@Autowired
 	memberService service;
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
-	public String loginPage() {
+	public String loginPage(HttpSession session) {
+		memberVO user = (memberVO)session.getAttribute("user");
+		if(user!=null) {
+			return "mainmenu";
+		}else {
 		return "login";
+		}
 	}
 
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
