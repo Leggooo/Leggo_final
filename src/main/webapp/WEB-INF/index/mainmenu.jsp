@@ -26,7 +26,7 @@
 						<a href="/leggo/home.do">로그아웃</a>
 						<a href="/leggo/profile.do">회사소개</a>
 						<a href="/leggo/news.do">뉴스</a> 
-						<a href="/leggo/news.do">회원정보</a> <a
+						<a href="/leggo/myInfo.do">회원정보</a> <a
 							href="/leggo/inbox.do">쪽지함</a>
 					</div>
 				</div>
