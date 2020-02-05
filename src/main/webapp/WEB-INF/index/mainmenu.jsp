@@ -67,7 +67,7 @@
 				</a>
 			</div>
 			<div class="menuBtn">
-				<a href="https://www.naver.com"> <img
+				<a href="/leggo/lastmile.do"> <img
 					src="/leggo/images/Picture3.png" alt="lastMile" class="menuImg">
 				</a>
 			</div>

@@ -22,14 +22,6 @@ public class indexController {
 	public String main3() {
 		return "index/CompanyProfile";
 	}
-	@RequestMapping("/news1.do")
-	public String main4() {
-		return "index/CompanyProfile";
-	}
-	@RequestMapping("/account.do")
-	public String main5() {
-		return "index/CompanyProfile";
-	}
 	@RequestMapping("/inbox.do")
 	public String main6() {
 		return "index/Inbox";
