@@ -28,7 +28,7 @@ public class memberController {
 			/*System.out.println("session 생성");*/
 			HttpSession ses = request.getSession();
 			ses.setAttribute("user", user);
-			viewName = "index/mainmenu";
+			viewName = "mainmenu";
 		}else {
 			viewName = "login";
 		}

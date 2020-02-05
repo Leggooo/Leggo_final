@@ -23,10 +23,10 @@
 	    <% if(user != null){ %>
 	    	<%= user.getUser_name() %>님!
 	    	<a href=""><img src="/leggo/images/news.png" id="rImg1" style="width:20%;"></a>
-	    	<a href=""><img src="/leggo/images/personInfo.png" id="rImg2" style="width:20%;"></a>
+	    	<a href=""><img src="/leggo/images/myInfo.png" id="rImg2" style="width:20%;"></a>
 	    	<a href=""><img src="/leggo/images/chat.png" id="rImg3" style="width:20%;"></a>
 	    <% }else{%>
-	    	로그인버튼 넣기
+	    	로 그 인 을 안 하 고 사 용 하 시 겠 다 ?
 	    <%}%>
 	    </div>
 	  </div>
