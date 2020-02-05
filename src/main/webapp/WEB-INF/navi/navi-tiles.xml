@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="naviTemplate" template="/WEB-INF/layout/mainLayout.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/navi/navi_menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/navi/navi_map.jsp" />
+	</definition>
+	
+	<definition name="navi" extends="naviTemplate"></definition>
+	
+	<definition name="navi_findRoad" extends="naviTemplate">
+		<!-- <put-attribute name="content" value="/WEB-INF/lastmile/lastmile_findRoad.jsp" /> -->
+	
+	</definition>
+</tiles-definitions>
