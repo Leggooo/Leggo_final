@@ -14,6 +14,8 @@
   content_url varchar2(1000) not null
   );
   
+  
+  댓글 관련 클래스 생성필요
  create table cmt(
   free_brd_type_num number(7) references freeboard (free_brd_type_num),
   cmt_num number(7) primary key,
