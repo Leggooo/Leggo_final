@@ -8,10 +8,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.iot.member.memberVO" alias="member"/>
-		<!-- <typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/> -->
+		<typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/member.xml"/>
-		<!-- <mapper resource="mapper/freeboard.xml"/> -->
+		<mapper resource="mapper/freeboard.xml"/>
 	</mappers>
 </configuration>
