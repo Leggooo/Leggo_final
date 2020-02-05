@@ -1,25 +1,25 @@
-SQL> create table freeboard(
-  2  free_brd_type_num number(7) primary key,
-  3  free_brd_num varchar2(60) not null,
-  4  title varchar2(60) not null,
-  5  content varchar2(1000) not null,
-  6  update_date date,
-  7  user_id varchar2(20) not null,
-  8  img_path varchar2(60)
-  9  );
+ create table freeboard(
+  free_brd_type_num number(7) primary key,
+  free_brd_num varchar2(60) not null,
+  title varchar2(60) not null,
+  content varchar2(1000) not null,
+  update_date date,
+  user_id varchar2(20) not null,
+  img_path varchar2(60)
+  );
   
- SQL> create table img(
-  2  brd_type_num number(7) primary key,
-  3  brd_num varchar2(60) not null,
-  4  content_url varchar2(1000) not null
-  5	 );
+ create table img(
+  brd_type_num number(7) primary key,
+  brd_num varchar2(60) not null,
+  content_url varchar2(1000) not null
+  );
   
- SQL> create table cmt(
-  2  free_brd_type_num number(7) references freeboard (free_brd_type_num),
-  3  cmt_num number(7) primary key,
-  4  cmt_content varchar2(500) not null,
-  5  update_date date,
-  6  user_id varchar2(20) references member (user_id)
-  7  );
+ create table cmt(
+  free_brd_type_num number(7) references freeboard (free_brd_type_num),
+  cmt_num number(7) primary key,
+  cmt_content varchar2(500) not null,
+  update_date date,
+  user_id varchar2(20) references member (user_id)
+  );
   
   
