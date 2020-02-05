@@ -24,7 +24,7 @@
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
 		<div class="w3-bar w3-white w3-wide w3-padding w3-card">
-			<a href="http://localhost:8088/clientweb/LEGGO/others/P2.html"
+			<a href="/leggo/menu.do"
 				class="w3-bar-item w3-button"><b>LEGGO</b> What makes you
 				connected?</a>
 			<!-- Float links to the right. Hide them on small screens -->
@@ -42,16 +42,16 @@
 				type="radio" name="r" id="r2"> <input type="radio" name="r"
 				id="r3"> <input type="radio" name="r" id="r4">
 			<div class="slide s1">
-				<img alt="" src="../images/leggo/car_5_1.jpg">
+				<img alt="" src="/leggo/images/car_5_1.jpg">
 			</div>
 			<div class="slide">
-				<img alt="" src="../images/leggo/car_3_1.jpg">
+				<img alt="" src="/leggo/images/car_3_1.jpg">
 			</div>
 			<div class="slide">
-				<img alt="" src="../images/leggo/car_4_1.jpg">
+				<img alt="" src="/leggo/images/car_4_1.jpg">
 			</div>
 			<div class="slide">
-				<img alt="" src="../images/leggo/car_2_1.jpg">
+				<img alt="" src="/leggo/images/car_2_1.jpg">
 			</div>
 		</div>
 
@@ -91,7 +91,7 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<img src="../images/leggo/park.jpg" alt="John" style="width: 100%">
+				<img src="/leggo/images/park.jpg" alt="John" style="width: 100%">
 				<h4>
 					박선하
 					</h3>
@@ -102,7 +102,7 @@
 					</p>
 			</div>
 			<div class="col">
-				<img src="../images/leggo/jeong.jpg" alt="Jane" style="width: 100%">
+				<img src="/leggo/images/jeong.jpg" alt="Jane" style="width: 100%">
 				<h4>이정윤</h4>
 				<p class="w3-opacity">얼짱</p>
 				<p>자기소개 한 줄</p>
@@ -111,7 +111,7 @@
 				</p>
 			</div>
 			<div class="col">
-				<img src="../images/leggo/JYH.jpg" alt="Mike" style="width: 100%">
+				<img src="/leggo/images/JYH.jpg" alt="Mike" style="width: 100%">
 				<h4>황제윤</h4>
 				<p class="w3-opacity">팀원</p>
 				<p>자기소개 한 줄</p>
@@ -120,7 +120,7 @@
 				</p>
 			</div>
 			<div class="col">
-				<img src="../images/leggo/jun.jpg" alt="Dan" style="width: 100%">
+				<img src="/leggo/images/jun.jpg" alt="Dan" style="width: 100%">
 				<h4>이준성</h4>
 				<p class="w3-opacity">팀원</p>
 				<p>자기소개 한 줄</p>
@@ -129,7 +129,7 @@
 				</p>
 			</div>
 			<div class="col">
-				<img src="../images/leggo/woo.jpg" alt="Mike" style="width: 100%">
+				<img src="/leggo/images/woo.jpg" alt="Mike" style="width: 100%">
 				<h4>문준우</h4>
 				<p class="w3-opacity">팀원</p>
 				<p>자기소개 한 줄</p>
@@ -158,7 +158,7 @@
 		</div>
 		<!-- Image of location/map -->
 		<div class="w3-container" align="center">
-			<img src="../images/leggo/MainLogo.png" class="w3-image"
+			<img src="/leggo/images/MainLogo.png" class="w3-image"
 				style="width: 8%">
 		</div>
 		<!-- End page content -->
@@ -166,8 +166,7 @@
 	<!-- Footer -->
 	<footer class="w3-center w3-black w3-padding-16">
 		<p>
-			Powered by <a
-				href="http://localhost:8088/clientweb/LEGGO/others/P2.html"
+			Powered by <a href="/leggo/menu.do"
 				title="W3.CSS" target="_blank" class="w3-hover-text-green">LEGGO</a>
 		</p>
 	</footer>

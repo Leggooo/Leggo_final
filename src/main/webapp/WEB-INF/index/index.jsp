@@ -13,7 +13,9 @@
 		<div id="bg">
 			
 			<div id="text"><!-- <a href="/leggo/images/leggo/firstPage1.jpg"> --></a></div>
-			<button class="button">가입하기</button>
+			<a href="/leggo/signUp.do">
+				<button class="button">가입하기</button>
+			</a>
 			<a href="/leggo/login.do">
 				<button class="button">연결하기</button>
 			</a>

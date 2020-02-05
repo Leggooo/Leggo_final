@@ -18,19 +18,21 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div>
-		<!-- TOP -->
-		<tiles:insertAttribute name="top"></tiles:insertAttribute>
-	</div>
-	<div>
-		<!-- CONTENT -->
-		<tiles:insertAttribute name="content"></tiles:insertAttribute>
+	<div class="container" style="overflow:auto;">
+		<div class="row">	
+			<!-- TOP -->
+			<tiles:insertAttribute name="top"></tiles:insertAttribute>
+		</div>
+		<div>
+			<!-- CONTENT -->
+			<tiles:insertAttribute name="content"></tiles:insertAttribute>
+		</div>
 	</div>
 </body>
 
 <!-- Scripts -->
-<script src="/leggo/js/jquery.min.js"></script>
+<!-- <script src="/leggo/js/jquery.min.js"></script>
 <script src="/leggo/js/browser.min.js"></script>
 <script src="/leggo/js/breakpoints.min.js"></script>
-<script src="/leggo/js/main.js"></script>
+<script src="/leggo/js/main.js"></script> -->
 </html>

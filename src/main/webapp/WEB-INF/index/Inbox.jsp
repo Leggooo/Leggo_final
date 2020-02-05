@@ -20,8 +20,8 @@
 		class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card"
 		style="z-index: 3; width: 320px;" id="mySidebar">
 		<div id="sideLogo">
-			<a href="http://localhost:8088/clientweb/LEGGO/others/P2.html"><img
-				src="../images/leggo/MainLogo.png" style="width: 60%;"><br />
+			<a href="/leggo/menu.do"><img
+				src="/leggo/images/MainLogo.png" style="width: 60%;"><br />
 				Don't Stop, Lets go</a>
 		</div>
 		<a href="javascript:void(0)" onclick="w3_close()"
@@ -42,6 +42,7 @@
 				onclick="openMail('Borge');w3_close();" id="firstTab">
 				<div class="w3-container">
 					<img class="w3-round w3-margin-right" src="/w3images/avatar3.png"
+															
 						style="width: 15%;"><span class="w3-opacity w3-large">레고
 						운영진</span>
 					<h6>제목: 주차장 이용 안내</h6>
@@ -125,7 +126,7 @@
 
 		<div id="Borge" class="w3-container person">
 			<br>
-			<img class="w3-round  w3-animate-top" src="../images/leggo/user.png"
+			<img class="w3-round  w3-animate-top" src="/leggo/images/user.png"
 				class="w3-image" style="width: 8%">
 			<h5 class="w3-opacity">제목: 주차시간 안내</h5>
 			<h4>
@@ -135,7 +136,7 @@
 				class="w3-margin-left fa fa-mail-reply"></i></a> <a
 				class="w3-button w3-light-grey" href="#">전달<i
 				class="w3-margin-left fa fa-arrow-right"></i></a> <br /> <img
-				src="../images/leggo/line2.png" id="line">
+				src="/leggo/images/line2.png" id="line">
 			<p>
 				2020년 1월 25일 오후 3시 멀티캠퍼트 주자창 안내 메세지입니다. <br />10분내로 주차장으로 도착하시 않을 시
 				주차예약이 취소될 수 있으며 관련 패널티가 적용될 예정입니다.
@@ -147,7 +148,7 @@
 
 		<div id="Jane" class="w3-container person">
 			<br>
-			<img class="w3-round  w3-animate-top" src="../images/leggo/user.png"
+			<img class="w3-round  w3-animate-top" src="/leggo/images/user.png"
 				class="w3-image" style="width: 8%">
 			<h5 class="w3-opacity">제목: 주차시간 안내</h5>
 			<h4>
@@ -157,9 +158,11 @@
 				class="w3-margin-left fa fa-mail-reply"></i></a> <a
 				class="w3-button w3-light-grey">전달<i
 				class="w3-margin-left fa fa-arrow-right"></i></a> <br /> <img
-				src="../images/leggo/line2.png" id="line">
+				src="/leggo/images/line2.png" id="line">
 			<p>
 				2020년 1월 26일 오후 3시 멀티캠퍼트 주자창 안내 메세지입니다. <br />10분내로 주차장으로 도착하시 않을 시
+				주차예약이 취소될 수 있으며 관련 패널티가 적용될 예정입니다.2020년 1월 26일 오후 3시 멀티캠퍼트 주자창 안내 메세지입니다. <br />10분내로 주차장으로 도착하시 않을 시
+				주차예약이 취소될 수 있으며 관련 패널티가 적용될 예정입니다.2020년 1월 26일 오후 3시 멀티캠퍼트 주자창 안내 메세지입니다. <br />10분내로 주차장으로 도착하시 않을 시
 				주차예약이 취소될 수 있으며 관련 패널티가 적용될 예정입니다.
 			</p>
 			<p>
@@ -169,7 +172,7 @@
 
 		<div id="John" class="w3-container person">
 			<br>
-			<img class="w3-round  w3-animate-top" src="../images/leggo/user.png"
+			<img class="w3-round  w3-animate-top" src="/leggo/images/user.png"
 				class="w3-image" style="width: 8%">
 			<h5 class="w3-opacity">제목: 주차시간 안내</h5>
 			<h4>
@@ -179,9 +182,10 @@
 				class="w3-margin-left fa fa-mail-reply"></i></a> <a
 				class="w3-button w3-light-grey">전달<i
 				class="w3-margin-left fa fa-arrow-right"></i></a> <br /> <img
-				src="../images/leggo/line2.png" id="line">
+				src="/leggo/images/line2.png" id="line">
 			<p>
 				2020년 1월 27일 오후 3시 멀티캠퍼트 주자창 안내 메세지입니다. <br />10분내로 주차장으로 도착하시 않을 시
+				주차예약이 취소될 수 있으며 관련 패널티가 적용될 예정입니다.2020년 1월 27일 오후 3시 멀티캠퍼트 주자창 안내 메세지입니다. <br />10분내로 주차장으로 도착하시 않을 시
 				주차예약이 취소될 수 있으며 관련 패널티가 적용될 예정입니다.
 			</p>
 			<p>
