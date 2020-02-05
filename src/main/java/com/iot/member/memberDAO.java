@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.iot.member;
 
 
@@ -8,14 +7,3 @@ public interface memberDAO {
 	int modifyMyInfo(memberVO user);
 	memberVO login(memberVO loginUser);
 }
-=======
-package com.iot.member;
-
-
-public interface memberDAO {
-	int insert(memberVO user);
-	int delete(memberVO user);
-	int modifyMyInfo(memberVO user);
-	memberVO login(memberVO loginUser);
-}
->>>>>>> refs/remotes/origin/master
