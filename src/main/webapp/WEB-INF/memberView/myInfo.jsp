@@ -13,7 +13,7 @@
 	<% memberVO user = (memberVO)session.getAttribute("user"); %>
 	<div class="container-flex">
 		<div id="page-wrap">
-			<div id="page-content">
+			<div id="align-center">
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 50%">
 						<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post" class="auth-form">
