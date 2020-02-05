@@ -43,6 +43,8 @@
   		update member set
 		pass_hint = #{pass_hint},
 		pass_ans = #{pass_ans},
+		birth = #{birth},
+		gender = #{gender},
 		tel = #{tel},
 		mobile = #{mobile},
 		addr = #{addr},
