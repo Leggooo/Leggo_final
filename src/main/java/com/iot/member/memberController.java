@@ -88,4 +88,10 @@ public class memberController {
 		//탈퇴 후 로그인 페이지로 이동
 		return "redirect:/login.do";
 	}
+	
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login.do";
+	}
 }
