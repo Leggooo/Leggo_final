@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="EUC-KR">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -23,11 +23,11 @@
  				<div id="myNav" class="overlay">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<div class="overlay-content">
-						<a href="/leggo/home.do">�α׾ƿ�</a>
-						<a href="/leggo/profile.do">ȸ��Ұ�</a>
-						<a href="/leggo/news.do">����</a> 
-						<a href="/leggo/myInfo.do">ȸ������</a> <a
-							href="/leggo/inbox.do">������</a>
+						<a href="/leggo/home.do">로그아웃</a>
+						<a href="/leggo/profile.do">회사소개</a>
+						<a href="/leggo/news.do">뉴스</a> 
+						<a href="/leggo/myInfo.do">회원정보</a> <a
+							href="/leggo/inbox.do">쪽지함</a>
 					</div>
 				</div>
 				<span style=" cursor: pointer" onclick="openNav()">
@@ -54,14 +54,14 @@
 		<div id="content2">
 			<div class="menuBtn">
 				<a
-					href="http://70.12.226.204:8088/clientweb/kakao_map/library/placesearchbykeyword.jsp">
+					href="/leggo/navi.do">
 					<img src="/leggo/images/Picture5.png" alt="location"
 					class="menuImg">
 				</a>
 			</div>
 			<div class="menuBtn">
 				<a
-					href="http://70.12.226.204:8088/clientweb/kakao_map/library/place_search_percategory.jsp">
+					href="/leggo/parking.do">
 					<img src="/leggo/images/Picture2.png" alt="parking"
 					class="menuImg">
 				</a>
@@ -72,7 +72,7 @@
 				</a>
 			</div>
 			<div class="menuBtn">
-				<a href="http://70.12.229.217:8088/WebTest/LEGGO/freewatch.jsp">
+				<a href="/leggo/freeboardmain.do">
 					<img src="/leggo/images/Picture4.png" alt="community"
 					class="menuImg">
 				</a>

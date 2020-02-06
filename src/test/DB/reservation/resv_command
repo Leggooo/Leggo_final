@@ -11,6 +11,8 @@ rv_time date not null
 );
 commit;
 
+create sequence rv_id_seq;
+
 insert into reservation values(
 '999999999',
 'test1',
