@@ -11,8 +11,8 @@
 	
 	<definition name="lastmile" extends="lastmileTemplate"></definition>
 	
-	<definition name="lastmile_findRoad" extends="lastmileTemplate">
-		<put-attribute name="content" value="/WEB-INF/lastmile/lastmile_findRoad.jsp" />
-	
+	<definition name="bikeList" extends="lastmileTemplate">
+		<put-attribute name="content" value="/WEB-INF/lastmile/bikelist.jsp" />
 	</definition>
+	
 </tiles-definitions>
