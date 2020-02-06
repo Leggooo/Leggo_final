@@ -52,5 +52,4 @@
 		recv_text = #{recv_text}
   		where user_id = #{user_id}
   	</update>
-  
   </mapper>

@@ -17,10 +17,10 @@
 <title>Menu Page</title>
 </head>
 <body>
-	<div class="container-fluid">
+ 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-1">
-				<div id="myNav" class="overlay">
+ 				<div id="myNav" class="overlay">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<div class="overlay-content">
 						<a href="/leggo/home.do">로그아웃</a>
@@ -30,7 +30,7 @@
 							href="/leggo/inbox.do">쪽지함</a>
 					</div>
 				</div>
-				<span style="font-size: 30px; cursor: pointer" onclick="openNav()">
+				<span style=" cursor: pointer" onclick="openNav()">
 					<img id="openBtn" src="/leggo/images/header-logo.png">
 				</span>
 				<script>
@@ -67,7 +67,7 @@
 				</a>
 			</div>
 			<div class="menuBtn">
-				<a href="https://www.naver.com"> <img
+				<a href="/leggo/lastmile.do"> <img
 					src="/leggo/images/Picture3.png" alt="lastMile" class="menuImg">
 				</a>
 			</div>

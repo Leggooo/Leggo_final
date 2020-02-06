@@ -11,11 +11,11 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	@Qualifier("boardDao")
 	
-	BoardDAO dao;
+	freeboardDAO dao;
 	@Override
-	public List<BoardVO> boardList(String category) {
+	public List<freeboardVO> boardList(String category) {
 		// TODO Auto-generated method stub
-		List<BoardVO> list = null;
+		List<freeboardVO> list = null;
 		if(category!=null) {
 			if(category.equals("all")) {
 				list=dao.boardList();
@@ -27,43 +27,43 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int txinsert(BoardVO board) {
+	public int txinsert(freeboardVO board) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int insert(BoardVO board) {
+	public int insert(freeboardVO board) {
 		// TODO Auto-generated method stub
 		return dao.insert(board);
 	}
 
 	@Override
-	public List<BoardVO> searchList(String search) {
+	public List<freeboardVO> searchList(String search) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<BoardVO> searchList(String tag, String search) {
-		// TODO Auto-generated method stub
-		return dao.searchList(tag, search);
+	public List<freeboardVO> searchList(String tag, String search) {
+		List<freeboardVO> list = null;// TODO Auto-generated method stub
+		return list;
 	}
 
 	@Override
-	public List<BoardVO> pageList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BoardVO read(String board_no) {
+	public List<freeboardVO> pageList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int update(BoardVO board) {
+	public freeboardVO read(String board_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(freeboardVO board) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -75,7 +75,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> findByCategory(String category) {
+	public List<freeboardVO> findByCategory(String category) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -14,8 +14,13 @@ public class memberController {
 	@Autowired
 	memberService service;
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
-	public String loginPage() {
+	public String loginPage(HttpSession session) {
+		memberVO user = (memberVO)session.getAttribute("user");
+		if(user!=null) {
+			return "redirect:/menu.do";
+		}else {
 		return "login";
+		}
 	}
 
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
@@ -28,7 +33,7 @@ public class memberController {
 			/*System.out.println("session 생성");*/
 			HttpSession ses = request.getSession();
 			ses.setAttribute("user", user);
-			viewName = "index/mainmenu";
+			viewName = "mainmenu";
 		}else {
 			viewName = "login";
 		}
@@ -86,6 +91,12 @@ public class memberController {
 			session.invalidate();
 		}
 		//탈퇴 후 로그인 페이지로 이동
+		return "redirect:/login.do";
+	}
+	
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
 		return "redirect:/login.do";
 	}
 }
