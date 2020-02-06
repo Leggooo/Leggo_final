@@ -40,7 +40,7 @@ public class freeboardServiceImpl implements freeboardService {
 	@Override
 	public List<freeboardVO> searchList(String tag, String search) {
 		// TODO Auto-generated method stub
-		return dao.searchList(search, tag);
+		return dao.searchList(search);
 	}
 
 	@Override

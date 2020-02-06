@@ -10,7 +10,7 @@
 		<typeAlias type="com.iot.member.memberVO" alias="member"/>
 		<typeAlias type="com.iot.reservation.resvVO" alias="resvVO"/>
 		<typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
-	</typeAliases>
+	 </typeAliases>
 	<mappers>
 		<mapper resource="mapper/member.xml"/>
 		<mapper resource="mapper/reservation.xml"/>

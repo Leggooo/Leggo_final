@@ -19,10 +19,17 @@
 	
 	<!-- 카카오맵 -->
 	<script type="text/javascript" 
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be626cc1f959d4787a1d8381c33922e7&libraries=services,clusterer,drawing"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?
+	appkey=be626cc1f959d4787a1d8381c33922e7&
+	libraries=services,clusterer,drawing"></script>
+	<style type="text/css">
+		#navi{
+			background-color: rgb(36,95,200);
+		}
+	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="navi">
 		<div class="row">	
 			<div class="col-md-12">
 				<!-- TOP -->
