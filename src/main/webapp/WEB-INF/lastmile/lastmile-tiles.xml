@@ -9,21 +9,10 @@
 		<put-attribute name="content" value="/WEB-INF/lastmile/lastmile_map.jsp" />
 	</definition>
 	
-	<!-- <definition name="lastmile_findRoad" extends="lastmileTemplate">
-		<put-attribute name="content" value="/WEB-INF/lastmile/lastmile_findRoad.jsp" />
-	</definition> -->
-	
-	<!-- View -->
 	<definition name="lastmile" extends="lastmileTemplate"></definition>
 	
-	<!-- 따릉이 API test -->
-	<definition name="bikeAPITestTemplate" template="/WEB-INF/layout/newsLayout.jsp">
-		<put-attribute name="menu" value="/WEB-INF/lastmile/lastmile_menu.jsp" />
-		<put-attribute name="content" value="/WEB-INF/lastmile/bikeAPITest.jsp" />
-	</definition>
-	<definition name="bikeAPITest" extends="bikeAPITestTemplate"></definition>
-	<definition name="bikeTest" extends="mainTemplate">
-		<put-attribute name="content" value="/WEB-INF/lastmile/lastmile_bikeList.jsp" />
-	</definition>
+	<definition name="lastmile_findRoad" extends="lastmileTemplate">
+		<put-attribute name="content" value="/WEB-INF/lastmile/lastmile_findRoad.jsp" />
 	
+	</definition>
 </tiles-definitions>

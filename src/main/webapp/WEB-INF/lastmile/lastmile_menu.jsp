@@ -11,7 +11,7 @@
 	<div id="freesidebar">
 		<div id="freemenubtn">
 		 	<h2 class="w3-gray" style="text-shadow:1px 1px 0 #444;font-size:20px">서울시 강남구 역삼동</h2>
-			<a href="/lastmile/bikeList.do" onclick="" class="w3-button">최근 방문</a> 
+			<a href="#" onclick="" class="w3-button">최근 방문</a> 
 			<a href="#" onclick="" class="w3-button">즐겨 찾기</a> 
 			<a href="#" onclick="" class="w3-button">주변 Lastmile</a>
 			<form action="" method="get">
