@@ -2,7 +2,7 @@ OPTIONS(skip=1)
 load data
 infile 'F:\project1\db\parkinglots.csv'
 append
-into table parking_lots
+into table parking_loc
 fields terminated by ','
 (
 parking_code

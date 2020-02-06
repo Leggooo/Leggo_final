@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository("freeboardDAO")
+@Repository("freeboardDao")
 public class freeboardDAOImpl implements freeboardDAO {
 	@Autowired
 	SqlSession sqlsession;
