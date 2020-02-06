@@ -1,0 +1,33 @@
+create table point
+(
+user_id varchar2(20) references member (user_id),
+pointAvail number(10) not null,
+pointChange number(10) not null,
+pointDate date not null,	
+pointExpDate date not null,
+userGrade varchar2(15) check( userGrade in('브론즈','실버','골드','플래티넘'))
+);
+
+insert into point values(
+'test1',
+50000,
+0,
+sysdate,
+sysdate,
+'실버'
+);
+insert into point values(
+'test2',
+10000,
+0,
+sysdate,
+sysdate,
+'브론즈'
+);
+insert into point values(
+
+);
+insert into point values(
+
+);
+commit;

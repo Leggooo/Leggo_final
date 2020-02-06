@@ -5,15 +5,15 @@
 <html>
 <head>
 	<meta charset='UTF-8' />
-	<title>회원가입 : LEGGO</title>
+	<title>회원정보 : LEGGO</title>
 <!--   	<link rel="stylesheet" href="/leggo/css/member/login.css" />
 	<link rel="stylesheet" href="/leggo/css/member/login1.css" />  -->
 </head>
 <body>
 	<% memberVO user = (memberVO)session.getAttribute("user"); %>
 	<div class="container-flex">
-		<div id="page-wrap">
-			<div id="align-center">
+		<div class="row">
+			<div class="align-center">
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 50%">
 						<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post" class="auth-form">
