@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="/leggo/css/main_jw.css">
 	<style type="text/css">
-/* 		.col-xl-3 .col-xl-9{
+ 		.col-xl-3 .col-xl-9{
 			padding: 15px;
-		} */
+		} 
 	</style>
 	
 	<!-- 카카오맵 -->

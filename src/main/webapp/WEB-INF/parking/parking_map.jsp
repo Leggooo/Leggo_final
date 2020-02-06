@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<div class="content color1 span-4" id="map" style="height: 100%;">
+	<div class="content color1 span-4" id="map" style="height: 120%; width: 95%;">
 		<script>
 			var container = document.getElementById('map');
 			//지도를 담을 영역의 DOM 래퍼런스
