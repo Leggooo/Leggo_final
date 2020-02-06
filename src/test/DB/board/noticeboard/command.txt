@@ -1,0 +1,6 @@
+
+  
+ 시퀸스
+ create sequence noticeboard_seq;
+  
+  

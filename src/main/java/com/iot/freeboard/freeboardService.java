@@ -2,11 +2,13 @@ package com.iot.freeboard;
 
 import java.util.List;
 
-public interface BoardService {
+public interface freeboardService {
 	//게시글 조회 - 전체 조회 및 카테고리별 조회작업
-	List<freeboardVO> boardList(String category);
+	List<freeboardVO> boardList();
+	int insert(freeboardVO freeboard);
+	
+	
 	int txinsert(freeboardVO board);
-	int insert(freeboardVO board);
 	List<freeboardVO> searchList(String search);
 	List<freeboardVO> searchList(String tag,String search);
 	List<freeboardVO> pageList();
