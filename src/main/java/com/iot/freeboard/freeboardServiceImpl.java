@@ -7,22 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 @Service
-public class BoardServiceImpl implements BoardService {
+public class freeboardServiceImpl implements freeboardService {
 	@Autowired
-	@Qualifier("freeboardDAO")
+	@Qualifier("freeboardDao")
 	
 	freeboardDAO dao;
 	@Override
-	public List<freeboardVO> boardList(String category) {
+	public List<freeboardVO> boardList() {
 		// TODO Auto-generated method stub
-		List<freeboardVO> list = null;
-		if(category!=null) {
-			if(category.equals("all")) {
-				list=dao.boardList();
-			}else {
-				list = dao.categorySearch(category);
-			}
-		}
+		List<freeboardVO> list = dao.boardList();
 		return list;
 	}
 
@@ -46,8 +39,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<freeboardVO> searchList(String tag, String search) {
-		List<freeboardVO> list = null;// TODO Auto-generated method stub
-		return list;
+		// TODO Auto-generated method stub
+		return dao.searchList(search, tag);
 	}
 
 	@Override
