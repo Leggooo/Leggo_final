@@ -67,7 +67,7 @@ parking_code varchar2(7) primary key
 
 create table parking_seats
 (
-parking_code varchar2(7) references parking_lots (parking_code)
+parking_code varchar2(7) references parking_loc (parking_code)
 ,que_status varchar2(3)
 ,que_status_nm varchar2(100)
 ,capacity number(4)
@@ -77,7 +77,7 @@ parking_code varchar2(7) references parking_lots (parking_code)
 
 create table parking_time
 (
-parking_code varchar2(7) references parking_lots (parking_code)
+parking_code varchar2(7) references parking_loc (parking_code)
 ,night_free_open varchar2(3)
 ,night_free_open_nm varchar2(60)
 ,weekday_begin_time number(4)
