@@ -8,11 +8,14 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.iot.member.memberVO" alias="member"/>
+								<!-- mapper에 resultType="parking"와 일치해야 함 -->
+		<typeAlias type="com.iot.parking.parkingVO" alias="parking"/>
 		<typeAlias type="com.iot.reservation.resvVO" alias="resvVO"/>
 		<typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
-	 </typeAliases>
+	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/member.xml"/>
+		<mapper resource="mapper/parking.xml"/>
 		<mapper resource="mapper/reservation.xml"/>
 		<mapper resource="mapper/freeboard.xml"/>
 	</mappers>

@@ -11,6 +11,8 @@
 	<style type="text/css">
  		.col-xl-3 .col-xl-9{
 			padding: 15px;
+			margin: 15px;
+			margin-left: 5px;
 		} 
 	</style>
 	
