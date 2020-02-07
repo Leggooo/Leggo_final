@@ -5,8 +5,12 @@
 <head>
 	<title>Lastmile</title>
 	<meta charset="UTF-8">
+	<!-- 카카오 맵 -->
+	<script type="text/javascript" 
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be626cc1f959d4787a1d8381c33922e7&libraries=services,clusterer,drawing"></script>
 </head>
 <body>
+	<div id="map" style="width:100%;height:350px;"></div>
 	<div class="content color1 span-4" id="map" style="height: 100%;">
 		<script>
 			var container = document.getElementById('map');
@@ -63,6 +67,9 @@
 				infowindow.open(map,marker);
 				//지도 중심좌표를 접속위치로 변경한다.
 				map.setCenter(locPosition);
+				
+				/*var latlng = new kakao.maps.LatLng(37.402289, 127.108597);
+				alert(latlng.toCoords().toString());*/
 			}	
 			// 마커가 드래그 가능하도록 설정합니다 
 			//marker.setDraggable(true);

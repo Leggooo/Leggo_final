@@ -16,7 +16,7 @@
 					for(i=0;i<bikeList.length;i++) {
 						rows = rows + 
 								"<tr><td>" + bikeList[i].stationId + "</td>"
-								+ "<td>" + bikeList[i].stationName + "</td>"
+								+ "<td><a href='/leggo/index.do'>" + bikeList[i].stationName + "</a></td>"
 								+ "<td>" + bikeList[i].rackTotCnt + "</td>"
 								+ "<td>" + bikeList[i].parkingBikeTotCnt + "</td>"
 								+ "<td>" + bikeList[i].shared + "</td>"
@@ -32,7 +32,8 @@
 	</script>
 </head>
 <body>
-	<table class="table table-dark table-sm" id="bikeListTable">
+<!-- "table table-dark table-sm d-none"  -->
+	<table class="hide" id="bikeListTable" style="font-size:15px;">
 	  	<thead>
 	    	<tr>
 		      	<th scope="col">대여소 ID</th>

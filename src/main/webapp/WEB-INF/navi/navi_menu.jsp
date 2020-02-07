@@ -33,9 +33,9 @@
 			
 			</form>
 			<h2 class="w3-gray" style="text-shadow:1px 1px 0 #444;font-size:20px">서울시 강남구 역삼동</h2>
-			<a href="#" onclick="" class="w3-button">길찾기</a> 
+			<a href="/leggo/roadmap.do" onclick="" class="w3-button">길찾기</a> 
 			<a href="#" onclick="" class="w3-button">★</a> 
-			<a href="http://70.12.224.100:8088/leggo/parking.do" onclick="" class="w3-button">P</a>
+			<a href="/leggo/parking.do" onclick="" class="w3-button">P</a>
 			<a href="/leggo/lastmile.do" onclick="" class="w3-button">Last</a>
 			
 	<!-- 			<div class="w3-cell-row">

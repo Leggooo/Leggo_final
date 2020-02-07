@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div class="content color1 span-6" id="map" style="height: 95%;"></div>
 	<div id="clickLatlng" style="color: white;width:100%;"></div>
 	<script>

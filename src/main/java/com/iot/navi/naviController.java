@@ -9,4 +9,9 @@ public class naviController {
 	public String navi() {
 		return "navi";
 	}
+	
+	@RequestMapping("/roadmap.do")
+	public String roadmap() {
+		return "roadmap";
+	}
 }
