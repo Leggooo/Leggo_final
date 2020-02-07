@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Bootstrap Example</title>
+<title>회원정보 : LEGGO</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -38,108 +38,99 @@ table {
 </style>
 </head>
 <body>
-	<%
-		memberVO user = (memberVO) session.getAttribute("user");
-	%>
+	<%memberVO user = (memberVO) session.getAttribute("user");%>
 	<div class="container" style="height: 70%; width: 100%;">
 		<h2>회원정보</h2>
 		<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post"
 			class="auth-form">
 			<table class="table table-bordered">
 				<tr>
-					<td id="accnthead" rowspan="7"><br /> <br /> <br /> <br />내
-						정보</td>
+					<td id="accnthead" rowspan="7"><br/><br/><br/><br/>내정보</td>
 					<td class="q">아이디:</td>
 					<td class="ans"><input type="text" id="user_id" name="user_id"
-						disabled="disabled" value="<%=user.getUser_id()%>"
-						 /></td>
+						disabled="disabled" value="<%=user.getUser_id()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">비밀번호:</td>
 					<td class="ans"><input type="password" id="pass" name="pass"
-						disabled="disabled" value="<%=user.getPass()%>"
-						  /></td>
+						disabled="disabled" value="<%=user.getPass()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">질문:</td>
 					<td class="ans"><input type="text" id="pass_hint"
 						name="pass_hint" required="required"
-						value="<%=user.getPass_hint()%>"   /></td>
+						value="<%=user.getPass_hint()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">답변:</td>
 					<td class="ans"><input type="text" id="pass_ans"
 						name="pass_ans" required="required"
-						value="<%=user.getPass_ans()%>"   /></td>
+						value="<%=user.getPass_ans()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">이름:</td>
 					<td class="ans"><input type="text" id="user_name"
 						name="user_name" disabled="disabled"
-						value="<%=user.getUser_name()%>"   /></td>
+						value="<%=user.getUser_name()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">생년월일:</td>
 					<td class="ans"><input type="text" id="birth" name="birth"
-						disabled="disabled" value="<%=user.getBirth()%>"
-						  /></td>
+						disabled="disabled" value="<%=user.getBirth()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">성별:</td>
 					<td class="ans">
-						<%
-							if (user.getGender().equals("M")) {
-						%>
-						<option value="M" selected="selected">남자</option> <%
- 	} else {
- %>
-						<option value="F" selected="selected">여자</option> <%
- 	}
- %>
+						<%if (user.getGender().equals("M")) {%>
+							<option value="M" selected="selected">남자</option>
+						<%} else {%>
+							<option value="F" selected="selected">여자</option>
+						<%}%>
 					</td>
 				</tr>
 				<tr>
 					<td id="accnthead" rowspan="4"><br /> <br />내 연락처</td>
 					<td class="q">집 전화번호:</td>
 					<td class="ans"><input type="text" id="tel" name="tel"
-						value="<%=user.getTel()%>"   /></td>
+						value="<%=user.getTel()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">휴대폰 번호:</td>
 					<td class="ans"><input type="tel" id="mobile" name="mobile"
-						required="required" value="<%=user.getMobile()%>"
-						  /></td>
+						required="required" value="<%=user.getMobile()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">이메일</td>
 					<td class="ans"><input type="text" id="email" name="email"
-						required="required" value="<%=user.getEmail()%>"
-						  /></td>
+						required="required" value="<%=user.getEmail()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">이메일 수신 <br />여부 문자 수신 여부
 					</td>
 					<td class="ans">
-						<%
-							if (user.getRecv_email().equals("Y")) {
-						%> <input type="radio" name="recv_email" value="Y"
-						checked="checked" /> 수신 <input type="radio" name="recv_email"
-						value="N" /> 비수신 <%
- 	} else {
- %> <input type="radio" name="recv_email" value="Y" /> 수신 <input
+						<%if (user.getRecv_email().equals("Y")) {%>
+						 <input type="radio" name="recv_email" value="Y" checked="checked" /> 수신
+						 <input type="radio" name="recv_email" value="N" /> 비수신
+						<%} else {%>
+						 <input type="radio" name="recv_email" value="Y" /> 수신 <input
 						type="radio" name="recv_email" value="N" checked="checked" /> 비수신
-						<%
- 	}
- %><br /> <%
- 	if (user.getRecv_text().equals("Y")) {
- %> <input type="radio" name="recv_text" value="Y" checked="checked" />
-						수신 <input type="radio" name="recv_text" value="N" /> 비수신 <%
- 	} else {
- %> <input type="radio" name="recv_text" value="Y" /> 수신 <input
-						type="radio" name="recv_text" value="N" checked="checked" /> 비수신
-						<%
- 	}
- %>
+						<%}%><br/>
+						<%if (user.getRecv_text().equals("Y")) {%>
+						 <input type="radio" name="recv_text" value="Y" checked="checked" /> 수신
+						 <input type="radio" name="recv_text" value="N" /> 비수신
+						<%} else {%>
+						 <input type="radio" name="recv_text" value="Y" /> 수신
+						 <input	type="radio" name="recv_text" value="N" checked="checked" /> 비수신
+						<%}%>
 					</td>
 				</tr>
 				<tr>
@@ -153,16 +144,20 @@ table {
 				<tr>
 					<td class="q">주소:</td>
 					<td class="ans"><input type="text" id="addr" name="addr"
-						value="<%=user.getAddr()%>"   /></td>
+						value="<%=user.getAddr()%>"/>
+					</td>
 				</tr>
 				<tr>
 					<td class="q">우편번호:</td>
-					<td class="ans"><input type="text" id="postcode"
-						name="postcode" value="<%=user.getPostcode()%>"
-						  /></td>
+					<td class="ans">
+						<input type="text" id="postcode"
+						name="postcode" value="<%=user.getPostcode()%>"/>
+					</td>
 				</tr>
 				</tbody>
 			</table>
+			<input type="submit" id="submitBtn" value="수정하기">
+			<a href="/leggo/withdrawal.do" style="font-size: 0.5em;">탈퇴하기</a>
 		</form>
 	</div>
 	<script
@@ -199,6 +194,5 @@ table {
 			}).open();
 		}
 	</script>
-
 </body>
 </html>

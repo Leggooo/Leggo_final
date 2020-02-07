@@ -8,7 +8,7 @@
 	<title>Leggo</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<!-- <link rel="stylesheet" href="/leggo/css/main.css"> -->
+	<link rel="stylesheet" href="/leggo/css/main.css">
 	<!-- <link rel="stylesheet" href="/leggo/css/mycss.css"> -->
 	<link rel="stylesheet" href="/leggo/css/main_jw.css">
 	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
