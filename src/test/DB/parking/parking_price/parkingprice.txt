@@ -1,0 +1,1 @@
+sqlldr userid=leggo/leggo control='C:\dbparking\parking_price\testctl.ctl' log='C:\dbparking\parking_price\parkingprice.log'
