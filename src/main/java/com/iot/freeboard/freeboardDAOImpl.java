@@ -10,23 +10,28 @@ import org.springframework.stereotype.Repository;
 public class freeboardDAOImpl implements freeboardDAO {
 	@Autowired
 	SqlSession sqlsession;
+	//게시글 목록
 	@Override
 	public List<freeboardVO> boardList() {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlsession.selectList("com.iot.freeboard.listall");
+	}
+	
+	//게시글 쓰기
+	@Override
+	public int insert(freeboardVO freeboard) {
+		// TODO Auto-generated method stub
+		System.out.println(freeboard);
+		return sqlsession.insert("com.iot.freeboard.write",freeboard);
+	}
+	//게시글 보기
+	@Override
+	public freeboardVO read(String brd_num) {
+		// TODO Auto-generated method stub
+		System.out.println(brd_num);
+		return sqlsession.selectOne("com.iot.freeboard.read",brd_num);
 	}
 
-	@Override
-	public int insert(freeboardVO content) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<freeboardVO> categorySearch(String free_brd_type_num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<freeboardVO> searchList(String search) {
@@ -41,23 +46,17 @@ public class freeboardDAOImpl implements freeboardDAO {
 	}
 
 	@Override
-	public freeboardVO read(String free_brd_num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int update(freeboardVO content) {
+	public int update(freeboardVO freeboard) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(String free_brd_num) {
+	public int delete(String brd_num) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 
 
 }

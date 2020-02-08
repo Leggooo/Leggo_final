@@ -1,4 +1,4 @@
-package com.iot.freeboard;
+	package com.iot.freeboard;
 
 import java.util.List;
 
@@ -12,48 +12,49 @@ public class freeboardServiceImpl implements freeboardService {
 	@Qualifier("freeboardDao")
 	
 	freeboardDAO dao;
+
 	@Override
 	public List<freeboardVO> boardList() {
-		// TODO Auto-generated method stub
 		List<freeboardVO> list = dao.boardList();
 		return list;
 	}
 
+
+	
 	@Override
-	public int txinsert(freeboardVO board) {
+	public int insert(freeboardVO freeboard) {
+		// TODO Auto-generated method stub
+		return dao.insert(freeboard);
+	}
+	
+	@Override
+	public freeboardVO read(String brd_num) {
+		// TODO Auto-generated method stub
+		return dao.read(brd_num);
+	}
+	
+	
+
+	@Override
+	public int txinsert(freeboardVO freeboard) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
-	public int insert(freeboardVO board) {
-		// TODO Auto-generated method stub
-		return dao.insert(board);
-	}
 
 	@Override
 	public List<freeboardVO> searchList(String search) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public List<freeboardVO> searchList(String tag, String search) {
-		// TODO Auto-generated method stub
-		return dao.searchList(search);
-	}
-
+	
 	@Override
 	public List<freeboardVO> pageList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public freeboardVO read(String board_no) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public int update(freeboardVO board) {
@@ -72,5 +73,7 @@ public class freeboardServiceImpl implements freeboardService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

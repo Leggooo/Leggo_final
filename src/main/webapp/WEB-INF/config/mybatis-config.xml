@@ -12,11 +12,16 @@
 		<typeAlias type="com.iot.parking.parkingVO" alias="parking"/>
 		<typeAlias type="com.iot.reservation.resvVO" alias="resvVO"/>
 		<typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
+		<typeAlias type="com.iot.comment.cmtVO" alias="comment"/>
+		
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/member.xml"/>
 		<mapper resource="mapper/parking.xml"/>
 		<mapper resource="mapper/reservation.xml"/>
 		<mapper resource="mapper/freeboard.xml"/>
+		<mapper resource="mapper/comment.xml"/>
+		
+		
 	</mappers>
 </configuration>
