@@ -1,7 +1,7 @@
  //게시판 타입 테이블
  create table type(
 brd_type_num number(3) primary key,
-brd_type varchar2(10) not null
+brd_type varchar2(50) not null
 );
  
  //자유게시판 테이블
@@ -11,7 +11,7 @@ brd_type varchar2(10) not null
   title varchar2(60) not null,
   content varchar2(1000) not null,
   update_date date,
-  user_id varchar2(20) not null,
+  user_id varchar2(20) references member(user_id),
   img_path varchar2(60)
   );
   

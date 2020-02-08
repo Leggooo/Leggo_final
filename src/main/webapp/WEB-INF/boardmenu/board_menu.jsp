@@ -14,10 +14,10 @@
 		</div>
 	<div id="freesidebar">
 	 <div id="freemenubtn">
-		  <a href="#" onclick="" class="w3-button">공지사항</a> 
-		  <a href="#" onclick="" class="w3-button">자유게시판</a> 
-		  <a href="#" onclick="" class="w3-button">FAQ</a>
-		  <a href="#" onclick="" class="w3-button">1:1문의</a>
+		  <a class="w3-button" href="/leggo/noticeboardmain.do">공지사항</a> 
+		  <a class="w3-button" href="/leggo/freeboardmain.do">자유게시판</a>  
+		  <a class="w3-button" href="/leggo/quesboardmain.do">1:1문의</a>
+		  <a class="w3-button" href="/leggo/faqboardmain.do">FAQ</a>
 	  </div>
 	</div>
 	

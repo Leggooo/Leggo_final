@@ -1,24 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-	<title>LEGGO</title>
-	<meta charset="UTF-8">
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-	<script src="http://code.jquery.com/jquery-latest.js"></script> 
-	<!-- jQuery받아오기 위해서 --> 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-	<!-- 합쳐지고 최소화된 최신 CSS -->  
-	<meta name="viewport">
+	<meta charset='UTF-8' />
 	<style type="text/css">
-		
-		
 	</style>
 </head> 
 <body> 
+	<form action="/leggo/freeboardwrite.do" method="post">
 	<div class="outer">
 		<div class="top">
-		
 		</div>
 		<div class="container"> 
 			<table class="table"> 
@@ -33,17 +25,15 @@
 				<tbody>
 					<tr>
 						<th class="title">글제목</th>
-						<td><textarea class="writecontent" rows="1" placeholder="제목을 입력하세요"></textarea></td>
+						<td><textarea class="boardwritecontent" rows="1" name="title"></textarea></td>
 					</tr>
 					<tr>
 						<th class="title">글내용</th>
-						<td>
-							<textarea class="writecontent" rows="10" placeholder="내용을 입력하세요"></textarea>
-						</td>
+						<td><textarea class="boardwritecontent" rows="10" name="content"></textarea></td>
 					</tr>
 					<tr>
 						<th class="title">첨부파일</th>
-						<td><input type="file">※용량 : 5MB 미만</td>
+						<td><input type="file" name="">※용량 : 5MB 미만</td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -51,15 +41,15 @@
 						<td id="freefoot" colspan="2"></td>
 					</tr>
 				</tfoot>
-			</table> 
-				<!-- 버튼 -->
+			</table>
+			<!-- 버튼 -->
 			<div class="allbtn">
-				<a class="btn btn-default" href="#">취소</a>
-				<a class="btn btn-default" href="#">완료</a>
+				<button type="submit" id="brdsubtn">등록</button>
+				<button type="reset" id="delbtn">취소</button>
 			</div>
-			
 		</div> 
 	</div>
+	</form>
 </body> 
 </html>
 

@@ -34,7 +34,10 @@
 			color: white;
 			border-radius: 0px 0px 10px 10px;
 		}
-				
+		#cmttr{
+			border: 1px solid #365da2;
+		}
+	
 		.w3-light-grey{
 			max-width: 100%;
 		}
@@ -87,7 +90,7 @@
 		}
 		.boardwritecontent{
 			resize: none;
-			width: 70%;
+			border: 1px solid #365da2;
 		}
 		.boardtitle{
 			border: 1px solid #365da2;

@@ -300,6 +300,7 @@ input::-moz-focus-inner {
 		line-height: 1.65;
 	}
 
+
 	a {
 		-moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
@@ -678,9 +679,9 @@ input::-moz-focus-inner {
 		input[type="email"]:focus,
 		input[type="tel"]:focus,
 		select:focus,
-		textarea:focus {
+	/* 	textarea:focus {
 			border-color: #ffe4b4;
-		}
+		} */
 
 	option {
 		background-color: rgba(255, 255, 255, 0.875);
@@ -1480,7 +1481,7 @@ input::-moz-focus-inner {
 			border-top: solid 2px rgba(255, 255, 255, 0.25);
 		}
 */
-		table.alt {
+	table.alt {
 			border-collapse: separate;
 		}
 
@@ -1504,7 +1505,7 @@ input::-moz-focus-inner {
 
 			table.alt tfoot {
 				border-top: 0;
-			}
+			} 
 			
 			
 /* ====================================================================================================================================================== */
@@ -1556,9 +1557,9 @@ input::-moz-focus-inner {
 				border-right: 0;
 			}
 	
-				/*table.list tbody tr:nth-child(2n + 1) {
+				table.list tbody tr:nth-child(2n + 1) {
 					background-color: rgba(47, 85, 151, 0.075);
-				}*/
+				}
 	
 			table.list td {
 				padding: 0.5rem 0.5rem;
@@ -1581,7 +1582,7 @@ input::-moz-focus-inner {
 	
 			table.list tfoot {
 				border-top: solid 2px rgba(255, 255, 255, 0.25);
-			}
+			} 
 /* ====================================================================================================================================================== */
 			
 
