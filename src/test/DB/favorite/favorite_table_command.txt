@@ -1,0 +1,142 @@
+conn leggo/leggo
+
+===== 1. 테이블 생성 =====
+create table favorite
+(
+favorite_code varchar2(30)
+,user_id varchar2(20) references member (user_id)
+,parking_code varchar2(7) references parking_loc (parking_code)
+,location_name varchar(100)
+,latitude number(15,6)
+,longitude number(15,6)
+,favorite_name varchar2(100)
+);
+commit;
+
+
+//장소코드
+parking - 주차장
+bike - 따릉이
+etc - 기타?
+===== 2. ☆★☆★테스트용 favorite data insert =====
+insert into favorite values
+(
+'parking',
+'test1',
+'984688',
+'구로아트밸리 지하주차장(구)',
+37.496996,
+126.889598,
+'내 쇼핑몰 주차장'
+);
+
+insert into favorite values
+(
+'parking',
+'test1',
+'984617',
+'신도림역환승주차장(구)',
+37.507334,
+126.891653,
+'신도림역'
+);
+
+insert into favorite values
+(
+'parking',
+'test1',
+'968514',
+'색동공원 공영주차장(구)',
+37.633227,
+127.020711,
+'내 공원 주차장'
+);
+
+insert into favorite values
+(
+'parking',
+'test1',
+'968483',
+'가오리 공영주차장(구)',
+37.641607,
+127.014982,
+'가오리가오리'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'101. (구)합정동 주민센터',
+37.54956055,
+126.90575409,
+'합정동 따릉이'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'111. 상수역 2번출구 앞',
+37.54787064,
+126.92353058,
+'상수상수 따릉이'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'124. 서강대 정문 건너편',
+37.55113983,
+126.93698883,
+'울학교 따릉이'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'128. 신촌역(2호선) 1번출구 옆',
+37.55549622,
+126.93634033,
+'핫플신촌 따릉이'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'142. 아현역 4번출구 앞',
+37.55720139,
+126.95566559,
+'아현 따릉이'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'106. 합정역 7번출구 앞',
+37.54864502,
+126.91282654,
+'합정카페거리 따릉이'
+);
+
+insert into favorite values
+(
+'bike',
+'test1',
+'',
+'107. 신한은행 서교동금융센터점 앞',
+37.55751038,
+126.91850281,
+'자주 가는 따릉이'
+);
+commit;
