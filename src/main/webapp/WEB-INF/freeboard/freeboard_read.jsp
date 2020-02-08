@@ -63,7 +63,7 @@
 	              	<div class="w3-right"><button class="button" type="submit" id="cmtsubtn">등록</button>
 	              </div>
 	               </form>
-	               <% }else{%>
+	               <% }else{%> 
 	               		<script type="text/javascript">
 	               			alert("로그인을 해주세요.");
 	               		</script>
