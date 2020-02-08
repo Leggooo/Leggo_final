@@ -12,7 +12,7 @@ public class freeboardServiceImpl implements freeboardService {
 	@Qualifier("freeboardDao")
 	
 	freeboardDAO dao;
-
+  
 	@Override
 	public List<freeboardVO> boardList() {
 		List<freeboardVO> list = dao.boardList();

@@ -17,8 +17,8 @@ import com.iot.member.memberVO;
 @Controller
 public class freeboardController {
 	@Autowired
-	freeboardService service;
-	cmtService cmtservice;
+	 freeboardService service;
+	 cmtService cmtservice;
 	//자유게시판 메인화면
 	@RequestMapping(value="/freeboardmain.do")
 	public ModelAndView freeboardmain(String boardlist){

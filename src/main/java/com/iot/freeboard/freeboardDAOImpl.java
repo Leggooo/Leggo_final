@@ -38,7 +38,7 @@ public class freeboardDAOImpl implements freeboardDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+ 
 	@Override
 	public List<freeboardVO> pageList() {
 		// TODO Auto-generated method stub
