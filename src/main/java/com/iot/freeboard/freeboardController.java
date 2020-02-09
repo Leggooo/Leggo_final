@@ -18,6 +18,7 @@ import com.iot.member.memberVO;
 public class freeboardController {
 	@Autowired
 	 freeboardService service;
+	@Autowired
 	 cmtService cmtservice;
 	//자유게시판 메인화면
 	@RequestMapping(value="/freeboardmain.do")
@@ -25,15 +26,15 @@ public class freeboardController {
 		List<freeboardVO> list = service.boardList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardlist",list);
-		mav.setViewName("freeboard_main");
+		mav.setViewName("freeboardmain");
 		return mav;
-		}
+	}
 	
 	//글쓰기 페이지 보여주기
 	@RequestMapping(value="/freeboardwrite.do", method=RequestMethod.GET)
 		public String insertView(String id) {
-		return "freeboard_write";
-		}
+		return "freeboardwrite";
+	}
 		
 	//입력한글 실제 db에 저장하는 메소드
 	@RequestMapping(value="/freeboardwrite.do", method=RequestMethod.POST)
@@ -42,24 +43,25 @@ public class freeboardController {
 		int result = service.insert(freeboard);
 		System.out.println("result");
 		return "redirect:/freeboardmain.do";
-		}
+	}
 	
 	//글읽기 보여주기
 	@RequestMapping(value="/freeboardread.do", method=RequestMethod.GET)
-		public ModelAndView readview(String brd_num) {
-			System.out.println("게시글 번호"+brd_num);
-			ModelAndView mav = new ModelAndView();
-			if(brd_num!=null) {
-				System.out.println("11111111111");
-				freeboardVO result = service.read(brd_num);
-				List<cmtVO> cmt = cmtservice.readcmt(brd_num);
-				System.out.println("22222222222");
+	public ModelAndView readview(String brd_num) {
+		System.out.println("寃뚯떆湲� 踰덊샇"+brd_num);
+		ModelAndView mav = new ModelAndView();
+		if(brd_num!=null) {
+			System.out.println("11111111111");
+			freeboardVO result = service.read(brd_num);
+			List<cmtVO> cmt = cmtservice.readcmt(brd_num);
+			System.out.println("22222222222");
+			
 			mav.addObject("readpage", result);
 			mav.addObject("readcmt", cmt);
-			mav.setViewName("freeboard_read");
-			}
-			return mav;
+			mav.setViewName("freeboardread");
 		}
+		return mav;
+	}
 
 
 }

@@ -53,7 +53,7 @@
 	          <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
 	            <hr>
 	            <!-- 댓글쓰기 -->
-	            <% if(user.getUser_id()!=null){ %>
+	            <% if(user!=null){ %>
 	            <form action="/leggo/comment.do" method="post">
 		            <input type="hidden" name="brd_num" value="<%=list.getBrd_num()%>"/>
 		            <input type="hidden" name="user_id" value="<%=user.getUser_id()%>"/>
@@ -73,7 +73,8 @@
 	              <div class="w3-row w3-margin-bottom">
 	              <div class="allcmt">
 	              <div class="watchreview">
-	               <% for(int i=0;i<cmt.size();i++){ 
+	               <% if(cmt != null) {
+	               	  	for(int i=0;i<cmt.size();i++){ 
 	                		cmtVO cmtrow = cmt.get(i);%>
 	                <table class="cmttable">
 	               
@@ -87,7 +88,8 @@
 	                		<td colspan="4"><%= cmtrow.getCmt_content()%></td>
 	                	</tr>
 	                </table>
-	                <%} %>
+	                <%	} 
+	                }%>
 	                </div>
 	              </div>
 	          </div>

@@ -3,6 +3,12 @@
 brd_type_num number(3) primary key,
 brd_type varchar2(50) not null
 );
+
+insert into type values
+(
+1,
+'freeboard'
+);
  
  //자유게시판 테이블
  create table freeboard(
@@ -14,6 +20,17 @@ brd_type varchar2(50) not null
   user_id varchar2(20) references member(user_id),
   img_path varchar2(60)
   );
+  
+insert into freeboard values
+(
+1,
+'1',
+'자유자유',
+'내용자유게시판내용',
+sysdate,
+'test1',
+'?'
+);
   
  이미지 테이블
   create table img(

@@ -13,7 +13,7 @@ public class freeboardVO {
 	String user_id;
 	String img_path;
 
-	public freeboardVO() {
+public freeboardVO() {
 		
 	}
 
@@ -64,11 +64,11 @@ public class freeboardVO {
 	public Date getUpdate_date() {
 		return update_date;
 	}
-	
+
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
-	
+
 	public String getUser_id() {
 		return user_id;
 	}
@@ -84,6 +84,8 @@ public class freeboardVO {
 	public void setImg_path(String img_path) {
 		this.img_path = img_path;
 	}
+	
+	
 
 	@Override
 	public String toString() {
