@@ -1,3 +1,4 @@
+<%@page import="com.iot.member.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -14,20 +15,32 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/leggo/css/mainmenu.css">
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <title>Menu Page</title>
 </head>
 <body>
+<%	memberVO user;
+	if(session.getAttribute("user")!=null){
+		user = (memberVO)session.getAttribute("user");
+	}else{
+		user=null;
+	}
+%>
  	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-1">
  				<div id="myNav" class="overlay">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<div class="overlay-content">
-						<a href="/leggo/home.do">로그아웃</a>
+						<%if(user!=null){ %>
+						<a href="/leggo/logout.do" id="logoutBtn" >로그아웃</a>
+						<%} %>
 						<a href="/leggo/profile.do">회사소개</a>
 						<a href="/leggo/news.do">뉴스</a> 
-						<a href="/leggo/myInfo.do">회원정보</a> <a
-							href="/leggo/inbox.do">쪽지함</a>
+						<%if(user!=null){ %>
+						<a href="/leggo/myInfo.do">회원정보</a>
+						<%} %>
+						<a href="/leggo/inbox.do">쪽지함</a>
 					</div>
 				</div>
 				<span style=" cursor: pointer" onclick="openNav()">
@@ -95,4 +108,12 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+	Kakao.init('058c8dd884377b38875fd39e9587e919');
+	$("#logoutBtn").on("click", function() {
+		Kakao.Auth.logout()
+	})
+})
+</script>
 </html>
