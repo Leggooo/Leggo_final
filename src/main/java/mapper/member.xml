@@ -32,6 +32,11 @@
   		where user_id = #{user_id} and pass = #{pass}
   	</select>
   	
+  	<select id="idCheck" resultType="member" parameterType="String">
+  		select user_id
+  		from member
+  		where user_id = #{user_id}
+  	</select>
   	<!-- 탈퇴 -->
   	<delete id="withdrawal" parameterType="member">
   		delete member

@@ -37,4 +37,9 @@ public class memberServiceImpl implements memberService {
 		return user;
 	}
 
+	@Override
+	public boolean idCheck(String id) {
+		return dao.idCheck(id);
+	}
+
 }

@@ -6,4 +6,5 @@ public interface memberDAO {
 	int delete(memberVO user);
 	int modifyMyInfo(memberVO user);
 	memberVO login(memberVO loginUser);
+	boolean idCheck(String id);
 }

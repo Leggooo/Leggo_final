@@ -40,4 +40,11 @@
   		from reservation 
   		where user_id = #{user_id}
   	</select>
+  	
+  	<!-- 예약테이블 데이터 조회 -->
+  	<select id="parkingInfo" resultType="resvTableVO" parameterType="String">
+  		select parking_name, addr
+  		from parking_loc
+  		where parking_code = #{parking_code}
+  	</select>
   </mapper>
