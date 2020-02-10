@@ -56,7 +56,7 @@
 			</table> 
 				<!-- 글쓰기 버튼 -->
 			<div class="boardallbtn">
-				<%if(list.get(0).getUser_id()!=null) {%>
+				<%if(list!=null) {%>
 				<a class="w3-button" href="/leggo/freeboardwrite.do">글쓰기</a>
 			</div>
 				<%} else{%>

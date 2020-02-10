@@ -28,4 +28,14 @@ public class memberDAOImpl implements memberDAO {
 	public memberVO login(memberVO loginUser) {
 		return sqlSession.selectOne("com.iot.member.login", loginUser);
 	}
+
+	@Override
+	public boolean idCheck(String id) {
+		boolean result = false;
+		memberVO user = (memberVO)sqlSession.selectOne("com.iot.member.idCheck", id);
+		if(user!=null) {
+			result = true;
+		}
+		return result;
+	}
 }

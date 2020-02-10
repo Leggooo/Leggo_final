@@ -30,6 +30,8 @@ public class pointController {
 	public ModelAndView select(String user_id) {
 		ModelAndView mav = new ModelAndView();
 		List<pointVO> pointlist = service.select(user_id);
+		mav.addObject("plist", pointlist);
+		mav.setViewName("myPoint");
 		System.out.println(pointlist);
 		return mav;
 	}

@@ -56,6 +56,12 @@ public class freeboardDAOImpl implements freeboardDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List<freeboardVO> categorySearch(String free_brd_type_num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 

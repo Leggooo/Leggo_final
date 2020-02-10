@@ -13,6 +13,8 @@
 		<typeAlias type="com.iot.reservation.resvVO" alias="resvVO"/>
 		<typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
 		<typeAlias type="com.iot.comment.cmtVO" alias="comment"/>
+		<typeAlias type="com.iot.reservation.resvTableVO" alias="resvTableVO"/>
+		<typeAlias type="com.iot.point.pointVO" alias="pointVO"/>
 		
 	</typeAliases>
 	<mappers>
@@ -21,6 +23,7 @@
 		<mapper resource="mapper/reservation.xml"/>
 		<mapper resource="mapper/freeboard.xml"/>
 		<mapper resource="mapper/comment.xml"/>
+		<mapper resource="mapper/point.xml"/>
 		
 		
 	</mappers>

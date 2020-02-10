@@ -8,12 +8,9 @@
 <title>회원정보 : LEGGO</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style type="text/css">
 #accnthead {
 	font-size: 20px;
@@ -23,24 +20,26 @@
 	text-align: center;
 	width: 10%;
 }
-
 table {
 	width: 100%;
 }
-
 .ans {
 	width: 40%;
 }
-
 .q {
 	width: 10%;
 }
 </style>
 </head>
-<body>
-	<%memberVO user = (memberVO) session.getAttribute("user");%>
-	<div class="container" style="height: 70%; width: 100%;">
-		<h2>회원정보</h2>
+<body id="myInfoBody">
+	<%memberVO user = null;%>
+	<%
+	if(session.getAttribute("user")!=null){
+		user = (memberVO) session.getAttribute("user");
+	%>
+	<%if(user.getPass()!=null){ %>
+	<div class="container" style="height: 100%; width: 100%;">
+		<h2 style="margin-top: 0px;">회원정보</h2>
 		<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post"
 			class="auth-form">
 			<table class="table table-bordered">
@@ -114,20 +113,24 @@ table {
 					</td>
 				</tr>
 				<tr>
-					<td class="q">이메일 수신 <br />여부 문자 수신 여부
+					<td class="q">수신 여부
 					</td>
 					<td class="ans">
 						<%if (user.getRecv_email().equals("Y")) {%>
+						이메일 : 
 						 <input type="radio" name="recv_email" value="Y" checked="checked" /> 수신
 						 <input type="radio" name="recv_email" value="N" /> 비수신
 						<%} else {%>
+						이메일 :
 						 <input type="radio" name="recv_email" value="Y" /> 수신 <input
 						type="radio" name="recv_email" value="N" checked="checked" /> 비수신
 						<%}%><br/>
 						<%if (user.getRecv_text().equals("Y")) {%>
+						문자  :
 						 <input type="radio" name="recv_text" value="Y" checked="checked" /> 수신
 						 <input type="radio" name="recv_text" value="N" /> 비수신
 						<%} else {%>
+						문자  :
 						 <input type="radio" name="recv_text" value="Y" /> 수신
 						 <input	type="radio" name="recv_text" value="N" checked="checked" /> 비수신
 						<%}%>
@@ -156,10 +159,40 @@ table {
 				</tr>
 				</tbody>
 			</table>
-			<input type="submit" id="submitBtn" value="수정하기">
-			<a href="/leggo/withdrawal.do" style="font-size: 0.5em;">탈퇴하기</a>
+			<div style="text-align: right;">
+				<a href="/leggo/withdrawal.do" style="font-size: 0.5em; margin-right: 25px;">탈퇴하기</a>
+				<input type="submit" id="submitBtn" value="수정하기">
+			</div>
 		</form>
 	</div>
+	<%}else{ %>
+	<div class="container" style="height: 70%; width: 100%;">
+		<h2>회원정보</h2>
+		<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post"
+			class="auth-form">
+			<h1>KAKAO 로그인으로 접속하셨습니다.</h1>
+			<table class="table table-bordered">
+				<tr>
+					<td id="accnthead" rowspan="7"><br/><br/>내정보<br/><br/></td>
+					<td class="q">아이디:</td>
+					<td class="ans"><input type="text" id="user_id" name="user_id"
+						disabled="disabled" value="<%=user.getUser_id()%>"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="q">닉네임:</td>
+					<td class="ans"><input type="text" id="user_name"
+						name="user_name" disabled="disabled"
+						value="<%=user.getUser_name()%>"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<%} %>
+	<%}else{%>
+	로그인 정보 어디갔냐?! 오류났다!!!
+	<%} %>
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>

@@ -6,4 +6,5 @@ public interface memberService {
 	int delete(memberVO user);
 	memberVO modifyMyInfo(memberVO user);
 	memberVO login(memberVO loginUser);
+	boolean idCheck(String id);
 }

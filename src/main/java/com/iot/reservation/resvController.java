@@ -19,11 +19,11 @@ public class resvController {
 	
 	@RequestMapping("/myResvList.do")
 	public ModelAndView myResvList(HttpSession session) {
-		System.out.println("myResvList");
+		/*System.out.println("myResvList");*/
 		ModelAndView mav = new ModelAndView();
 		memberVO user = (memberVO)session.getAttribute("user");
 		List<resvVO> list = service.select(user.getUser_id());
-		System.out.println(list);
+		/*System.out.println(list);*/
 		mav.addObject("resvlist", list);
 		mav.setViewName("myResv");
 		return mav;

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Test LayOut!</title>
+<title>LEGGO</title>
 </head>
 <body>
 	<div>
@@ -13,4 +13,9 @@
 		<tiles:insertAttribute name="content"></tiles:insertAttribute>
 	</div>
 </body>
+<!-- Scripts -->
+<script src="/leggo/js/jquery.min.js"></script>
+<script src="/leggo/js/browser.min.js"></script>
+<script src="/leggo/js/breakpoints.min.js"></script>
+<script src="/leggo/js/main.js"></script>
 </html>

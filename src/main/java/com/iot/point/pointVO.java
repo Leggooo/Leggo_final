@@ -14,15 +14,13 @@ public class pointVO {
 		super();
 	}
 
-	public pointVO(String user_id, int pointAvail, int pointChange, Date pointDate, Date pointExpDate,
-			String userGrade) {
+	// 회원가입시 최초 포인트 생성용
+	public pointVO(String user_id) {
 		super();
 		this.user_id = user_id;
-		this.pointAvail = pointAvail;
-		this.pointChange = pointChange;
-		this.pointDate = pointDate;
-		this.pointExpDate = pointExpDate;
-		this.userGrade = userGrade;
+		this.pointAvail = 500;
+		this.pointChange = +500;
+		this.userGrade = "브론즈";
 	}
 
 	public String getUser_id() {
