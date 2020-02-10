@@ -18,6 +18,7 @@
 		font-style: italic;
 	}
 </style>
+
 	
 </head>
 <!-- class="w3-cell" class="col-9" id="freesidebar" style="width: 60%;" id="freemenubtn"-->
@@ -25,8 +26,8 @@
 	<div id="freesidebar">
 		<div id="freemenubtn">
 			<form action="" method="get">
-				<input type="text" class=color2" value="출발" style="background-color: #ffffff; font-size: 14pt;" disabled/>
-				<input type="text" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt;" disabled/>
+				<input type="text" id="input_start" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt;"/>
+				<input type="text" id="input_end" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt;"/>
 				<input type="button" class="button primary color2" value="길찾기" style="background-color: #ffffff; font-size: 14pt;" />
 				<input type="text" maxlength="10" style="color:white;" placeholder="검색하세요" /><br/>
 				

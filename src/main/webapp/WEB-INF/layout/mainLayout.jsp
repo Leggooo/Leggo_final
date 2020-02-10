@@ -26,6 +26,7 @@
 	</style>
 </head>
 <body>
+<!-- id="navi" -->
 	<div class="container" id="navi">
 		<div class="row">	
 			<div class="col-md-12">

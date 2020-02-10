@@ -19,7 +19,7 @@
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 </style>
-	<script type="text/javascript" 
+	<script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?
 	appkey=be626cc1f959d4787a1d8381c33922e7&
 	libraries=services,clusterer,drawing"></script>
@@ -34,8 +34,8 @@
 			<span id="centerAddr"></span>
 		</div>	
 	<!-- </div> -->
-	<!-- <input type="button" value="지도 확대/축소 끄기" onclick="setZoomable(false)" />
-	<input type="button" value="지도 확대/축소 켜기" onclick="setZoomable(true)" /> -->
+	<input type="button" value="지도 드래그 이동 끄기" onclick="setDraggable(false)" />
+	<input type="button" value="지도 드래그 이동 켜기" onclick="setZoomable(true)" />
 	<div id="clickLatlng" style="color: white; width: 100%;"></div>
 
 	<script>
@@ -49,6 +49,7 @@
 		//지도를 담을 영역의 DOM 래퍼런스
 		var options = {//지도를 생성할 때 필요하 기본 옵션
 			center : new kakao.maps.LatLng(37.5279, 127.0055),//지도의 중심좌표
+			disableDoubleClickZoom: true,
 			level : 4
 		// 지도의 레벨(확대, 축소 정도)
 		};
@@ -91,7 +92,13 @@
 		
 		//마우스 휠로 지도 확대, 축소 가능여부를 설정하지 못하게 막습니다
 		map.setZoomable(false);	
+		
 		//키워드로 장소를 검색합니다
+		//버튼 클릭에 따라 지도 이동 기능을 막거나 풀고 싶은 경우에는 map.setDraggable
+		function setDraggable(draggable) {
+			//마우스 드래그로 지도 이동 가능여부를 설정한다
+			map.setDraggable(draggable);
+		}
 		
 		searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 
@@ -104,7 +111,7 @@
 				position : locPosition
 			});
 			
-			alert(locPosition.toCoords().toString());
+			//alert(locPosition.toCoords().toString());
 
 			var curString = locPosition.toCoords().toString();
 			curSplit = curString.split(', ');
@@ -161,7 +168,26 @@
 		
 		
 		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+			//클릭한 위도, 경도 정보를 가져옵니다
+			/* latlng = mouseEvent.latLng; */
+/* 			searchDetailAddrFromCoords(latlng, callback);
 			
+ 			var callback = function(result, status) {
+				if(status === kakao.maps.services.Status.Ok) {		
+					console.log('지역 명칭: '+result[0].address_name);
+					console.log('행정구역 코드: '+result[0].code);
+					
+					// 마커를 클릭한 위치에 표시합니다 
+			        marker.setPosition(mouseEvent.latLng);
+			        marker.setMap(map);	
+					
+		            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+		            infowindow.setContent(content);
+		            infowindow.open(map, marker);
+				}
+			}; */
+		
+		
 /* 			searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
 				if(status === kakao.maps.services.Status.Ok) {alert("dsf")
 	            var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
@@ -204,9 +230,18 @@
 				desSplit[0] = desSplit[0].substring(1, desSplit[0].length - 1);
 				desSplit[1] = desSplit[1].substring(0, desSplit[1].length - 2);
 				
-				message1 = '<div style="padding: 5px;">Hello World!<br>'+
+				message1 = '<div style="padding: 1px;color:fuchsia;width:300px;height: 80px;padding-left:5px;">Hello, LEGGO<br/>'+
+				'<input type="button" class="color2" value="출발" style="background-color: #ffffff;font-size: 5pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+')"/>'+
+				'<input type="button" class="color2" value="도착" style="background-color: #ffffff;font-size: 5pt;" onclick="end('+desSplit[0]+', '+desSplit[1]+')"/>'+
 				'<button><a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="text-decoration:none">길찾기'+
 				'</a></button></div>';
+				
+				
+				
+				/* '<button><a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="text-decoration:none">길찾기'+
+				'</a></button>' */
+				
+				
 				
 				iwContent = message1;
 				var infowindow = new kakao.maps.InfoWindow({
@@ -288,6 +323,38 @@
 					}		
 				}
 			}
+		}
+		
+		function start(lati, longi) {
+			alert("!!!" + lati +" " + longi);
+			$(document).ready(function() {
+				$.get("/leggo/findRoad/start.do",
+						{"lati":lati,
+						 "longi":longi},
+						function(data) {
+							startStr = lati + ", " + longi;
+							alert("???????????? " + startStr);
+							$('#input_start').val(startStr);
+							
+						},
+						"text")
+			});
+		}
+		
+		function end(lati, longi) {
+			alert("!!!" + lati +" " + longi);
+			$(document).ready(function() {
+				$.get("/leggo/findRoad/end.do",
+						{"lati":lati,
+						 "longi":longi},
+						function(data) {
+							endStr = lati + ", " + longi;
+							alert("???????????? " + endStr);
+							$('#input_end').val(endStr);
+							
+						},
+						"text")
+			});
 		}
 			
 	</script>
