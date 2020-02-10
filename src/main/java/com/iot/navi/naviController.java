@@ -14,4 +14,14 @@ public class naviController {
 	public String roadmap() {
 		return "roadmap";
 	}
+	
+	@RequestMapping(value="/start.do" )
+	public String start() {	
+		return "start";
+	}
+
+	@RequestMapping(value="/end.do" )
+	public String end() {
+		return "end";
+	}
 }

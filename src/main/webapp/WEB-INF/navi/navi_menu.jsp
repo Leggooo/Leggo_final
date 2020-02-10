@@ -20,19 +20,21 @@
 </style>
 	
 </head>
-<body>
 <!-- class="w3-cell" class="col-9" id="freesidebar" style="width: 60%;" id="freemenubtn"-->
 	<!-- Sidebar/menu -->
 	<div id="freesidebar">
 		<div id="freemenubtn">
 			<form action="" method="get">
+				<input type="text" class=color2" value="출발" style="background-color: #ffffff; font-size: 14pt;" disabled/>
+				<input type="text" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt;" disabled/>
+				<input type="button" class="button primary color2" value="길찾기" style="background-color: #ffffff; font-size: 14pt;" />
 				<input type="text" maxlength="10" style="color:white;" placeholder="검색하세요" /><br/>
 				
-				<input type="reset" value="다시입력" style="background-color: #ffffff; font-size: 14pt;" />
-				<input type="submit" value="검색" style="background-color: #ffffff; font-size: 14pt;" />
+				<input type="reset" class="button primary color2" value="다시입력" style="background-color: #ffffff; font-size: 14pt;" />
+				<input type="submit" class="button primary color2" value="검색" style="background-color: #ffffff; font-size: 14pt;" />
+				
 			
 			</form>
-			<h2 class="w3-gray" style="text-shadow:1px 1px 0 #444;font-size:20px">서울시 강남구 역삼동</h2>
 			<a href="/leggo/roadmap.do" onclick="" class="w3-button">길찾기</a> 
 			<a href="#" onclick="" class="w3-button">★</a> 
 			<a href="/leggo/parking.do" onclick="" class="w3-button">P</a>
@@ -53,9 +55,12 @@
 		</div>
 	</div>
 	
+<!-- 	
+	
+	<h2 class="w3-gray" style="text-shadow:1px 1px 0 #444;font-size:20px">서울시 강남구 역삼동</h2>
 	<div style="text-align: center; margin-bottom: 10px; ">
 		<a href="road_map.html" class="button primary color2"
 			style="width: 70%; font-size: 20px;">길찾기</a><br />
-	</div>
+	</div> -->
 </body>
 </html>
