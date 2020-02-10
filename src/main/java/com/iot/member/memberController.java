@@ -43,6 +43,7 @@ public class memberController {
 			/*System.out.println("session 생성");*/
 			HttpSession ses = request.getSession();
 			ses.setAttribute("user", user);
+			ses.setAttribute("user_id", user.getUser_id());
 			viewName = "mainmenu";
 		}else {
 			viewName = "login";
