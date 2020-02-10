@@ -5,14 +5,16 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Leggo</title>	
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="/leggo/css/main_jw.css">
+	<title>parkingMainLayout</title>	
 	<style type="text/css">
  		.col-xl-3 .col-xl-9{
 			padding: 15px;
+			margin: 15px;
+			margin-left: 5px;
 		} 
 	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	
 	<!-- 카카오맵 -->
 	<script type="text/javascript" 
@@ -27,21 +29,20 @@
 		
 </head>
 <body>
-	<div class="parkingLayout">
+	<div class="container">
 		<div class="row">	
-			<div class="col-xl-12">
+			<div class="col-md-12">
 				<!-- TOP -->
 				<tiles:insertAttribute name="top"></tiles:insertAttribute>
 			</div>
-			<div class="col-xl-3">
+			<div class="col-md-3">
 				<!-- MENU -->
 				<tiles:insertAttribute name="menu"></tiles:insertAttribute>
 			</div>
-			
-		 	<div class="col-xl-9">
+			<div class="col-md-9">
 				<!-- CONTENT -->
 				<tiles:insertAttribute name="content"></tiles:insertAttribute>
-			</div> 
+			</div>
 		</div>
 	</div>
 </body>

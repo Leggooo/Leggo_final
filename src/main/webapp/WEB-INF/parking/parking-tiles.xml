@@ -4,7 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="parkingTemplate" template="/WEB-INF/layout/parkingMainLayout.jsp">
-		<put-attribute name="top" value="/WEB-INF/include/top2.jsp" />
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/parking/parking_menu.jsp" />
 		<put-attribute name="content" value="/WEB-INF/parking/parking_map.jsp" />
 	</definition>

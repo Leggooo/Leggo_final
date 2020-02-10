@@ -1,5 +1,19 @@
 ===== 3. ☆★☆★테스트용 parking_lots data insert =====
-insert into parking_lots values
+insert into parking_loc values
+(
+'1040225',
+'논현로22길(구)',
+'강남구 개포동 1266-0',
+37.48150119,
+127.04781332,
+'NW',
+'노외 주차장',
+'1',
+'시간제 주차장',
+'02-576-1492'
+);
+
+insert into parking_loc values
 (
 '1010089',
 '초안산근린공원주차장(구)',
@@ -14,7 +28,7 @@ insert into parking_lots values
 null
 );
 
-insert into parking_lots values
+insert into parking_loc values
 (
 	'1012254',
 	'마들스타디움(근린공원)(구)',
@@ -37,7 +51,7 @@ sqlldr userid=leggo/leggo control='F:\project1\db\parking_time.ctl' log='F:\proj
 sqlldr userid=leggo/leggo control='F:\project1\db\parkinglots.ctl' log='F:\project1\db\parkinglots.log'
 
 ===== 1. 테이블 생성 =====
-create table parking_lots
+create table parking_loc
 (
 parking_code varchar2(7) primary key
 ,parking_name varchar2(100)
