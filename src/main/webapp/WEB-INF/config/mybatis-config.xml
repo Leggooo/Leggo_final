@@ -15,8 +15,11 @@
       <typeAlias type="com.iot.comment.cmtVO" alias="comment"/>
       <typeAlias type="com.iot.reservation.resvTableVO" alias="resvTableVO"/>
       <typeAlias type="com.iot.point.pointVO" alias="pointVO"/>
-     
+      <typeAlias alias="favoriteVO" type="com.iot.lastmile.FavoriteVO"/>
+      <typeAlias alias="recentVO" type="com.iot.lastmile.RecentVO"/>
    </typeAliases>
+   
+   
    <mappers>
       <mapper resource="mapper/member.xml"/>
       <mapper resource="mapper/parking.xml"/>
@@ -24,8 +27,6 @@
       <mapper resource="mapper/freeboard.xml"/>
       <mapper resource="mapper/comment.xml"/>
       <mapper resource="mapper/point.xml"/>
-  
-      
-      
+      <mapper resource="mapper/lastmile.xml"/>  
    </mappers>
 </configuration>
