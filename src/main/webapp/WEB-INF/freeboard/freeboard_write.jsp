@@ -1,3 +1,5 @@
+<%@page import="com.iot.freeboard.freeboardVO"%>
+<%@page import="com.iot.member.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,12 +9,15 @@
 	<style type="text/css">
 	</style>
 </head> 
-<body> 
+<body>
+
+<% memberVO user = (memberVO)session.getAttribute("user"); %>
 	<form action="/leggo/freeboardwrite.do" method="post">
 	<div class="outer">
 		<div class="top">
 		</div>
-		<div class="container"> 
+		<div class="container">
+		    <input type="hidden" name="user_id" value="<%=user.getUser_id()%>"/>
 			<table class="table"> 
 			<!-- table-hover클래스는 마우스를 올리면 회색이 생기게
 			table-striped클래스는 홀수번째 테이블에 회색이 생겨있게-->
@@ -42,10 +47,11 @@
 					</tr>
 				</tfoot>
 			</table>
+			
 			<!-- 버튼 -->
 			<div class="allbtn">
 				<button type="submit" id="brdsubtn">등록</button>
-				<button type="reset" id="delbtn">취소</button>
+				<button type="button" id="delbtn" onclick="window.location.href='http://localhost:8088/leggo/freeboardmain.do'">취소</button>
 			</div>
 		</div> 
 	</div>
