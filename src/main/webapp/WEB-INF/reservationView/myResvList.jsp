@@ -33,7 +33,7 @@
 <% List<resvVO> rlist = null;
 if(request.getAttribute("resvlist")!=null){
 	rlist = (List<resvVO>)request.getAttribute("resvlist");  
-%>
+%> 
 	<div class="container" style="height: 100%; width: 100%;">
 	<h2 style="margin-top: 0px;">예약정보</h2>
 		<table class="table table-bordered" id="parking_list" style="border: 1px solid; text-align: center">
