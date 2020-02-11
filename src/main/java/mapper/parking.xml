@@ -5,12 +5,11 @@
   
   <mapper namespace="com.iot.parking">
 
-  	<!-- 회원정보 조회 -->
+  	<!-- 주차장 위치 조회 -->
   	<select id="ploc" resultType="parking">
-  		select ploc.lat, ploc.lng
-  		from parking_loc ploc
+  		select parking_code ,parking_name, addr,lat, lng,parking_type,parking_type_nm,operation_rule,operation_rule_nm,tel
+  		from parking_loc 
   	</select>
-  	
 
   	
 

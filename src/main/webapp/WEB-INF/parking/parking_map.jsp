@@ -55,7 +55,7 @@
 
 </head>
 <body>
-	<!-- 주차장 보이기 -->
+<!--======================================================HTML===================================================-->
 	<div id="map" style="width: 100%; height: 450px;"></div>
 	<p>
 		<button onclick="currentLoc()">현재위치</button>
@@ -64,21 +64,24 @@
 		<!-- button onclick="removeCircles()">반경 모두 지우기</button> -->
 		<br>
 	</p>
-	<!-- jQuery쓰기 -->
+	<!-- 지도 사이즈 -->
+	<div id="map" style="width: 95%; height: 120%;"></div>
+<!--=========================================================================================================-->
+<!-- java 쓰기 -->
 	<%
 		List<parkingVO> list = (List<parkingVO>) request.getAttribute("parkingInfo");
 		int size = list.size();
 	%>
-	<!-- 지도 사이즈 -->
-	<div id="map" style="width: 95%; height: 120%;"></div>
-
+<!--=========================================================================================================-->
+<!-- JQuery 쓰기 -->
 	<script type="text/javascript" src="058c8dd884377b38875fd39e9587e919"></script>
 	<script>
+	open = false
 /*=======================================지도 생성입니다========================================  */	
 	// 지도를 표시할 div 
 	var mapContainer = document.getElementById('map'), 
 	mapOption = { 
-	    center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
+	    center: new kakao.maps.LatLng(37.501427, 127.039697), // 지도의 중심좌표
 	    level: 3 // 지도의 확대 레벨
 	};
 	// 지도를 생성합니다
@@ -214,16 +217,6 @@
 	    return content;
 	}
 
-	 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-	// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-	 var iwContent = 
-		'<div class="popupWindow" ">서울 공용 주차장<br/><button id="btnStyle" style="color:white;">예약하기</button></div>', 
-	    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-	// 인포윈도우를 생성합니다
-	var infowindow = new kakao.maps.InfoWindow({
-	    content : iwContent,
-	});
 	
 var imageSrc = '/leggo/images/parking_icon.png', // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(54, 59), // 마커이미지의 크기입니다
@@ -234,13 +227,15 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
     markerPosition1 = new kakao.maps.LatLng(37.5033, 127.0387); // 마커가 표시될 위치입니다
     markerPosition2 = new kakao.maps.LatLng(<%=(double)list.get(0).getLat()%>, 
     		<%=(double)list.get(0).getLng()%>); // 마커가 표시될 위치입니다
---%>	open = false
+--%>	
 	    <%for (int i = 0; i < size; i++) {
 				parkingVO vo = list.get(i);
 				if (vo == null)
 					continue;
 				double lat = vo.getLat();
-				double lng = vo.getLng();%>
+				double lng = vo.getLng();
+				String name = vo.getParking_name();
+		%>
 		// 마커가 표시될 위치입니다
 		markerPosition<%=i%> = new kakao.maps.LatLng(<%=lat%>,<%=lng%>); 
 	        
@@ -248,27 +243,44 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 		    var marker<%=i%> = new kakao.maps.Marker({
 		        position: markerPosition<%=i%>,
 		        image: markerImage // 마커이미지 설정 
-		     });     		
-		    
+		     });
+/*==========================================주차장 info window==============================================*/    		
+		 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+			// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+			 var iwContent<%=i%> = 
+				'<div class="popupWindow" ">'+
+				'<%=name%> 공영 주차장'+
+				'<br/><button id="btnStyle" style="color:white;">예약하기</button></div>', 
+			    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+			// 인포윈도우를 생성합니다
+			var infowindow<%=i%> = new kakao.maps.InfoWindow({
+			    content : iwContent<%=i%>,
+			});
+			    
 		 	// 마커가 지도 위에 표시되도록 설정합니다
 		    marker<%=i%>.setMap(map);
    		  
-/*=====*/	 
+ /*=========================================================================================================*/    		
+	 
 
 // 마커에 클릭이벤트를 등록합니다
 kakao.maps.event.addListener(marker<%=i%>, 'click', function() {
       // 마커 위에 인포윈도우를 표시합니다
       if(open==false){
-      infowindow.open(map, marker<%=i%>);
+      infowindow<%=i%>.open(map, marker<%=i%>);
       open=true;
       }
       else{
-      infowindow.close(map, marker<%=i%>); 
+      infowindow<%=i%>.close(map, marker<%=i%>); 
       open=false;
       }
 });
-
+	function closeall(map){
+	infowindow<%=i%>.close(map, marker<%=i%>); 
+	}
 <%}%>
+	
 /*=====*/
  // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
     function setMarkers(map) {
