@@ -27,6 +27,7 @@ if(request.getAttribute("resvlist")!=null){
 %>
 	<div class="container" style="height: 100%; width: 100%;">
 	<h2 style="margin-top: 0px;">예약정보</h2>
+	<a href="/leggo/resvMake.do">예약하기</a>
 		<table class="table table-bordered" id="parking_list" style="border: 1px solid; text-align: center">
 			<tr>
 				<th>번호</th>

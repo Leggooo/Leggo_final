@@ -6,4 +6,7 @@
 	<definition name="myResv" extends="userInfoTemplate">
 		<put-attribute name="content" value="/WEB-INF/reservationView/myResvList.jsp" />
 	</definition>
+	<definition name="resvMake" extends="userInfoTemplate">
+		<put-attribute name="content" value="/WEB-INF/reservationView/resvMake.jsp" />
+	</definition>
 </tiles-definitions>

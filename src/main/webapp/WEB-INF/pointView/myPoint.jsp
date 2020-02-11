@@ -45,11 +45,9 @@ if(request.getAttribute("plist")!=null){
 						<input type="hidden" name="userGrade" value="<%=userpoint.getUserGrade() %>">
 						<input type="hidden" name="pointAvail" value="<%=userpoint.getPointAvail() %>">
 						<input type="submit" value="충전">
-					
 					<a href="##"><button>선물</button></a>
 					</form>
 				</td>
-					
 			</tr>
 		</table>
 	</div>
@@ -63,7 +61,7 @@ if(request.getAttribute("plist")!=null){
 				<th>회원등급</th>
 			</tr>
 			<% int listSize = plist.size(); %>
-			<%for(int i=0;i<listSize;i++){ %>
+			<%for(int i=listSize-1;i>=0;i--){ %>
 				<tr>
 					<td><%=i+1 %></td>
 					<td><%=plist.get(i).getPointAvail() %></td>
@@ -78,5 +76,25 @@ if(request.getAttribute("plist")!=null){
 	<%}else{ %>
 	<h1>포인트 이용내역이 없습니다.</h1>
 	<%} %>
+	<!-- <script type="text/javascript">
+		$(document).ready(function() {
+			/* 팝업창 종료시점 감지하기 */
+			var g_oWindow = null;
+			var g_oInterval = null;
+			var popup = function() {
+			    g_oWindow = window.open('http://localhost:8088/leggo/point/totalPoint.do', '포인트 충전 : LEGGO');
+			    g_oInterval = window.setInterval(function() {
+			        try {
+			            if( g_oWindow == null || g_oWindow.closed ) {
+			                window.clearInterval(g_oInterval);
+			                g_oWindow = null;
+			                alert('창 close');
+			            }
+			        } catch (e) { }
+			    }, 500);
+			};
+			popup()
+		})
+	</script> -->
 </body>
 </html>
