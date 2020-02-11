@@ -17,6 +17,15 @@
 			color: white;
 			text-align: center;
 		}
+		table {
+			width: 100%;
+			background-color: white;
+			color : black;
+		}
+		h2 {
+			margin-top: 0px;
+			color: white;
+		}
 	</style>
 </head>
 <body id="myInfoBody">

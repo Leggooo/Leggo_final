@@ -22,6 +22,12 @@
 }
 table {
 	width: 100%;
+	background-color: white;
+	color : black;
+}
+h2 {
+	margin-top: 0px;
+	color: white;
 }
 .ans {
 	width: 40%;
@@ -39,7 +45,7 @@ table {
 	%>
 	<%if(user.getPass()!=null){ %>
 	<div class="container" style="height: 100%; width: 100%;">
-		<h2 style="margin-top: 0px;">회원정보</h2>
+		<h2>회원정보</h2>
 		<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post"
 			class="auth-form">
 			<table class="table table-bordered">

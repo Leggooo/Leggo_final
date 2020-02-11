@@ -9,6 +9,11 @@
 <body>
 	<div class="color1 span-1">
 		<ul class="actions stacked">
+			<li>
+			<li>
+			<li>
+			<li>
+			<li>
 			<li><a href="/leggo/myInfo.do" class="w3-button">회원정보</a></li>
 			<li><a href='/leggo/point/select.do?user_id=<%=(String)session.getAttribute("user_id") %>' class="w3-button">포인트</a></li>
 			<!-- <li><input type="submit" value="차량 정보" class="button fit color2" style="font-size: 20pt"/></li> -->

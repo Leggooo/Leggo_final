@@ -32,14 +32,14 @@ public class resvController {
 	
 	@RequestMapping(value="/resvMake.do", method=RequestMethod.GET)
 	public String viewResvMaker() {
-		System.out.println("reservation maker view");
+		/*System.out.println("reservation maker view");*/
 		return "resvMake";
 	}
 	
 	@RequestMapping(value="/resvMake.do", method=RequestMethod.POST)
 	public String resvMaker(resvVO resv) {
-		System.out.println("reservation:"+resv);
+		/*System.out.println("reservation:"+resv);*/
 		service.insert(resv);
-		return "myResv";
+		return "redirect:/myResvList.do";
 	}
 }

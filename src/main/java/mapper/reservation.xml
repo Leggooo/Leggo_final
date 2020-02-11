@@ -14,7 +14,7 @@
 			#{license_plate},
 			0,
 			sysdate,
-			#{rv_time}
+			sysdate
 		)
   	</insert>
   	

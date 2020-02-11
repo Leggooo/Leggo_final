@@ -18,6 +18,15 @@
 			color: white;
 			text-align: center;
 		}
+		table {
+			width: 100%;
+			background-color: white;
+			color : black;
+		}
+		h2 {
+			margin-top: 0px;
+			color: white;
+		}
 	</style>
 </head>
 <body id="myInfoBody">
@@ -27,7 +36,6 @@ if(request.getAttribute("resvlist")!=null){
 %>
 	<div class="container" style="height: 100%; width: 100%;">
 	<h2 style="margin-top: 0px;">예약정보</h2>
-	<a href="/leggo/resvMake.do">예약하기</a>
 		<table class="table table-bordered" id="parking_list" style="border: 1px solid; text-align: center">
 			<tr>
 				<th>번호</th>
@@ -38,7 +46,7 @@ if(request.getAttribute("resvlist")!=null){
 				<th>이용시간</th>
 			</tr>
 			<% int listSize = rlist.size(); %>
-			<%for(int i=0;i<listSize;i++){ %>
+			<%for(int i=listSize-1;i>=0;i--){ %>
 				<tr>
 					<td><%=i+1 %></td>
 					<td><%=rlist.get(i).getParking_code() %></td>
@@ -53,5 +61,6 @@ if(request.getAttribute("resvlist")!=null){
 	<%}else{ %>
 	<h1>예약 내역이 없습니다.</h1>
 	<%} %>
+	<a href="/leggo/resvMake.do">예약하기</a>
 </body>
 </html>
