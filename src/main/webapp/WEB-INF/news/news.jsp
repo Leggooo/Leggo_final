@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>뉴스</title>
 </head>
+<script type="text/javascript">
+self.location.href="https://news.naver.com"
+</script>
 <body>
 
 </body>
