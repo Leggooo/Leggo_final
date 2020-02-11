@@ -1,9 +1,9 @@
 ========전체 테이블 세팅==========
 ===포함된 테이블 목록=============
-맴버, 포인트, 주차장4개, 예약, 게시판(타입,자유게시판,이미지,댓글)
+멤버, 포인트, 주차장 4개, 예약, 게시판(타입, 자유게시판, 공지사항, 이미지, 댓글), 즐겨찾기, 최근방문
 ============================
 ===포함된 시퀀스 목록=============
-예약번호, 자유게시판글번호, 
+예약번호, 자유게시판글번호, FAQ게시판글번호, 공지사항게시판글번호, 1:1문의게시판글번호
 =============================
 create table member
 (
@@ -32,7 +32,7 @@ pointAvail number(10) not null,
 pointChange number(10) not null,
 pointDate date not null,	
 pointExpDate date not null,
-userGrade varchar2(15) check( userGrade in('브론즈','실버','골드','플래티넘'))
+userGrade varchar2(15) check( userGrade in('釉뚮줎利�','�떎踰�','怨⑤뱶','�뵆�옒�떚�꽆'))
 );
 
 create table parking_loc
@@ -124,6 +124,22 @@ img_path varchar2(60)
 );
 
 create sequence freeboard_seq;
+
+//FAQ 테이블 생성 필요
+create sequence faqboard_seq;
+  
+create table noticeboard(
+notice_num number(7) primary key,
+title varchar2(60) not null,
+content varchar2(1000) not null,
+update_date date,
+mng_id varchar2(20) not null,
+img_path varchar2(60)
+);
+create sequence noticeboard_seq;
+  
+//1:1 테이블 생성 필요
+create sequence quesboard_seq;
   
 create table img(
 brd_type_num number(3) references type (brd_type_num),
