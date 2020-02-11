@@ -6,14 +6,26 @@
   
  <!-- VO path와 SQL mapper명시 -->
 <configuration>
-	<typeAliases>
-		<typeAlias type="com.iot.member.memberVO" alias="member"/>
-		<typeAlias type="com.iot.reservation.resvVO" alias="resvVO"/>
-		<typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
-	</typeAliases>
-	<mappers>
-		<mapper resource="mapper/member.xml"/>
-		<mapper resource="mapper/reservation.xml"/>
-		<mapper resource="mapper/freeboard.xml"/>
-	</mappers>
+   <typeAliases>
+      <typeAlias type="com.iot.member.memberVO" alias="member"/>
+                        <!-- mapper에 resultType="parking"와 일치해야 함 -->
+      <typeAlias type="com.iot.parking.parkingVO" alias="parking"/>
+      <typeAlias type="com.iot.reservation.resvVO" alias="resvVO"/>
+      <typeAlias type="com.iot.freeboard.freeboardVO" alias="freeboard"/>
+      <typeAlias type="com.iot.comment.cmtVO" alias="comment"/>
+      <typeAlias type="com.iot.reservation.resvTableVO" alias="resvTableVO"/>
+      <typeAlias type="com.iot.point.pointVO" alias="pointVO"/>
+     
+   </typeAliases>
+   <mappers>
+      <mapper resource="mapper/member.xml"/>
+      <mapper resource="mapper/parking.xml"/>
+      <mapper resource="mapper/reservation.xml"/>
+      <mapper resource="mapper/freeboard.xml"/>
+      <mapper resource="mapper/comment.xml"/>
+      <mapper resource="mapper/point.xml"/>
+  
+      
+      
+   </mappers>
 </configuration>

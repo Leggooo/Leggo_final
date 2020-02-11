@@ -1,62 +1,56 @@
+<%@page import="com.iot.reservation.resvVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.iot.parking.parkingVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>예약조회 : LEGGO</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		th{
+			font-size: 20px;
+			font-weight: bold;
+			background-color: #2f5597;
+			color: white;
+			text-align: center;
+		}
+	</style>
 </head>
-<body>
-	<div name="myparking_list">
-		<table name="parking_list" style="border: 1px solid;">
+<body id="myInfoBody">
+<% List<resvVO> rlist = null;
+if(request.getAttribute("resvlist")!=null){
+	rlist = (List<resvVO>)request.getAttribute("resvlist");  
+%>
+	<div class="container" style="height: 100%; width: 100%;">
+	<h2 style="margin-top: 0px;">예약정보</h2>
+		<table class="table table-bordered" id="parking_list" style="border: 1px solid; text-align: center">
 			<tr>
 				<th>번호</th>
 				<th>주차장 이름</th>
 				<th>위치</th>
 				<th>금액</th>
-				<th>날짜</th>
-				<th>비고</th>
+				<th>예약날짜</th>
+				<th>이용시간</th>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>광진광장공영</td>
-				<td>광진구 군자동 374-7</td>
-				<td>15000원</td>
-				<td>2020-01-13</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>가로공원주차장</td>
-				<td>양천구 신월동 263-0</td>
-				<td>8000원</td>
-				<td>2020-01-10</td>
-				<td>연체</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>강일동공영주차장</td>
-				<td>강동구 강일동 292-2</td>
-				<td>3000원</td>
-				<td>2019-12-31</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>구의3동 공영주차장</td>
-				<td>광진구 구의동 219-15</td>
-				<td>20000원</td>
-				<td>2019-09-13</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>개화산역</td>
-				<td>강서구 반화동 526-16</td>
-				<td>4500원</td>
-				<td>2019-03-13</td>
-				<td></td>
-			</tr>
+			<% int listSize = rlist.size(); %>
+			<%for(int i=0;i<listSize;i++){ %>
+				<tr>
+					<td><%=i+1 %></td>
+					<td><%=rlist.get(i).getParking_code() %></td>
+					<td><%=rlist.get(i).getParking_code() %></td>
+					<td><%=rlist.get(i).getRv_price() %></td>
+					<td><%=rlist.get(i).getRv_date() %></td>
+					<td><%=rlist.get(i).getRv_time() %></td>
+				</tr>
+			<%}%>
 		</table>
 	</div>
+	<%}else{ %>
+	<h1>예약 내역이 없습니다.</h1>
+	<%} %>
 </body>
 </html>

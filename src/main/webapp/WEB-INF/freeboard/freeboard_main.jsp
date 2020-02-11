@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<%@page import="com.iot.freeboard.freeboardVO"%>
+<%@page import="java.util.ArrayList"%>
 <html lang="en">
 <head>
 	<title>LEGGO</title>
@@ -12,6 +14,7 @@
 	<meta name="viewport">
 </head> 
 <body> 
+<%ArrayList<freeboardVO> list = (ArrayList<freeboardVO>)request.getAttribute("boardlist"); %>
 	<div class="boardouter">
 		<div class="boardtop">
 		
@@ -31,44 +34,19 @@
 						<td>번호</td> 
 						<td>제목</td> 
 						<td>작성자</td> 
-						<td>날짜</td> 
-					</tr> 
-					<tr> 
-						<td>1</td> 
-						<td><a href="#" onclick="" class="boardbutton">자유게시판</a></td> 
-						<td>ccccccc</td> 
-						<td>2017.07.04</td> 
-					</tr> 
-					
+						<td>등록일</td> 
+					</tr>
+					<%for(int i=0;i<list.size();i++){
+						freeboardVO row = list.get(i);	
+						%>
 					
 					<tr> 
-						<td>2</td> 
-						<td>bbbbbbb</td> 
-						<td>ccccccc</td> 
-						<td>2017.07.05</td> 
-					</tr> 
-					
-					
-					<tr> 
-						<td>3</td> 
-						<td>bbbbbbb</td> 
-						<td>ccccccc</td> 
-						<td>2017.07.06</td> 
-					</tr> 
-					
-					
-					<tr> 
-						<td>4</td> 
-						<td>bbbbbbb</td> 
-						<td>ccccccc</td> 
-						<td>2017.07.08</td> 
-					</tr> 
-					<tr> 
-						<td>5</td> 
-						<td>bbbbbbb</td> 
-						<td>ccccccc</td> 
-						<td>2017.07.08</td> 
-					</tr> 
+						<td><%=row.getBrd_num() %></td>    <!--String brd_num = row.getBrd_num-->
+						<td><a href="/leggo/freeboardread.do?brd_num=<%=row.getBrd_num() %>"><%=row.getTitle() %></a></td> 
+						<td><%=row.getUser_id() %></td> 
+						<td><%=row.getUpdate_date() %></td> 
+					</tr>
+					<% } %> 
 				</tbody>
 				<tfoot >
 					<tr>
@@ -78,25 +56,15 @@
 			</table> 
 				<!-- 글쓰기 버튼 -->
 			<div class="boardallbtn">
-				<a class="btn btn-default">글쓰기</a>
+				<%if(list!=null) {%>
+				<a class="w3-button" href="/leggo/freeboardwrite.do">글쓰기</a>
 			</div>
-		
-			<div class="boardtext-center"> 
-				<ul class="pagination">
-				<!-- pagination클래스 -->
-				<li><a href="#">이전</a></li> 
-				<li><a href="#">1</a></li> 
-				<li><a href="#">2</a></li> 
-				<li><a href="#">3</a></li> 
-				<li><a href="#">4</a></li> 
-				<li><a href="#">5</a></li>
-				<li><a href="#">다음</a></li> 
-				</ul> 
-			</div>
-			<div class="boardmainsearch">
-				<input type="text" placeholder="검색어 입력">
-				<input type="button" name="search" onclick="" value="검색">
-			</div>
+				<%} else{%>
+						<script type="text/javascript">
+							alert("로그인을 해주세요.");
+							document.location.href="login.do";
+						</script>
+				<%}%>
 		</div> 
 	</div>
 </body> 

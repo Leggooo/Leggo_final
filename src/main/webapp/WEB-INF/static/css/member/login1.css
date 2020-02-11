@@ -4130,8 +4130,9 @@ select.selectpicker {
 
 body,
 html {
-    min-height: 100%;
-    height: 100%;
+    min-height: 95%;
+    height: 95%;
+    width: 95%;
     margin: 0!important
 }
 
@@ -4288,8 +4289,10 @@ form label.input-label {
     margin-top: 10px
 }
 
-form input {
-    height: 35px!important;
+form input[type=text],
+	input[type=password],
+	input[type=tel] {
+    /* height: 35px!important; */
     border: 0 solid #ebebeb!important;
     background-color: #f5f6fa!important;
     box-shadow: none!important
@@ -4465,7 +4468,6 @@ form .media .media-left {
 .blue-btn {
     background: #2070f9;
     border: 1px solid #2070f9;
-    color: #fff!important;
     font-weight: 600;
     line-height: 31px;
     text-align: center;
@@ -5164,11 +5166,11 @@ table .media .media-right {
 .auth-form .field .error-message:empty {
     display: none
 }
-
+/* 
 .auth-form button {
     margin-top: 20px
 }
-
+ */
 .auth-form .recover {
     font-size: 14px;
     color: #243d8f

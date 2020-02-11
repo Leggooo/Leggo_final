@@ -7,7 +7,6 @@ public interface freeboardDAO {
 	List<freeboardVO> boardList();
 	//게시글등록하기
 	int insert(freeboardVO content);
-	List<freeboardVO> categorySearch(String free_brd_type_num);
 	List<freeboardVO> searchList(String search);
 	List<freeboardVO> pageList();
 	//게시글조회
@@ -15,5 +14,5 @@ public interface freeboardDAO {
 	//게시글수정
 	int update(freeboardVO content);
 	//게시글삭제
-	int delete(String free_brd_num);
+	int delete(String brd_num);
 }

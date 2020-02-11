@@ -3,21 +3,24 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="freeboard_main" extends="mainTemplate">
+	<definition name="boardTemplate" template="/WEB-INF/layout/mainLayout.jsp">
 		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/freeboard/freeboard_menu.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/freeboard/board_menu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/noticeboard/noticeboard_main.jsp" />
+	</definition>
+
+	<definition name="freeboard" extends="boardTemplate"></definition>
+	
+	<definition name="freeboardmain" extends="freeboard">
 		<put-attribute name="content" value="/WEB-INF/freeboard/freeboard_main.jsp" />
 	</definition>
-	
-	<definition name="freeboard_write" extends="mainTemplate">
-		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/freeboard/freeboard_menu.jsp" />
+
+	<definition name="freeboardwrite" extends="freeboard">
 		<put-attribute name="content" value="/WEB-INF/freeboard/freeboard_write.jsp" />
 	</definition>
 	
-	<definition name="freeboard_read" extends="mainTemplate">
-		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/freeboard/freeboard_menu.jsp" />
+	<definition name="freeboardread" extends="freeboard">
 		<put-attribute name="content" value="/WEB-INF/freeboard/freeboard_read.jsp" />
 	</definition>
+		
 </tiles-definitions>

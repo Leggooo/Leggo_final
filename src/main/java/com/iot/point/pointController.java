@@ -42,19 +42,19 @@ public class pointController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/point/totalPoint.do", method=RequestMethod.POST)
+	/*@RequestMapping(value="/point/totalPoint.do", method=RequestMethod.POST)
 	public ModelAndView chargePointView(pointVO point) {
 		System.out.println("너는 지금 충전하러 왔따."+ point);
-		/*System.out.println("total:"+point);*/
+		System.out.println("total:"+point);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("point", point);
 		mav.setViewName("chargePoint");
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping(value="/point/chargePoint.do", method=RequestMethod.POST)
 	public String chargePoint(pointVO point) {
-		System.out.println("너는 지금 인서트하러 왔따."+ point);
+		/*System.out.println("너는 지금 인서트하러 왔따."+ point);*/
 		point.setPointAvail(point.getPointAvail()+point.getPointChange());
 		service.chargePoint(point);
 		return "redirect:/point/select.do?user_id="+point.getUser_id();

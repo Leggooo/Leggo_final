@@ -5,112 +5,143 @@
 <head>
 	<meta charset='UTF-8' />
 	<title>회원가입 : LEGGO</title>
-<!--   	<link rel="stylesheet" href="/leggo/css/member/login.css" />
-	<link rel="stylesheet" href="/leggo/css/member/login1.css" />  -->
+   	<link rel="stylesheet" href="/leggo/css/member/login.css" />
+	<link rel="stylesheet" href="/leggo/css/member/login1.css" />
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		#signForm{
+		    background: #fff;
+		    border: 0 solid #ebebeb;
+		    border-radius: 5px;
+		    padding: 15px 15px 15px;
+		    width: 90%;
+		    max-width: 800px;
+		    text-align: left;
+		}
+		.input-wrap{
+			padding: 10px;
+		}
+		.align-right{
+			text-align: right;
+		}
+		.align-center{
+			text-align: center;
+		}
+	</style>
 </head>
-<body id="signup" class="">
-	<div class="container-flex">
-		<div id="page-wrap">
-			<a href="#" class="logo-center"><img src="/leggo/images/LeggoLogo.png" alt=""></a>
+<body style="background-color: #09214F;">
+	<div class="row">
+		<div class="page-wrap align-center">
+			<div id="image-wrap">
+				<a href="/leggo/index.do" class="logo-center"><img src="/leggo/images/LeggoLogo.png" alt=""></a>
+			</div>
 			<div id="page-content">
 				<div class="text-center">
 					<div class="auth-form-wrap" style="top: 50%">
-						<form name="sign_up" action="/leggo/signUpSucc.do" method="post" class="auth-form">
+						<div class="text" style="color: white;">
 							<h1>회원가입</h1>
-							<div class="row">
-        					<div class="col-xs-6">
-							<div class="field">
-								<input type="text" id="user_id"
-									name="user_id" required="required"
-									placeholder="아이디" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="password" id="pass"
-									name="pass" required="required"
-									placeholder="비밀번호" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="password" id="pass_second"
-									required="required"
-									placeholder="비밀번호 확인" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="text" id="pass_hint"
-									name="pass_hint" required="required"
-									placeholder="비밀번호 힌트" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="text" id="pass_ans"
-									name="pass_ans" required="required"
-									placeholder="비밀번호 답변" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="text" id="user_name"
-									name="user_name" required="required"
-									placeholder="이름" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="text" id="birth"
-									name="birth" required="required"
-									placeholder="YYYYMMDD" class="form-control" />
-							</div>
-							</div>
-                       		<div class="col-xs-6">
-							<div class="field">
-	                            <select id="gender" name="gender" class="form-control" aria-label="성별">
-	                                <option value="" selected>성별</option>
+							<br/>
+						</div>
+						<form name="sign_up" action="/leggo/signUpSucc.do" method="post" class="auth-form" id="signForm">
+        					<div class="inputWrap" style="background-color: skyblue;">
+	        					<div class="col-xs-6">
+									<div class="field">
+										<input type="text" id="user_id"
+											name="user_id" required="required"
+											placeholder="아이디" class="form-control" />
+										<label id="idCheckResult"></label>
+									</div>
+									<div class="field">
+										<input type="password" id="pass"
+											name="pass" required="required"
+											placeholder="비밀번호" class="form-control" />
+									</div>
+									<div class="field">
+										<input type="password" id="pass_second"
+											required="required"
+											placeholder="비밀번호 확인" class="form-control" />
+										<label id="passCheckResult"></label>
+									</div>
+									<div class="field">
+										<input type="text" id="pass_hint"
+											name="pass_hint" required="required"
+											placeholder="비밀번호 힌트" class="form-control" />
+									</div>
+									<div class="field">
+										<input type="text" id="pass_ans"
+											name="pass_ans" required="required"
+											placeholder="비밀번호 답변" class="form-control" />
+									</div>
+									<div class="field">
+										<input type="text" id="user_name"
+											name="user_name" required="required"
+											placeholder="이름" class="form-control" />
+									</div>
+									<div class="field">
+										<input type="text" id="birth"
+											name="birth" required="required"
+											placeholder="YYYYMMDD" class="form-control" />
+									</div>
+								</div>
+	                       		<div class="col-xs-6">
+									<div class="field">
+			                            <select id="gender" name="gender" class="form-control" aria-label="성별" required="required">
+	                                        <option value="">성별</option>
 	                                        <option value="M">남자</option>
 	                                        <option value="F">여자</option>
-	                            </select>
-                       		</div>
-							<div class="field">
-								<input type="text" id="tel"
-									name="tel" placeholder="일반전화 번호" class="form-control" />
+			                            </select>
+		                       		</div>
+									<div class="field">
+										<input type="text" id="tel"
+											name="tel" placeholder="일반전화 번호" class="form-control" />
+									</div>
+									<div class="field">
+										<input type="tel" id="mobile"
+											name="mobile" required="required"
+											placeholder="휴대전화 번호" class="form-control" />
+									</div>
+									<div class="field">
+										<button type="button" class="blue-btn half-width mb15" onclick="execDaumPostcode()">우편번호 찾기</button>
+										<input type="text" id="postcode"
+											name="postcode" placeholder="우편번호" class="form-control half-width" />
+									</div>
+									<div class="field">
+										<input type="text" id="addr"
+											name="addr" placeholder="주소" class="form-control" />
+									</div>
+									<div class="field">
+										<input type="text" id="email"
+											name="email" required="required"
+											placeholder="본인 확인 이메일" class="form-control" />
+									</div>
+								</div>
 							</div>
-							<div class="field">
-								<input type="tel" id="mobile"
-									name="mobile" required="required"
-									placeholder="휴대전화 번호" class="form-control" />
+							<div class="radio-wrap align-center">
+								<div class="col-xs-6">
+									<label for="recv_email">이메일 수신 여부</label>
+									<input type="radio" name="recv_email" value="Y" checked="checked"/> 수신
+									<input type="radio" name="recv_email" value="N" /> 비수신
+								</div>
+								<div class="col-xs-6">
+									<label for="recv_text">문자 수신 여부</label>
+									<input type="radio" name="recv_text" value="Y" checked="checked"/> 수신
+									<input type="radio" name="recv_text" value="N" /> 비수신
+								</div>
 							</div>
-							<div class="field">
-								<input type="text" id="postcode"
-									name="postcode" placeholder="우편번호" class="form-control" />
-								<button type="button" class="blue-btn half-width mb15" onclick="execDaumPostcode()">우편번호 찾기</button>
+							<div class="term-wrap align-left" style="text-align: right;">
+								<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 사용</a>,
+								<a	href="/leggo/signUpTerms.do" target="_blank"> 위치정보 제공</a>과 
+								<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 보호 정책 </a>
+								<br/>
+								<input type="checkbox" id="trader_sign_up_agree" value="test" required="required"/>
+									해당 약관을 읽었으며, 동의합니다
 							</div>
-							<div class="field">
-								<input type="text" id="addr"
-									name="addr" placeholder="주소" class="form-control" />
-							</div>
-							<div class="field">
-								<input type="text" id="email"
-									name="email" required="required"
-									placeholder="본인 확인 이메일" class="form-control" />
-							</div>
-							<div class="field">
-								<label for="recv_email">이메일 수신 여부</label>
-								<input type="radio" name="recv_email" value="Y" /> 수신
-								<input type="radio" name="recv_email" value="N" /> 비수신
-							</div>
-							<div class="field">
-								<label for="recv_text">문자 수신 여부</label>
-								<input type="radio" name="recv_text" value="Y" /> 수신
-								<input type="radio" name="recv_text" value="N" /> 비수신
-							</div>
-							</div>
-							<div class="field">
-								<label>
-								<input type="checkbox" id="trader_sign_up_agree" value="test"/>
-								다음을 읽고 동의합니다 <br/>
-									<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 사용</a>,
-									<a	href="/leggo/signUpTerms.do" target="_blank"> 위치정보 제공</a> 과 
-									<a	href="/leggo/signUpTerms.do" target="_blank"> 개인정보 보호 정책 </a>
-								</label>
-							</div>
-							<input type="submit" id="submitBtn" value="가입하기">
-							<div class="text-center mt15">
-								이미 계정이 있으신가요?
-								<a class="recover" href="/leggo/login.do">로그인 하기</a>
-							</div>
+							<div class="btn-wrap align-center">
+								<input type="submit" id="submitBtn" value="가입하기" class="blue-btn">
+								<div class="text-wrap">
+									이미 계정이 있으신가요?
+									<a class="recover" href="/leggo/login.do">로그인 하기</a>
+								</div>
 							</div>
 						</form>
 					</div>
@@ -149,6 +180,42 @@
             }
         }).open();
     }
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#user_id").on("keyup", function() {
+			$.ajax({
+				url:"/leggo/idCheck.do",
+				type:"get",
+				data:{
+					"user_id": $(this).val()
+				},
+				success: function(result){
+					if(result.toString()=="사용 불가능한 아이디 입니다"){
+						$("#idCheckResult").attr("style", 'color:red');
+					}
+					else{
+						$("#idCheckResult").attr("style", 'color:black');
+					}
+					$("#idCheckResult").empty();
+					$("#idCheckResult").append(result);
+				}
+			})
+		})
+		$("#pass_second").on("keyup", function() {
+			result = "";
+			if($(this).val()!=$("#pass").val()){
+				$("#passCheckResult").attr("style", 'color:red');
+				result = "비밀번호 불일치";
+			}
+			else{
+				$("#passCheckResult").attr("style", 'color:black');
+				result = "비밀번호 일치";
+			}
+			$("#passCheckResult").empty();
+			$("#passCheckResult").append(result);
+		})
+	})
 </script>
 </body>
 </html>
