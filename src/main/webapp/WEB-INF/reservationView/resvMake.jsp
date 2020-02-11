@@ -21,17 +21,17 @@
 	</style>
 </head>
 <body class="main_frame" style="background-color: #02aab0;">
-<%-- <% pointVO point = (pointVO)request.getAttribute("point"); %> --%>
-	<h2>예약하기</h2>
+<% pointVO point = (pointVO)request.getAttribute("point");
+	String user_id = (String)request.getAttribute("user_id"); 
+%>
 	<form action="/leggo/resvMake.do" method="post" style="border: 1px solid; text-align: center">
 		<div class="field">
-			<input type="text" name="user_id">
-<%-- 			<input type="text" name="id" disabled="disabled" value="<%=point.getUser_id() %>"> --%>
-			<%-- <input type="hidden" name="user_id" value="<%=point.getUser_id() %>"> --%>
+ 			<input type="text" name="id" disabled="disabled" value="<%=user_id %>">
+			<input type="hidden" name="user_id" value="<%=user_id %>">
 		</div>
 		<div class="field">
-			<%-- <input type="text" name="point" disabled="disabled" value="<%=point.getPointAvail() %>">
-			<input type="hidden" name="pointAvail" value="<%=point.getPointAvail() %>"> --%>
+			<input type="text" name="point" disabled="disabled" value="<%=point.getPointAvail() %>">
+			<input type="hidden" name="pointAvail" value="<%=point.getPointAvail() %>">
 			<input type="text" name="license_plate" placeholder="차 번호">
 		</div>
 		<div class="field">

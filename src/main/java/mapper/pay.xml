@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.iot.pay">
+	  <insert id="insert" parameterType="payVO">
+	  	insert into pay values(
+	  		#{pm_num},
+			#{rv_id},
+			#{user_id},
+			#{pm_method_code},
+			#{pm_price},
+			sysdate,
+			#{pm_price_plus},
+			#{use_point},
+			#{discount},
+			#{card_grant_num},
+			#{pm_confirm}
+	  	)
+	  </insert>
+	  
+	  <delete id="delete" parameterType="payVO">
+	  	delete pay where pm_num = #{pm_num}
+	  </delete>
+	  
+	  <update id="update" parameterType="payVO">
+	  	update pay set
+			pm_price_plus = #{pm_price_plus},
+			pm_date = sysdate,
+			pm_confirm = #{pm_confirm}
+		where pm_num = #{pm_num}
+	  </update>
+	  
+	  <select id="select" parameterType="payVO" resultType="payVO">
+	  	select * from pay where user_id = #{user_id}; 
+	  </select>
+  </mapper>
+<!-- 
+  	private int pm_num;
+	private int rv_id;
+	private String user_id;
+	private int pm_method_code;
+	private int pm_price;
+	private Date pm_date;
+	private int pm_price_plus;
+	private int use_point;
+	private int discount;
+	private int card_grant_num;
+	private String pm_confirm;
+-->

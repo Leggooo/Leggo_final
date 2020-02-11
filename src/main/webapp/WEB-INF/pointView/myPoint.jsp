@@ -49,7 +49,7 @@ if(request.getAttribute("plist")!=null){
 				<td><%=userpoint.getPointExpDate() %></td>
 				<td><%=userpoint.getUserGrade() %></td>
 				<td>
-					<form action="/leggo/point/totalPoint.do" method="post" target="_blank">
+					<form action="/leggo/point/totalPoint.do" method="post" target="_blank" style="margin-bottom: 0px;">
 						<input type="hidden" name="user_id" value="<%=userpoint.getUser_id() %>">
 						<input type="hidden" name="userGrade" value="<%=userpoint.getUserGrade() %>">
 						<input type="hidden" name="pointAvail" value="<%=userpoint.getPointAvail() %>">
