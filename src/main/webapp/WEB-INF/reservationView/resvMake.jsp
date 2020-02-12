@@ -44,6 +44,9 @@
 			<input type="number" name="rv_price" placeholder="예약금액">
 		</div>
 		<div class="field">
+			<input type="time" name="resv_time" placeholder="예약시간">
+		</div>
+		<div class="field">
 			<input type="hidden" name="parking_code" value="<%=parking_code %>">
 		</div>
 		<!-- <div class="field">

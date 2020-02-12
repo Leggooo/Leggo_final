@@ -34,9 +34,11 @@
 					<div class="overlay-content">
 						<%if(user!=null){ %>
 						<a href="/leggo/logout.do" id="logoutBtn" >로그아웃</a>
-						<%} %>
+						<%}else{ %>
+						<a href="/leggo/login.do">로그인</a>
+						<%} %> 
 						<a href="/leggo/profile.do">회사소개</a>
-						<a href="/leggo/news.do">뉴스</a> 
+						<a href="/leggo/news.do">뉴스</a>
 						<%if(user!=null){ %>
 						<a href="/leggo/myInfo.do">회원정보</a>
 						<%} %>

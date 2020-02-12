@@ -1,82 +1,83 @@
 package com.iot.parkingAPI;
 
 public class parkingjsonVO {
-	private String rates;	//기본주차요금
-	private String PARKING_NAME; // 주차장이름
-	private String QUE_STATUS;	//주차현황 정보 제공여부
-	private String QUE_STATUS_NM;	//주차현황 정보 제공여부명
-	private double CAPACITY;	//주차 면(주차 가능 차량 수)
-	private double CUR_PARKING;	//현재 주차중인 대수
-	private String CUR_PARKING_TIME;	//현재 주차 차량 업데이트 시간
+	private double rates;	//기본주차요금
+	private String parking_name; // 주차장이름
+	private String que_status;	//주차현황 정보 제공여부
+	private String que_status_nm; //주차현황 정보 제공여부명
+	private double capacity;	//주차 면(주차 가능 차량 수)
+	private double cur_parking;	//현재 주차중인 대수
+	private String cur_parking_time;	//현재 주차 차량 업데이트 시간
 	private String parking_code;
 	//운영시간, 기본요금, 주차가능대수, 주차장이름, 예약시간,
 	public parkingjsonVO() {
 		
 	}
-
-	public parkingjsonVO(String qUE_STATUS, String qUE_STATUS_NM, double cAPACITY, double cUR_PARKING,
-			String cUR_PARKING_TIME, String Parking_code) {
+	public parkingjsonVO(double rates, String parking_name, String que_status, String que_status_nm, double capacity,
+			double cur_parking, String cur_parking_time, String parking_code) {
 		super();
-		QUE_STATUS = qUE_STATUS;
-		QUE_STATUS_NM = qUE_STATUS_NM;
-		CAPACITY = cAPACITY;
-		CUR_PARKING = cUR_PARKING;
-		CUR_PARKING_TIME = cUR_PARKING_TIME;
-		parking_code = Parking_code;
+		this.rates = rates;
+		this.parking_name = parking_name;
+		this.que_status = que_status;
+		this.que_status_nm = que_status_nm;
+		this.capacity = capacity;
+		this.cur_parking = cur_parking;
+		this.cur_parking_time = cur_parking_time;
+		this.parking_code = parking_code;
 	}
-
-	public String getQUE_STATUS() {
-		return QUE_STATUS;
+	public double getRates() {
+		return rates;
 	}
-
-	public void setQUE_STATUS(String qUE_STATUS) {
-		QUE_STATUS = qUE_STATUS;
+	public void setRates(double rates) {
+		this.rates = rates;
 	}
-
-	public String getQUE_STATUS_NM() {
-		return QUE_STATUS_NM;
+	public String getParking_name() {
+		return parking_name;
 	}
-
-	public void setQUE_STATUS_NM(String qUE_STATUS_NM) {
-		QUE_STATUS_NM = qUE_STATUS_NM;
+	public void setParking_name(String parking_name) {
+		this.parking_name = parking_name;
 	}
-
-	public double getCAPACITY() {
-		return CAPACITY;
+	public String getQue_status() {
+		return que_status;
 	}
-
-	public void setCAPACITY(double cAPACITY) {
-		CAPACITY = cAPACITY;
+	public void setQue_status(String que_status) {
+		this.que_status = que_status;
 	}
-
-	public double getCUR_PARKING() {
-		return CUR_PARKING;
+	public String getQue_status_nm() {
+		return que_status_nm;
 	}
-
-	public void setCUR_PARKING(double cUR_PARKING) {
-		CUR_PARKING = cUR_PARKING;
+	public void setQue_status_nm(String que_status_nm) {
+		this.que_status_nm = que_status_nm;
 	}
-
-	public String getCUR_PARKING_TIME() {
-		return CUR_PARKING_TIME;
+	public double getCapacity() {
+		return capacity;
 	}
-
-	public void setCUR_PARKING_TIME(String cUR_PARKING_TIME) {
-		CUR_PARKING_TIME = cUR_PARKING_TIME;
+	public void setCapacity(double capacity) {
+		this.capacity = capacity;
 	}
-	
+	public double getCur_parking() {
+		return cur_parking;
+	}
+	public void setCur_parking(double cur_parking) {
+		this.cur_parking = cur_parking;
+	}
+	public String getCur_parking_time() {
+		return cur_parking_time;
+	}
+	public void setCur_parking_time(String cur_parking_time) {
+		this.cur_parking_time = cur_parking_time;
+	}
 	public String getParking_code() {
 		return parking_code;
 	}
-
 	public void setParking_code(String parking_code) {
 		this.parking_code = parking_code;
 	}
-
 	@Override
 	public String toString() {
-		return "parkingjsonVO [QUE_STATUS=" + QUE_STATUS + ", QUE_STATUS_NM=" + QUE_STATUS_NM + ", CAPACITY=" + CAPACITY
-				+ ", CUR_PARKING=" + CUR_PARKING + ", CUR_PARKING_TIME=" + CUR_PARKING_TIME + ", parking_code="
-				+ parking_code + "]";
+		return "parkingjsonVO [rates=" + rates + ", parking_name=" + parking_name + ", que_status=" + que_status
+				+ ", que_status_nm=" + que_status_nm + ", capacity=" + capacity + ", cur_parking=" + cur_parking
+				+ ", cur_parking_time=" + cur_parking_time + ", parking_code=" + parking_code + "]";
 	}
+
 }

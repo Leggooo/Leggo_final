@@ -4,32 +4,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class parkingAPIController {
 	@Autowired
 	parkingAPIService service;
-	@RequestMapping(value="/getPInfo.do",method=RequestMethod.GET)
-	public ModelAndView select(String parking_code) {
-		ModelAndView mav = new ModelAndView();
+	
+	@RequestMapping(value="/getPInfo.do",method=RequestMethod.GET, produces="application/json;charset=utf-8")
+	public @ResponseBody parkingjsonVO select(String parking_code) {
+		parkingjsonVO pVO = null;
 		if(parking_code==null) {
 			System.out.println("parking_code NULL!");
-			mav.setViewName("parkingInfo");
 		}else {
-			System.out.println("API가지러 간다!");
-			mav.addObject("pinfo:", service.getParkingJSON(parking_code));
-			System.out.println("가지고 왔다!");
-			System.out.println(service.getParkingJSON(parking_code));
-			mav.setViewName("getPInfo");
+			pVO = (parkingjsonVO)service.getParkingJSON(parking_code);
+			System.out.println("ajax_pVO:"+pVO);
 		}
-		return mav;
+		return pVO;
+	}
+	
+	@RequestMapping(value="/inputPCode.do", method=RequestMethod.GET)
+	public String insertPCode(String parking_code) {
+		return "parkingInfo";
 	}
 	
 	@RequestMapping(value="/parking/update.do",method=RequestMethod.POST)
-	public String updateParkingSeats(parkingInfoVO pinfoVO) {
-		ModelAndView mav = new ModelAndView();
-		
-		return "";
+	public String updateParkingSeats(parkingjsonVO pinfoVO) {
+		service.updateParkingSeats(pinfoVO.getParking_code());
+		return "redirect:/myResvList.do";
 	}
 }

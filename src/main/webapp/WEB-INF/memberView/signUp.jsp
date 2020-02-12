@@ -54,7 +54,7 @@
 									<div class="field">
 										<input type="password" id="pass"
 											name="pass" required="required"
-											placeholder="비밀번호" class="form-control" />
+											placeholder="비밀번호" class="form-control"/>
 									</div>
 									<div class="field">
 										<input type="password" id="pass_second"
@@ -78,9 +78,12 @@
 											placeholder="이름" class="form-control" />
 									</div>
 									<div class="field">
-										<input type="text" id="birth"
+										<input type="text" id="date"
 											name="birth" required="required"
 											placeholder="YYYYMMDD" class="form-control" />
+<!-- 										<input type="text" id="birth"
+											name="birth" required="required"
+											placeholder="YYYYMMDD" class="form-control" /> -->
 									</div>
 								</div>
 	                       		<div class="col-xs-6">
@@ -137,7 +140,7 @@
 									해당 약관을 읽었으며, 동의합니다
 							</div>
 							<div class="btn-wrap align-center">
-								<input type="submit" id="submitBtn" value="가입하기" class="blue-btn">
+								<input type="submit" id="submitBtn" value="가입하기" class="blue-btn" disabled="disabled">
 								<div class="text-wrap">
 									이미 계정이 있으신가요?
 									<a class="recover" href="/leggo/login.do">로그인 하기</a>
@@ -202,9 +205,33 @@
 				}
 			})
 		})
-		$("#pass_second").on("keyup", function() {
+		$("#user_id").on("blur", function() {
+			var user_id = $("#user_id").val();
+			var re = /(?=.*\d)(?=.*[a-zA-Z]).{4,20}/;
+			if(!fn_check(re, user_id, "아이디는 4~20자로 반드시 영문자와 숫자를 포함해야 합니다.")){
+				$("#idCheckResult").attr("style", 'color:red');
+				$("#submitBtn").attr("disabled","disabled");
+				$("#idCheckResult").empty();
+				$("#idCheckResult").append("4~20자로 영문자와 숫자를 포함해야 합니다.");
+				return;
+			}else{
+				$("#submitBtn").removeAttr("disabled");
+			}
+		})
+		$("#date").on("blur", function() {
+			var date = $("#date").val();
+			var re = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+			if(!fn_check(re, date, "생년월일형식(YYYYMMDD)에 맞게 작성해주세요")){
+				$("#date").attr("style", 'color:red');
+				return;
+			}else{
+				$("#submitBtn").removeAttr("disabled");
+				$("#date").removeAttr("style");
+			}
+		})
+		$("#pass").on("keyup", function() {
 			result = "";
-			if($(this).val()!=$("#pass").val()){
+			if($(this).val()!=$("#pass_second").val()){
 				$("#passCheckResult").attr("style", 'color:red');
 				result = "비밀번호 불일치";
 			}
@@ -215,6 +242,39 @@
 			$("#passCheckResult").empty();
 			$("#passCheckResult").append(result);
 		})
+		$("#pass_second").on("keyup", function() {
+			result = "";
+			if($(this).val()!=$("#pass").val()){
+				$("#passCheckResult").attr("style", 'color:red');
+				$("#submitBtn").attr("disabled","disabled");
+				result = "비밀번호 불일치";
+			}
+			else{
+				$("#passCheckResult").attr("style", 'color:black');
+				$("#submitBtn").removeAttr("disabled");
+				result = "비밀번호 일치";
+			}
+			$("#passCheckResult").empty();
+			$("#passCheckResult").append(result);
+		})
+		$("#pass").on("blur", function() {
+			var user_id = $("#pass").val();
+			var re = /(?=.*\d)(?=.*[a-zA-Z]).{4,20}/;
+			if(!fn_check(re, user_id, "비밀번호는 4~20자로 반드시 영문자와 숫자를 포함해야 합니다.")){
+				$("#pass").attr("style", 'color:red');
+				$("#submitBtn").attr("disabled","disabled");
+				return;
+			}else{
+				$("#submitBtn").removeAttr("disabled");
+				$("#pass").removeAttr("style");
+			}
+		})
+		function fn_check(re, what, message) {
+		if(re.test(what)) {
+			return true;
+		}
+		alert(message);
+	}
 	})
 </script>
 </body>

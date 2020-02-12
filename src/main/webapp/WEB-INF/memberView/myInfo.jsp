@@ -176,7 +176,7 @@ h2 {
 		<h2>회원정보</h2>
 		<form name="sign_up" action="/leggo/modifyMyInfo.do" method="post"
 			class="auth-form">
-			<h1>KAKAO 로그인으로 접속하셨습니다.</h1>
+			<h2>KAKAO 로그인으로 접속하셨습니다.</h2>
 			<table class="table table-bordered">
 				<tr>
 					<td id="accnthead" rowspan="7"><br/><br/>내정보<br/><br/></td>

@@ -25,7 +25,7 @@ public class parkingAPIServiceImpl implements parkingAPIService {
         String result = "";
 		BufferedReader br = null;
         try{            
-            String urlstr = "http://openapi.seoul.go.kr:8088/" + key + "/json/GetParkInfo/1/5//" + parking_code + "/";
+            String urlstr = "http://openapi.seoul.go.kr:8088/" + key + "/json/GetParkInfo/1/1/%20/" + parking_code + "/";
             /*http://openapi.seoul.go.kr:8088/(인증키)/xml/GetParkInfo/1/5/ /1033125*/
             URL url = new URL(urlstr);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -36,11 +36,11 @@ public class parkingAPIServiceImpl implements parkingAPIService {
             while((line = br.readLine()) != null) {
                 result = result + line + "\n";
             }
-            System.out.println(result);
+            /*System.out.println(result);*/
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        System.out.println(result);
+        /*System.out.println(result);*/
         return result;
 	}
 
@@ -57,6 +57,8 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 			for(int i=0;i<array.size();i++) {
 				JSONObject rowObject = (JSONObject) array.get(i);
 				
+				double RATES = (double)rowObject.get("RATES");
+				String PARKING_NAME = (String)rowObject.get("PARKING_NAME");
 				String QUE_STATUS = (String)rowObject.get("QUE_STATUS");
 				String QUE_STATUS_NM = (String)rowObject.get("QUE_STATUS_NM");
 				double CAPACITY = (Double)rowObject.get("CAPACITY");
@@ -64,7 +66,7 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 				String CUR_PARKING_TIME = (String)rowObject.get("CUR_PARKING_TIME");
 				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
 				
-				pVO = new parkingjsonVO(QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
+				pVO = new parkingjsonVO(RATES, PARKING_NAME, QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
 						CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE);
 			}
 		} catch (ParseException e) {

@@ -36,7 +36,7 @@
   	
   	<!-- 예약내역 전체 조회 -->
   	<select id="resvSelect" resultType="resvVO" parameterType="String">
-  		select * 
+  		select RV_ID, USER_ID, PARKING_CODE, RV_PRICE, LICENSE_PLATE, RV_CODE, RV_DATE, rv_time
   		from reservation 
   		where user_id = #{user_id}
   	</select>

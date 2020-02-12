@@ -49,7 +49,7 @@
 										<input type="text" id="parking_code"
 											name="parking_code" required="required"
 											placeholder="아이디" class="form-control" value="1040225"/>
-										<label id="idCheckResult"></label>
+										<label id="idCheckResult">asd</label>
 									</div>
 								</div>
 							</div>
@@ -65,7 +65,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#parking_code").on("keyup", function() {
-			alert("클릭했다")
 			$.ajax({
 				url:"/leggo/getPInfo.do",
 				type:"get",
@@ -73,18 +72,10 @@
 					"parking_code": $(this).val()
 				},
 				success: function(result){
-					alert("썽꼬오옹:"+result)
-					/* if(result.toString()=="사용 불가능한 아이디 입니다"){
-						$("#idCheckResult").attr("style", 'color:red');
-					}
-					else{
-						$("#idCheckResult").attr("style", 'color:black');
-					}
-					$("#idCheckResult").empty();
-					$("#idCheckResult").append(result); */
-				}
-				fail: function(error) {
-					alert("실패했다:"+error);
+					alert(result.cur_parking_time);
+				},
+				fail: function() {
+					alert("error");
 				}
 			})
 		})

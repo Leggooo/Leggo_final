@@ -30,7 +30,7 @@
 </head>
 <body id="myInfoBody">
 <% List<pointVO> plist = null;
-if(request.getAttribute("plist")!=null){
+if((request.getAttribute("plist")!=null)&&(pointVO)request.getAttribute("userpoint")!=null){
 	plist = (List<pointVO>)request.getAttribute("plist");
 	pointVO userpoint = (pointVO)request.getAttribute("userpoint");
 %>
@@ -83,7 +83,7 @@ if(request.getAttribute("plist")!=null){
 		</table>
 	</div>
 	<%}else{ %>
-	<h1>포인트 이용내역이 없습니다.</h1>
+	<h2>포인트 이용내역이 없습니다.</h2>
 	<%} %>
 	<!-- <script type="text/javascript">
 		$(document).ready(function() {
