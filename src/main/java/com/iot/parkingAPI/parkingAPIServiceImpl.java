@@ -20,7 +20,7 @@ public class parkingAPIServiceImpl implements parkingAPIService {
         String result = "";
 		BufferedReader br = null;
         try{            
-            String urlstr = "http://openapi.seoul.go.kr:8088/" + key + "/json/GetParkInfo/1/5/" + parking_code + "/";
+            String urlstr = "http://openapi.seoul.go.kr:8088/" + key + "/json/GetParkInfo/1/5//" + parking_code + "/";
             /*http://openapi.seoul.go.kr:8088/(인증키)/xml/GetParkInfo/1/5/ /1033125*/
             URL url = new URL(urlstr);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -54,8 +54,8 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 				
 				String QUE_STATUS = (String)rowObject.get("QUE_STATUS");
 				String QUE_STATUS_NM = (String)rowObject.get("QUE_STATUS_NM");
-				double CAPACITY = Integer.parseInt((String)rowObject.get("CAPACITY"));
-				double CUR_PARKING = Integer.parseInt((String)rowObject.get("CUR_PARKING"));
+				double CAPACITY = (Double)rowObject.get("CAPACITY");
+				double CUR_PARKING = (Double)rowObject.get("CUR_PARKING");
 				String CUR_PARKING_TIME = (String)rowObject.get("CUR_PARKING_TIME");
 				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
 				
