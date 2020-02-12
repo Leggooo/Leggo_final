@@ -42,13 +42,13 @@
 							<h1>주차장 정보</h1>
 							<br/>
 						</div>
-						<form name="sign_up" action="/leggo/getPInfo.do" method="get" class="auth-form" id="signForm">
+						<form name="sign_up" action="/leggo/signUpSucc.do" method="post" class="auth-form" id="signForm">
         					<div class="inputWrap" style="background-color: skyblue;">
 	        					<div class="col-xs-6">
 									<div class="field">
-										<input type="text" id="parking_code"
-											name="parking_code" required="required"
-											placeholder="아이디" class="form-control" value="1040225"/>
+										<input type="text" id="user_id"
+											name="user_id" required="required"
+											placeholder="아이디" class="form-control" />
 										<label id="idCheckResult"></label>
 									</div>
 								</div>

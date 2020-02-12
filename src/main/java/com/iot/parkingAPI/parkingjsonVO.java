@@ -3,8 +3,8 @@ package com.iot.parkingAPI;
 public class parkingjsonVO {
 	private String QUE_STATUS;	//주차현황 정보 제공여부
 	private String QUE_STATUS_NM;	//주차현황 정보 제공여부명
-	private int CAPACITY;	//주차 면(주차 가능 차량 수)
-	private int CUR_PARKING;	//현재 주차중인 대수
+	private double CAPACITY;	//주차 면(주차 가능 차량 수)
+	private double CUR_PARKING;	//현재 주차중인 대수
 	private String CUR_PARKING_TIME;	//현재 주차 차량 업데이트 시간
 	private String parking_code;
 	
@@ -12,7 +12,7 @@ public class parkingjsonVO {
 		
 	}
 
-	public parkingjsonVO(String qUE_STATUS, String qUE_STATUS_NM, int cAPACITY, int cUR_PARKING,
+	public parkingjsonVO(String qUE_STATUS, String qUE_STATUS_NM, double cAPACITY, double cUR_PARKING,
 			String cUR_PARKING_TIME, String Parking_code) {
 		super();
 		QUE_STATUS = qUE_STATUS;
@@ -39,19 +39,19 @@ public class parkingjsonVO {
 		QUE_STATUS_NM = qUE_STATUS_NM;
 	}
 
-	public int getCAPACITY() {
+	public double getCAPACITY() {
 		return CAPACITY;
 	}
 
-	public void setCAPACITY(int cAPACITY) {
+	public void setCAPACITY(double cAPACITY) {
 		CAPACITY = cAPACITY;
 	}
 
-	public int getCUR_PARKING() {
+	public double getCUR_PARKING() {
 		return CUR_PARKING;
 	}
 
-	public void setCUR_PARKING(int cUR_PARKING) {
+	public void setCUR_PARKING(double cUR_PARKING) {
 		CUR_PARKING = cUR_PARKING;
 	}
 

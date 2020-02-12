@@ -13,8 +13,16 @@ public class parkingAPIController {
 	@RequestMapping(value="/getPInfo.do",method=RequestMethod.GET)
 	public ModelAndView select(String parking_code) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("pinfo", service.getParkingJSON(parking_code));
-		mav.setViewName("getPInfo");
+		if(parking_code==null) {
+			System.out.println("asd");
+			mav.setViewName("parkingInfo");
+		}else {
+			System.out.println("API가지러 간다!");
+			mav.addObject("pinfo", service.getParkingJSON(parking_code));
+			System.out.println("가지고 왔다!");
+			System.out.println(service.getParkingJSON(parking_code));
+			mav.setViewName("getPInfo");
+		}
 		return mav;
 	}
 }
