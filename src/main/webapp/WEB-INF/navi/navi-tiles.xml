@@ -11,8 +11,16 @@
 	
 	<definition name="navi" extends="naviTemplate"></definition>
 	
-	<definition name="navi_findRoad" extends="naviTemplate">
-		<!-- <put-attribute name="content" value="/WEB-INF/lastmile/lastmile_findRoad.jsp" /> -->
-	
+	<definition name="roadmap" extends="naviTemplate">
+		<put-attribute name="menu" value="/WEB-INF/navi/roadmap_menu.jsp" />
 	</definition>
+	
+	<definition name="navi_findRoad" extends="naviTemplate">
+		<put-attribute name="content" value="/WEB-INF/navi/navi_findRoad.jsp" />
+	</definition>
+		
+	<definition name="start" extends="naviTemplate">
+		<put-attribute name="menu" value="/WEB-INF/navi /navi_menu.jsp" />
+	</definition>
+
 </tiles-definitions>
