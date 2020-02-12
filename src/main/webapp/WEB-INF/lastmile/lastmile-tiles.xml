@@ -15,4 +15,12 @@
 		<put-attribute name="content" value="/WEB-INF/lastmile/lastmileList.jsp" />
 	</definition>
 	
+	<definition name="lastmile/favorite" extends="lastmileTemplate">
+		<put-attribute name="content" value="/WEB-INF/lastmile/lastmileFavorite.jsp" />
+	</definition>
+	
+	<definition name="lastmile/recent" extends="lastmileTemplate">
+		<put-attribute name="content" value="/WEB-INF/lastmile/lastmileRecent.jsp" />
+	</definition>
+	
 </tiles-definitions>

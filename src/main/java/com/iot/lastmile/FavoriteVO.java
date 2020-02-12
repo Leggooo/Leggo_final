@@ -5,16 +5,16 @@ public class FavoriteVO {
 	private String user_id;
 	private String parking_code;
 	private String location_name;
-	private int latitude;
-	private int longitude;
+	private double latitude;
+	private double longitude;
 	private String favorite_name;
 	 
 	public FavoriteVO() {
 		
 	}
 	 
-	public FavoriteVO(String favorite_code, String user_id, String parking_code, String location_name, int latitude,
-			int longitude, String favorite_name) {
+	public FavoriteVO(String favorite_code, String user_id, String parking_code, String location_name, double latitude,
+			double longitude, String favorite_name) {
 		super();
 		this.favorite_code = favorite_code;
 		this.user_id = user_id;
@@ -57,19 +57,19 @@ public class FavoriteVO {
 		this.location_name = location_name;
 	}
 
-	public int getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public int getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(int longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
