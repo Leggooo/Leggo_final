@@ -14,15 +14,22 @@ public class parkingAPIController {
 	public ModelAndView select(String parking_code) {
 		ModelAndView mav = new ModelAndView();
 		if(parking_code==null) {
-			System.out.println("asd");
+			System.out.println("parking_code NULL!");
 			mav.setViewName("parkingInfo");
 		}else {
 			System.out.println("API가지러 간다!");
-			mav.addObject("pinfo", service.getParkingJSON(parking_code));
+			mav.addObject("pinfo:", service.getParkingJSON(parking_code));
 			System.out.println("가지고 왔다!");
 			System.out.println(service.getParkingJSON(parking_code));
 			mav.setViewName("getPInfo");
 		}
 		return mav;
+	}
+	
+	@RequestMapping(value="/parking/update.do",method=RequestMethod.POST)
+	public String updateParkingSeats(parkingInfoVO pinfoVO) {
+		ModelAndView mav = new ModelAndView();
+		
+		return "";
 	}
 }

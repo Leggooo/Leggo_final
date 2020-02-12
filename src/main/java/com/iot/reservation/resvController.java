@@ -3,6 +3,7 @@ package com.iot.reservation;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iot.member.memberVO;
+import com.iot.point.pointService;
 
 @Controller
 public class resvController {
 	@Autowired
 	resvService service;
+	@Autowired
+	pointService pservice;
 	
 	@RequestMapping("/myResvList.do")
 	public ModelAndView myResvList(HttpSession session) {
@@ -31,15 +35,23 @@ public class resvController {
 	}
 	
 	@RequestMapping(value="/resvMake.do", method=RequestMethod.GET)
-	public String viewResvMaker() {
+	public ModelAndView viewResvMaker(String parking_code, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("resvMake");
+		mav.addObject("mypoint", pservice.selectMyPoint((String)session.getAttribute("user_id")));
+		mav.addObject("parking_code", parking_code);
 		/*System.out.println("reservation maker view");*/
-		return "resvMake";
+		/*pointVO point = (pointVO)request.getAttribute("mypoint");*/
+		return mav;
 	}
 	
-	@RequestMapping(value="/resvMake.do", method=RequestMethod.POST)
-	public String resvMaker(resvVO resv) {
+	@RequestMapping(value="/resvInsert.do", method=RequestMethod.POST)
+	public ModelAndView resvMaker(resvVO resv) {
 		/*System.out.println("reservation:"+resv);*/
 		service.insert(resv);
-		return "redirect:/myResvList.do";
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mypoint", pservice.selectMyPoint(resv.getUser_id()));
+		mav.setViewName("payMake");
+		return mav;
 	}
 }

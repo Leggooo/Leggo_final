@@ -64,8 +64,8 @@
 	</div>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#user_id").on("keyup", function() {
-			alert("정답이 뭐냐"+$(this).val())
+		$("#parking_code").on("keyup", function() {
+			alert("클릭했다")
 			$.ajax({
 				url:"/leggo/getPInfo.do",
 				type:"get",
@@ -82,6 +82,9 @@
 					}
 					$("#idCheckResult").empty();
 					$("#idCheckResult").append(result); */
+				}
+				fail: function(error) {
+					alert("실패했다:"+error);
 				}
 			})
 		})

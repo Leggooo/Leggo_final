@@ -9,11 +9,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class parkingAPIServiceImpl implements parkingAPIService {
-
+	@Qualifier("parkingSeatDao")
+	@Autowired
+	parkingSeatDAO dao;
+	
 	@Override
 	public String readURL(String parking_code) {
 		String key = "4f644f707579797935346a766e424c";
@@ -66,5 +71,10 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 			e.printStackTrace();
 		}
 		return pVO;
+	}
+
+	@Override
+	public int updateParkingSeats(String parking_code) {
+		return dao.updateParkingSeats(parking_code);
 	}
 }

@@ -61,6 +61,6 @@ if(request.getAttribute("resvlist")!=null){
 	<%}else{ %>
 	<h1>예약 내역이 없습니다.</h1>
 	<%} %>
-	<a href="/leggo/resvMake.do">예약하기</a>
+	<a href="/leggo/resvMake.do?parking_code=<%=1040225%>">예약하기</a>
 </body>
 </html>

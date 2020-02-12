@@ -1,13 +1,15 @@
 package com.iot.parkingAPI;
 
 public class parkingjsonVO {
+	private String rates;	//기본주차요금
+	private String PARKING_NAME; // 주차장이름
 	private String QUE_STATUS;	//주차현황 정보 제공여부
 	private String QUE_STATUS_NM;	//주차현황 정보 제공여부명
 	private double CAPACITY;	//주차 면(주차 가능 차량 수)
 	private double CUR_PARKING;	//현재 주차중인 대수
 	private String CUR_PARKING_TIME;	//현재 주차 차량 업데이트 시간
 	private String parking_code;
-	
+	//운영시간, 기본요금, 주차가능대수, 주차장이름, 예약시간,
 	public parkingjsonVO() {
 		
 	}

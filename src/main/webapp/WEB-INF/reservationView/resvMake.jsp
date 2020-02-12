@@ -21,10 +21,16 @@
 	</style>
 </head>
 <body class="main_frame" style="background-color: #02aab0;">
-<% pointVO point = (pointVO)request.getAttribute("point");
-	String user_id = (String)request.getAttribute("user_id"); 
+<%	pointVO point = (pointVO)request.getAttribute("mypoint");
+	String user_id = (String)session.getAttribute("user_id");
+	String parking_code = (String)request.getAttribute("parking_code");
+	if(point == null && user_id ==null){
+		System.out.println("둘다 널값");
+%>	로그인하고 오세요~
+<%
+	}else{
 %>
-	<form action="/leggo/resvMake.do" method="post" style="border: 1px solid; text-align: center">
+	<form action="/leggo/resvInsert.do" method="post" style="border: 1px solid; text-align: center">
 		<div class="field">
  			<input type="text" name="id" disabled="disabled" value="<%=user_id %>">
 			<input type="hidden" name="user_id" value="<%=user_id %>">
@@ -38,7 +44,7 @@
 			<input type="number" name="rv_price" placeholder="예약금액">
 		</div>
 		<div class="field">
-			<input type="text" name="parking_code" placeholder="주차장코드">
+			<input type="hidden" name="parking_code" value="<%=parking_code %>">
 		</div>
 		<!-- <div class="field">
 			<input type="text" name="rv_time" placeholder="예약시간">
@@ -47,5 +53,6 @@
 			<input type="submit" id="submitBtn">
 		</div>
 	</form>
+<%}%>
 </body>
 </html>
