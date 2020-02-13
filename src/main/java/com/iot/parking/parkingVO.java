@@ -14,13 +14,11 @@ public class parkingVO {
 	//기본생성자
 	public parkingVO() {
 		super();
-		System.out.println("기본생성자 호출됌");
 		
 	}
 	//2개 매개변수 받는 생성자
 	public parkingVO(double lat, double lng) {
 		super();
-		System.out.println("기본생성자 매개변수2개짜리 호출됌");
 	}
 	//getter and setter
 	public double getLat() {

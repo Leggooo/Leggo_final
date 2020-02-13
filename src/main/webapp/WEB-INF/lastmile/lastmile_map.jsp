@@ -246,7 +246,7 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 				double lat = vo.getStationLatitude();
 				double lng = vo.getStationLongitude();
 				String name = vo.getStationName();
-				String splitName = name.substring(name.lastIndexOf(". ")+1);
+				String splitName = name.substring(name.indexOf(" ")+1);
 		%>
 		// 마커가 표시될 위치입니다
 		markerPosition<%=i%> = new kakao.maps.LatLng(<%=lat%>,<%=lng%>); 
@@ -264,7 +264,11 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 				'<div class="overlay_info desc">' +
 					'총 거치대 개수 : <%=vo.getRackTotCnt()%>개<br/>' +
 					'사용 가능 자전거 : <%=vo.getParkingBikeTotCnt()%>대<br/>' +
-				'<input type="button" class="color2" value="출발" style="background-color: #ffffff;font-size: 5pt;"/><br/></div>', 
+					'<a href="/leggo/findRoad/endFromLastmile.do?lati=' + <%=vo.getStationLatitude()%> + '&longi=' + <%=vo.getStationLongitude()%> +
+					<%-- '&lastmileName=' + <%URLEncoder.encode(splitName)%> +  --%>'">' + 
+						'<input type="button" class="color2" value="도착" style="background-color: #ffffff;font-size: 5pt;"/>' + 
+					'</a>' + 
+				'</div>',
 			    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
 				// 인포윈도우를 생성합니다

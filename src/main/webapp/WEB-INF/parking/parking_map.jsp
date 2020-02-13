@@ -1,3 +1,5 @@
+<%@page import="com.iot.parkingAPI.parkingjsonVO"%>	
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.iot.parking.parkingVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -83,6 +85,7 @@ body{
 	<%
 		List<parkingVO> list = (List<parkingVO>) request.getAttribute("parkingInfo");
 		int size = list.size();
+		ArrayList<parkingjsonVO> jsonList = (ArrayList<parkingjsonVO>)request.getAttribute("parkingjson");
 	%>
 <!--=========================================================================================================-->
 <!-- JQuery 쓰기 -->
@@ -198,6 +201,9 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 --%>	
 	    <%for (int i = 0; i < size; i++) {
 				parkingVO vo = list.get(i);
+				parkingjsonVO jsonVO = jsonList.get(i);	
+				int curAvaliable = (int)(jsonVO.getCapacity() - jsonVO.getCur_parking());		//현재 주차 가능 대수 계산
+				
 				if (vo == null)
 					continue;
 				double lat = vo.getLat();
@@ -283,35 +289,31 @@ kakao.maps.event.addListener(marker<%=i%>, 'click', function() {
 /*===============================================출발도착 메서드=================================================  */
     function start(lati, longi) {
         //alert("!!!" + lati +" " + longi);
-        $(document).ready(function() {
-           $.get("/leggo/findRoadP/start.do",
-                 {"lati":lati,
-                  "longi":longi},
-                 function(data) {
-                    startStr = lati + ", " + longi;
-                    alert("출발지를 선택하셨습니다");
-                    $('#input_start_lat').val(lati);
-                    $('#input_start_lng').val(longi);      
-                 },
-           "text")
-        });
+        $.get("/leggo/findRoadP/start.do",
+              {"lati":lati,
+               "longi":longi},
+              function(data) {
+                 startStr = lati + ", " + longi;
+                 alert("출발지를 선택하셨습니다");
+                 $('#input_start_lat').val(lati);
+                 $('#input_start_lng').val(longi);      
+              },
+        "text")
      }
      
      function end(lati, longi) {
         //alert("!!!" + lati +" " + longi);
-        $(document).ready(function() {
-           $.get("/leggo/findRoadP/end.do",
-                 {"lati":lati,
-                  "longi":longi},
-                 function(data) {
-                    endStr = lati + ", " + longi;
-                    alert("도착지를 선택하셨습니다.");
-                    alert("길찾기를 원하시면 '길찾기 버튼을 눌러주세요'");
-                    $('#input_end_lat').val(lati);
-                    $('#input_end_lng').val(longi);   
-                 },
-           "text")
-        });
+        $.get("/leggo/findRoadP/end.do",
+              {"lati":lati,
+               "longi":longi},
+              function(data) {
+                 endStr = lati + ", " + longi;
+                 alert("도착지를 선택하셨습니다.");
+                 alert("길찾기를 원하시면 '길찾기 버튼을 눌러주세요'");
+                 $('#input_end_lat').val(lati);
+                 $('#input_end_lng').val(longi);   
+              },
+        "text")
      }
 
 </script>

@@ -33,4 +33,5 @@ public class parkingAPIController {
 		service.updateParkingSeats(pinfoVO.getParking_code());
 		return "redirect:/myResvList.do";
 	}
+	
 }

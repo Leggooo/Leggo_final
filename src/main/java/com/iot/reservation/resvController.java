@@ -73,4 +73,16 @@ public class resvController {
 	}
 	/*RATES, PARKING_NAME, QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
 	CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE,"","","","","","","",""*/
+	
+	
+	//주차장 정보 화면에서 "예약하기" 클릭 > parking_code 받아서 parkingjsonVO로 전달 > 예약하기 페이지로 이동	
+	@RequestMapping(value="/getParkingJsonVO.do", method=RequestMethod.GET)	
+	public ModelAndView resvMaker(String parking_code) {	
+		/*System.out.println("reservation:"+resv);*/	
+		parkingjsonVO jsonVO = paservice.getParkingJSON(parking_code);	
+		ModelAndView mav = new ModelAndView();	
+		mav.addObject("parkingjsonVO", jsonVO);	
+		mav.setViewName("resvMake");	
+		return mav;	
+	}
 }

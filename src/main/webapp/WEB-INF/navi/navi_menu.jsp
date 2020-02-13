@@ -23,11 +23,26 @@
 			start = $('#input_start').val();
 			end = $('#input_end').val();
 		}
+		
+		/* ==== _SH ================================================================================================== */
+			endLati = "${endLati}";
+			endLongi = "${endLongi}";
+			endName = "${endName}";
+			end = endLati + ' ' + endLongi + ' ' + endName;
+			if(endLati != null)
+				$("#input_end_lat").attr("value", endLati);
+			if(endLongi != null)
+				//$("#input_end_lng").attr("value", endLongi);
+			if(endName != null)
+				//$("#input_end_lng").attr("value", endLongi);
+		});
+		/* ==== SH_ ================================================================================================== */
 	</script>
 </head>
 <!-- <a href="/leggo/findmap.do?start="++" > -->
 <!-- class="w3-cell" class="col-9" id="freesidebar" style="width: 60%;" id="freemenubtn"-->
 	<!-- Sidebar/menu -->
+		
 	<div id="freesidebar">
 		<div id="freemenubtn">
 			<form action="/leggo/findmap.do" method="post">
@@ -35,6 +50,9 @@
 				<input type="hidden" id="input_start_lng" name="input_start_lng" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; disabled"/>
 				<input type="hidden" id="input_end_lat" name="input_end_lat" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt; disabled"/>
 				<input type="hidden" id="input_end_lng" name="input_end_lng" class="color2" value="도착" style="background-color: #ffffff;font-size: 14pt; disabled"/>
+<!-- ====== _SH ================================================================================================================================================================= -->
+				<input id="input_end_name" name="input_end_name" class="color2" value="도착" style="background-color: #ffffff;font-size: 14pt; disabled"/>
+<!-- ====== _SH ================================================================================================================================================================= -->		
 				<input type="submit" class="button primary color2" value="길찾기" style="background-color: #ffffff; font-size: 14pt;" />
 			</form>
 			<form action="" method="get">	
