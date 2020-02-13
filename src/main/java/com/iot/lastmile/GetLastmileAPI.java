@@ -20,7 +20,31 @@ public class GetLastmileAPI {
 		JSONParser parser = new JSONParser();
 		
 		try {
-			JSONObject object = (JSONObject) parser.parse(readURL());
+			JSONObject object = (JSONObject) parser.parse(readURL(1, 1000));
+			JSONObject json = (JSONObject) object.get("rentBikeStatus");
+			JSONArray array = (JSONArray) json.get("row");
+			
+			for(int i=0;i<array.size();i++) {
+				JSONObject rowObject = (JSONObject) array.get(i);
+				
+				int rackTotCnt = Integer.parseInt((String)rowObject.get("rackTotCnt"));
+				String stationName = (String)rowObject.get("stationName");
+				int parkingBikeTotCnt = Integer.parseInt((String)rowObject.get("parkingBikeTotCnt"));
+				int shared = Integer.parseInt((String)rowObject.get("shared"));
+				double stationLatitude = Double.parseDouble((String)rowObject.get("stationLatitude"));
+				double stationLongitude = Double.parseDouble((String)rowObject.get("stationLongitude"));
+				String stationId = (String)rowObject.get("stationId");
+				
+				LastmileVO bike = new LastmileVO(rackTotCnt, stationName, parkingBikeTotCnt, 
+											shared, stationLatitude, stationLongitude, stationId);
+				bikeList.add(bike);
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			JSONObject object = (JSONObject) parser.parse(readURL(1001, 2000));
 			JSONObject json = (JSONObject) object.get("rentBikeStatus");
 			JSONArray array = (JSONArray) json.get("row");
 			
@@ -46,15 +70,13 @@ public class GetLastmileAPI {
 		return bikeList;
 	}
 	
-	public String readURL() {
-		int startNum = 1;
-		int endNum = 5;
+	public String readURL(int start, int end) {
 		String key = "4f644f707579797935346a766e424c";
         String result = "";
 		BufferedReader br = null;
 		
         try{            
-            String urlstr = "http://openapi.seoul.go.kr:8088/" + key + "/json/bikeList/" + startNum + "/" + endNum + "/";
+            String urlstr = "http://openapi.seoul.go.kr:8088/" + key + "/json/bikeList/" + start + "/" + end + "/";
             URL url = new URL(urlstr);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");

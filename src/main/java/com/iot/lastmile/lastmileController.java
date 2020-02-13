@@ -16,9 +16,18 @@ public class lastmileController {
 	@Autowired
 	LastmileService lastmileService;
 	
+	//공공 자전거 대여소 정보 API 받아오기 + 주변 라스트마일 
 	@RequestMapping("/lastmile.do")
-	public String lastmile() {
-		return "lastmile";
+	public ModelAndView lastmile() {
+		ModelAndView mav = new ModelAndView();
+		List<LastmileVO> lastmileList = lastmileService.getLastmileAPI();
+		
+		//System.out.println("========================= 전체 : " + lastmileList.size());
+		
+		mav.addObject("aroundLastmile", lastmileList);
+		mav.setViewName("lastmile");
+		
+		return mav;
 	}
 	
 	@RequestMapping("/lastmileList.do")
@@ -26,14 +35,14 @@ public class lastmileController {
 		return "lastmileList";
 	}
 	
-	//공공자전거 API 데이터 받아오기
+	/*//공공자전거 API 데이터 받아오기
 	@RequestMapping(value = "/getLastmileAPI.do",
 				method = RequestMethod.GET,
 				produces = "application/json;charset=UTF-8")
 	public @ResponseBody List<LastmileVO> getLastmileAPI() {
 		List<LastmileVO> lastmileList = lastmileService.getLastmileAPI();
 		return lastmileList;
-	}
+	}*/
 	
 	//즐겨찾기(Favorite table) 불러오기
 	@RequestMapping(value="/lastmile/favorite.do")

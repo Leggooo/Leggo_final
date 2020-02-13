@@ -21,11 +21,13 @@
 	    	</tr>
 	  	</thead>
 	  	<tbody id="LastmileFavoriteTable_body">
-	  	<% for(int i=0;i<favoriteList.size();i++) { %>
+	  	<% for(int i=0;i<favoriteList.size();i++) { 
+	  		String name = favoriteList.get(i).getLocation_name();
+	  		String location_name = name.substring(name.lastIndexOf(".")+1);%>
 	    	<tr>
 	    		<form action="" method="">
 		      		<td><%= favoriteList.get(i).getFavorite_name() %></td>
-		      		<td><%= favoriteList.get(i).getLocation_name() %></td>
+		      		<td><%= location_name %></td>
 		      		<td><%= favoriteList.get(i).getLatitude() %></td>
 		      		<td><%= favoriteList.get(i).getLongitude() %></td>
 	      		</form>

@@ -18,7 +18,7 @@
 
 			<a href="/leggo/lastmile/recent.do" id="recent" class="w3-button" >최근 방문</a>
 	        
-			<form action="" method="get">
+			<!-- <form action="" method="get">
 				<div class="w3-cell-row">
 	
 					<div class="w3-cell">
@@ -30,29 +30,17 @@
 				  	</div>
 				
 				</div>
-			</form>
+			</form> -->
 		</div>
 	</div>
 	
-	<div>
+<!-- 	<div>
 		<a href="road_map.html" class="w3-button"
 			style="width: 70%; margin: 10px; font-size: 20px;">길찾기</a><br />
 		<a href="road_map.html" class="w3-button"
 			style="width: 70%; margin: 10px; font-size: 20px;">주차장</a><br />
-	</div>
+	</div> -->
 	
-	
-	<!-- <script type="text/javascript">
-	 	$("#around").popover({
-		    title: '<h5>주변 자전거 대여소</h5>',
-		    container: 'body',
-		    placement: 'right',
-		    html: true, 
-		    content: function() {
-		        return $('#lastmileListTable').html();
-		    }
-		});
-</script> -->
 	
 </body>
 </html>
