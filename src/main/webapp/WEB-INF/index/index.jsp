@@ -12,7 +12,7 @@
 	<div id="outer">
 		<div id="bg">
 			
-			<div id="text"><!-- <a href="/leggo/images/leggo/firstPage1.jpg"> --></a></div>
+			<div id="text"><!-- <a href="/leggo/images/leggo/firstPage2.jpg"> --></a></div>
 			<a href="/leggo/signUp.do">
 				<button class="button">가입하기</button>
 			</a>

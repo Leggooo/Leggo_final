@@ -155,7 +155,7 @@ body{
 			//인포윈도우를 생성한다.
 			var infowindow = new kakao.maps.InfoWindow({
 				content : iwContent,
-				/* removable : iwRemoveable */
+				removable : iwRemoveable
 			});
 			  function showCurrent() {
 					if(close==false){
