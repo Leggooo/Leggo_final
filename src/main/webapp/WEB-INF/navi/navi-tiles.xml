@@ -3,7 +3,7 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="naviTemplate" template="/WEB-INF/layout/mainLayout.jsp">
+	<definition name="naviTemplate" template="/WEB-INF/navi/naviMainLayout.jsp">
 		<put-attribute name="top" value="/WEB-INF/include/top.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/navi/navi_menu.jsp" />
 		<put-attribute name="content" value="/WEB-INF/navi/navi_map.jsp" />
@@ -17,6 +17,10 @@
 	
 	<definition name="navi_findRoad" extends="naviTemplate">
 		<put-attribute name="content" value="/WEB-INF/navi/navi_findRoad.jsp" />
+	</definition>
+	
+	<definition name="navi_test" extends="naviTemplate">
+		<put-attribute name="content" value="/WEB-INF/navi/navi_test.jsp" />
 	</definition>
 		
 	<definition name="start" extends="naviTemplate">

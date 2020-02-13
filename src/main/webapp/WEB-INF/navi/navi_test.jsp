@@ -17,11 +17,12 @@
 		<%String findmap=(String)request.getAttribute("findmap"); %>
 	
 		alert("<%=findmap%>");
-		$(document).ready(function(){
+		/* $(document).ready(function(){
 			if(findmap=="") {
 				findmap="all";
-			}	
-		});	
+			}
+			
+		});	 */
 		</script>
 		<a id="chk" href ="<%=findmap%>" class="w3-button" target="_blank">길찾기 결과</a>
 		<script type="text/javascript">

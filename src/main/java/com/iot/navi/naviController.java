@@ -58,7 +58,6 @@ public class naviController {
 		
 	}*/	
 	
-	//=== _SH ==================================================================================================
 
 	@RequestMapping("/findRoad/endFromLastmile.do")
 	public ModelAndView endFromLastmile(String lati, String longi, String lastmileName) {
@@ -71,6 +70,5 @@ public class naviController {
 		
 		return mav;
 	}
-	//=== SH_ ==================================================================================================
 	
 }
