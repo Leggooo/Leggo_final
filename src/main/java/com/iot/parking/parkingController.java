@@ -33,7 +33,7 @@ public class parkingController {
       return "parking_findRoad";
    }*/
    //준성이형 코드
-   @RequestMapping(value="/findmap.do", method=RequestMethod.POST)
+/*   @RequestMapping(value="/findmapP.do", method=RequestMethod.POST)
    public ModelAndView findmap(String input_start_lat, String input_start_lng, String input_end_lat, String input_end_lng) {
       ModelAndView mav = new ModelAndView();
       System.out.println(input_start_lat);
@@ -45,7 +45,7 @@ public class parkingController {
       mav.addObject("findmap", url);
       mav.setViewName("parking_findRoad");
       return mav;
-   }
+   }*/
    
    @RequestMapping(value="/findRoadP/start.do",
          method=RequestMethod.GET,
