@@ -227,15 +227,43 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
             desSplit[0] = desSplit[0].substring(1, desSplit[0].length - 1);
             desSplit[1] = desSplit[1].substring(0, desSplit[1].length - 2);
 
-            var iwContent<%=i%> = 
-                '<div class="popupWindow">'+
-                '<%=name%><br/>공영 주차장'+
-                '<br/><button id="btnStyle" style="color:white;">예약하기</button>'+
-                '<input type="button" class="color2" value="도착" style="background-color: skyblue;font-size: 10pt;" onclick="end('+desSplit[0]+', '+desSplit[1]+')"/>'+
-                /* '<input type="button" class="color2" value="길찾기" style="background-color: skyblue;font-size: 10pt;" onclick="/leggo/findmap.do"/>'+ */
-                '<button style="background-color: #f95c4e;">'+
-                   '<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+
-                   '</a></button></div>'; 
+            var iwContent<%=i%> = 	
+                '<div class="popupWindow">'+	
+                '<strong><%=name%> 공영 주차장</stro<br/>'+	
+                '<table>' + 	
+                	'<tr>' + 	
+                		'<th>총 주차 자리</th>' +	
+                		'<th>현재 주차 가능</th>' +	
+                		'<th>기본주차요금</th>' +	
+                	'</tr>' +	
+                	'<tr>' + 	
+	            		'<td><%= (int)jsonVO.getCapacity() %></td>' +	
+	            		'<td><%= curAvaliable %></td>' +	
+	            		'<td><%= (int)jsonVO.getRates() %>원</td>' +	
+	            	'</tr>' +	
+	            	'<tr>' + 	
+	            		'<th colspan="3">주간 운영시간</th>' +	
+	            	'</tr>' +	
+	            	'<tr>' + 	
+	            		'<td colspan="3"><%= jsonVO.getWeekday_begin_time() %> ~ <%= jsonVO.getWeekday_end_time() %></td>' +	
+	            	'</tr>' +	
+	            	'<tr>' + 	
+	            		'<th colspan="3">주말 운영시간</th>' +	
+	            	'</tr>' +	
+	            	'<tr>' + 	
+	            		'<td colspan="3"><%= jsonVO.getWeekend_begin_time() %> ~ <%= jsonVO.getWeekend_end_time() %></td>' +	
+	            	'</tr>' +	
+	            	'<tr>' + 	
+	            		'<th colspan="3">휴일 운영시간</th>' +	
+	            	'</tr>' +	
+	            	'<tr>' + 	
+	            		'<td colspan="3"><%= jsonVO.getHoliday_begin_time() %> ~ <%= jsonVO.getHoliday_end_time() %></td>' +	
+	            	'</tr>' +	
+                '</table>' +	
+                '<br/><a href="/leggo/getParkingJsonVO.do?parking_code=' + <%= jsonVO.getParking_code() %> + '"><button id="btnStyle" style="color:white;">예약하기</button></a>'+	
+                '<button style="background-color: #f95c4e;">'+	
+                   '<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=현재위치&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+	
+                   '</a></button></div>';
 
 			// 인포윈도우를 생성합니다
 			var infowindow<%=i%> = new kakao.maps.InfoWindow({
