@@ -96,13 +96,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6" id="left">
-					<a href="https://www.naver.com"> <img
+					<a href="http://localhost:8088/leggo/index.do"> <img
 						src="/leggo/images/left.png" alt="leftNext" id="leftNext">
 					</a>
 
 				</div>
 				<div class="col-md-6" id="right">
-					<a href="https://www.naver.com"> <img
+					<a href="https://www.youtube.com"> <img
 						src="/leggo/images/right.png" alt="rightNext" id="rightNext">
 					</a>
 				</div>

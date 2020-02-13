@@ -12,6 +12,9 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be626cc1f959d4787a1d8381c33922e7&libraries=services,clusterer,drawing">
 	</script>
 <style type="text/css">
+body{
+	padding: 10px;
+}
 .info {
 	position: relative;
 	top: 5px;
@@ -68,7 +71,7 @@
 </head>
 <body>
 <!--======================================================HTML===================================================-->
-	<div id="map" style="width: 100%; height: 450px;"></div>
+	<div id="map" style="width: 100%; height: 500px;"></div>
 	<p>
 		<!-- <button onclick="currentLoc()">현재위치</button>
 		<button onclick="showMarkers()">주변 주차장</button> -->

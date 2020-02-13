@@ -12,6 +12,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
 	<title>LEGGO</title>
 	<style type="text/css">
+	#topSize{
+			height:100%;
+			margin-bottom: 30px;
+			/* background-color: #365da2; */
+		
+		}
 		#topRight{
 			padding-top:20px;
 			text-align: right;
@@ -24,8 +30,9 @@
 			padding-top:20px;
 			padding-left:20px;
 			text-align: left;
-			/* background-color: blue; */
+			/*  background-color: blue; */
 		}
+		
 	
 	</style>
 </head>
@@ -36,7 +43,7 @@
 		user = (memberVO)session.getAttribute("user");%>
 	<div class="top-container">
 	<!-- <div class="container-fluid"> -->
-	  <div class="row">
+	  <div class="row" id="topSize">
 	    <!--맨 왼쪽 메뉴입니다 -->
 	    <div class="col-2" id="topLeft">
 	    	<a href="/leggo/menu.do"><img src="/leggo/images/MainLogo.png" alt="Random Name" style="height: 90%; width: 60%;">

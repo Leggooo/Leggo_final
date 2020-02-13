@@ -15,10 +15,11 @@
      border-radius: 10px;
 	}
 	#search{
-	width: 75%;
+	width: 120%;
+	height: 120%;
 	}
 	#searchClick{
-	width: 20%;
+	width: 120%;
 	background-color: skyblue;
 	}
 	#currentLoc{
