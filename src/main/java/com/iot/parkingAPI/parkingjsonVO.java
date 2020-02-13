@@ -27,7 +27,7 @@ public class parkingjsonVO {
 			String night_free_open_nm, String weekday_begin_time, String weekday_end_time, String weekend_begin_time,
 			String weekend_end_time, String holiday_begin_time, String holiday_end_time) {
 		super();
-		this.rates = rates;
+		this.rates = rates * 10;
 		this.parking_name = parking_name;
 		this.que_status = que_status;
 		this.que_status_nm = que_status_nm;

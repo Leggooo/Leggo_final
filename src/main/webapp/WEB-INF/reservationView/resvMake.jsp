@@ -136,7 +136,9 @@
 							</tr>
 							<tr class="even">
 								<td>보유포인트</td>
+								<% if(point != null) {%>
 								<td colspan='2'><input type="text" name="point" disabled="disabled" value="<%=point.getPointAvail() %>"></td>
+								<%} %>
 							</tr>
 							<tr>
 								<td>이용 금액</td>
@@ -146,7 +148,9 @@
 						<input type="submit" class="paybtn" id="submitBtn" value="결제페이지로">
 					</div>
 					<input type="hidden" name="user_id" value="<%=user_id %>">
+					<% if(point != null) {%>
 					<input type="hidden" name="pointAvail" value="<%=point.getPointAvail()%>">
+					<% } %>
 					<input type="hidden" name="parking_code" value="<%=parking_code%>">
 				</div>
 			</div>
