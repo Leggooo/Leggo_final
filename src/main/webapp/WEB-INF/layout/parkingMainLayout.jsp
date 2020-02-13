@@ -12,6 +12,18 @@
 			margin: 15px;
 			margin-left: 5px;
 		} 
+		body {
+			font-family: 배달의민족 한나는 열한살;				
+			/* background: #02AAB0;   */
+			/* background: -webkit-linear-gradient(to top, #00CDAC, #02AAB0);  */
+			background: linear-gradient(to top, #00CDAD, #02AAB0); 
+			background-repeat: no-repeat;
+			background-size: cover;  
+			background-color: red;    
+			}
+		.parkingLayout{
+			background-color: white;
+		}
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -21,11 +33,6 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be626cc1f959d4787a1d8381c33922e7&libraries=services,clusterer,drawing">
 	</script>
 	
-	<style type="text/css">
-		.parkingLayout{
-			background-color: white;
-		}
-	</style>
 		
 </head>
 <body>

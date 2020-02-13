@@ -40,11 +40,23 @@
 	font-weight: bold;
 	color: #00a0e9;
 }
-
 .popupWindow {
-	width: 100%;
-	height: 100%;
-	text-align: right;
+	font-family: 배달의민족 한나는 열한살;
+   margin:0;
+   width: 200px;
+   /* height: 200px; */
+   text-align: center;
+}
+#infoWindow{
+   font-family: 배달의민족 한나는 열한살;
+   font-size: 18px;
+   color:#ffff;
+   width: 147px;
+   margin: 0;
+   height: 40px;
+    padding: 5px;
+    text-align: center; 
+    background-color: orange;
 }
 
 #btnStyle {
@@ -58,14 +70,11 @@
 <!--======================================================HTML===================================================-->
 	<div id="map" style="width: 100%; height: 450px;"></div>
 	<p>
-		<button onclick="currentLoc()">현재위치</button>
-		<button onclick="showMarkers()">주변 주차장</button>
-		<!-- <button onclick="hideMarkers()">주변 주차장 감추기</button> -->
-		<!-- button onclick="removeCircles()">반경 모두 지우기</button> -->
+		<!-- <button onclick="currentLoc()">현재위치</button>
+		<button onclick="showMarkers()">주변 주차장</button> -->
 		<br>
 	</p>
 	<!-- 지도 사이즈 -->
-	<div id="map" style="width: 95%; height: 120%;"></div>
 <!--=========================================================================================================-->
 <!-- java 쓰기 -->
 	<%
@@ -74,15 +83,16 @@
 	%>
 <!--=========================================================================================================-->
 <!-- JQuery 쓰기 -->
-	<script type="text/javascript" src="058c8dd884377b38875fd39e9587e919"></script>
-	<script>
-	open = false
+	<script type="text/javascript">
+	open = false;
+	curSplit = "";
+
 /*=======================================지도 생성입니다========================================  */	
 	// 지도를 표시할 div 
 	var mapContainer = document.getElementById('map'), 
 	mapOption = { 
 	    center: new kakao.maps.LatLng(37.501427, 127.039697), // 지도의 중심좌표
-	    level: 3 // 지도의 확대 레벨
+	    level: 5 // 지도의 확대 레벨
 	};
 	// 지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -98,38 +108,26 @@
 	var zoomControl = new kakao.maps.ZoomControl();
 	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 	
-/*==============================================================================================================================*/	
-	// 원이 그려지고 있는 상태를 가지고 있을 변수입니다
-	var drawingFlag = false; 
-	var centerPosition; // 원의 중심좌표 입니다
-	var drawingCircle; // 그려지고 있는 원을 표시할 원 객체입니다
-	var drawingLine; // 그려지고 있는 원의 반지름을 표시할 선 객체입니다
-	var drawingOverlay; // 그려지고 있는 원의 반경을 표시할 커스텀오버레이 입니다
-	var drawingDot; // 그려지고 있는 원의 중심점을 표시할 커스텀오버레이 입니다
-
-	var circles = []; // 클릭으로 그려진 원과 반경 정보를 표시하는 선과 커스텀오버레이를 가지고 있을 배열입니다
 /*========================================================현재위치===================================================== */	
 	//마커가 표시될 위치입니다 
 	function currentLoc() {
 		if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
+			navigator.geolocation.getCurrentPosition(function(position) {
 			lat = position.coords.latitude; //위도
 			lng = position.coords.longitude; //경도
-		locPosition = new kakao.maps.LatLng(lat, lng), //마커가 표시될 위치
-			
-				message = '<div style="padding:3px; ">현재 위치</div>';
-				 /* alert(locPosition);	
-				bounds = new kakao.maps.LatLngBounds(sw, ne) */
+			locPosition = new kakao.maps.LatLng(lat, lng), //마커가 표시될 위치
+			message = '';
 			//마커와 인포윈도우를 표시한다.
 			displayMarker(locPosition,message);
-		
-		});
-	 }
-	 else {
-		
-	}}
-	/* bounds = new kakao.maps.LatLngBounds(lat, lng);
-	alert(locPosition); */
+			});
+	 	
+			 var level = map.getLevel();
+			    
+			    // 지도를 1레벨 내립니다 (지도가 확대됩니다)
+			    map.setLevel(level - 2);
+			    
+			    }
+	}
 	//지도에 마커와 인포윈도우를 표시하는 함수이다.
 	function displayMarker(locPosition, message){
 						
@@ -138,6 +136,15 @@
 				map: map,
 				position : locPosition 
 			});
+			//출발지 처리                                         
+			var curString = locPosition.toCoords().toString();
+			    curSplit = curString.split(', ');
+			         
+			    curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
+			    curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 2);
+			         
+			    message='<div id="infoWindow">현재위치 '+
+			    '<input type="button" value="출발" style="background-color: skyblue; font-size: 12pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+')"/></div>';
 			
 			//인포윈도우에 표시할 내용
 			var iwContent = message,
@@ -145,7 +152,7 @@
 			//인포윈도우를 생성한다.
 			var infowindow = new kakao.maps.InfoWindow({
 				content : iwContent,
-				removable : iwRemoveable
+				/* removable : iwRemoveable */
 			});
 			  function showCurrent() {
 					if(close==false){
@@ -176,48 +183,6 @@
 	    circles = [];
 	}
 
-	// 마우스 우클릭 하여 원 그리기가 종료됐을 때 호출하여 
-	// 그려진 원의 반경 정보와 반경에 대한 도보, 자전거 시간을 계산하여
-	// HTML Content를 만들어 리턴하는 함수입니다
-	function getTimeHTML(distance) {
-
-	    // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
-	    var walkkTime = distance / 67 | 0;
-	    var walkHour = '', walkMin = '';
-
-	    // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
-	    if (walkkTime > 60) {
-	        walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span>시간 '
-	    }
-	    walkMin = '<span class="number">' + walkkTime % 60 + '</span>분'
-
-	    // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
-	    var bycicleTime = distance / 227 | 0;
-	    var bycicleHour = '', bycicleMin = '';
-
-	    // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
-	    if (bycicleTime > 60) {
-	        bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span>시간 '
-	    }
-	    bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span>분'
-
-	    // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
-	    var content = '<ul class="info">';
-	    content += '    <li>';
-	    content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
-	    content += '    </li>';
-	    content += '    <li>';
-	    content += '        <span class="label">도보</span>' + walkHour + walkMin;
-	    content += '    </li>';
-	    content += '    <li>';
-	    content += '        <span class="label">자전거</span>' + bycicleHour + bycicleMin;
-	    content += '    </li>';
-	    content += '</ul>'
-
-	    return content;
-	}
-
-	
 var imageSrc = '/leggo/images/parking_icon.png', // 마커이미지의 주소입니다    
     imageSize = new kakao.maps.Size(54, 59), // 마커이미지의 크기입니다
     imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
@@ -247,11 +212,21 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 /*==========================================주차장 info window==============================================*/    		
 		 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 			// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-			 var iwContent<%=i%> = 
-				'<div class="popupWindow" ">'+
-				'<%=name%> 공영 주차장'+
-				'<br/><button id="btnStyle" style="color:white;">예약하기</button></div>', 
-			    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+			var desString = markerPosition<%=i%>.toCoords().toString();
+            desSplit = desString.split(', ');
+            
+            desSplit[0] = desSplit[0].substring(1, desSplit[0].length - 1);
+            desSplit[1] = desSplit[1].substring(0, desSplit[1].length - 2);
+
+            var iwContent<%=i%> = 
+                '<div class="popupWindow">'+
+                '<%=name%><br/>공영 주차장'+
+                '<br/><button id="btnStyle" style="color:white;">예약하기</button>'+
+                '<input type="button" class="color2" value="도착" style="background-color: skyblue;font-size: 10pt;" onclick="end('+desSplit[0]+', '+desSplit[1]+')"/>'+
+                /* '<input type="button" class="color2" value="길찾기" style="background-color: skyblue;font-size: 10pt;" onclick="/leggo/findmap.do"/>'+ */
+                '<button style="background-color: #f95c4e;">'+
+                   '<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+
+                   '</a></button></div>'; 
 
 			// 인포윈도우를 생성합니다
 			var infowindow<%=i%> = new kakao.maps.InfoWindow({
@@ -302,12 +277,39 @@ kakao.maps.event.addListener(marker<%=i%>, 'click', function() {
 			open=false;
 		}
 	}
-
-  /*   // "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다
-    function hideMarkers() {
-        setMarkers(null);    
-    } */
-
+/*===============================================출발도착 메서드=================================================  */
+    function start(lati, longi) {
+        //alert("!!!" + lati +" " + longi);
+        $(document).ready(function() {
+           $.get("/leggo/findRoadP/start.do",
+                 {"lati":lati,
+                  "longi":longi},
+                 function(data) {
+                    startStr = lati + ", " + longi;
+                    alert("출발지를 선택하셨습니다");
+                    $('#input_start_lat').val(lati);
+                    $('#input_start_lng').val(longi);      
+                 },
+           "text")
+        });
+     }
+     
+     function end(lati, longi) {
+        //alert("!!!" + lati +" " + longi);
+        $(document).ready(function() {
+           $.get("/leggo/findRoadP/end.do",
+                 {"lati":lati,
+                  "longi":longi},
+                 function(data) {
+                    endStr = lati + ", " + longi;
+                    alert("도착지를 선택하셨습니다.");
+                    alert("길찾기를 원하시면 '길찾기 버튼을 눌러주세요'");
+                    $('#input_end_lat').val(lati);
+                    $('#input_end_lng').val(longi);   
+                 },
+           "text")
+        });
+     }
 
 </script>
 </body>

@@ -26,12 +26,6 @@
 	}
 	
 	</style>
-	<script type="text/javascript">
-		function myFunction() {
-		  document.getElementById("demo").innerHTML = "서울시  강남구 테헤란로 212 <br/>(역삼동) 멀티캠퍼스";
-		}
-		
-	</script>
 </head>
 <body>
 	<!-- Sidebar/menu -->
@@ -47,11 +41,10 @@
 				  	</div>
 				</div>
 			</form>
-		  <button onclick="myFunction()"class="w3-button" id="currentLoc">현재위치</button>
-		<p id="demo"></p>
-		  <a href="#" onclick="" class="w3-button">주변 주차장</a> 
-		  <a href="#" onclick="" class="w3-button">최근 방문</a>
-		  <a href="#" onclick="" class="w3-button">즐겨찾기</a>
+		 <button onclick="currentLoc()" class="w3-button">현재위치</button> 
+		  <button onclick="showMarkers()" class="w3-button">주변 주차장<br/>(감추기)</button>  
+		  <button onclick="" class="w3-button">최근 방문</button> 
+		  <button onclick="" class="w3-button">즐겨찾기</button>
 		  
 	  </div>
 	</div>
