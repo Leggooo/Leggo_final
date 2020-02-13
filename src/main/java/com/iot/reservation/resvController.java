@@ -1,9 +1,9 @@
 package com.iot.reservation;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iot.member.memberVO;
+import com.iot.parkingAPI.parkingAPIService;
+import com.iot.parkingAPI.parkingInfoVO;
+import com.iot.parkingAPI.parkingjsonVO;
 import com.iot.point.pointService;
 
 @Controller
@@ -21,6 +24,8 @@ public class resvController {
 	resvService service;
 	@Autowired
 	pointService pservice;
+	@Autowired
+	parkingAPIService paservice;
 	
 	@RequestMapping("/myResvList.do")
 	public ModelAndView myResvList(HttpSession session) {
@@ -28,8 +33,15 @@ public class resvController {
 		ModelAndView mav = new ModelAndView();
 		memberVO user = (memberVO)session.getAttribute("user");
 		List<resvVO> list = service.select(user.getUser_id());
+		List<parkingInfoVO> pinfolist = new ArrayList<parkingInfoVO>();
+		parkingInfoVO pInfoVO;
+		for(int i = 0;i<list.size();i++) {
+			pInfoVO = paservice.getNameAddr(list.get(i).getParking_code());
+			pinfolist.add(pInfoVO);
+		}
 		/*System.out.println(list);*/
 		mav.addObject("resvlist", list);
+		mav.addObject("pinfolist", pinfolist);
 		mav.setViewName("myResv");
 		return mav;
 	}
@@ -39,6 +51,7 @@ public class resvController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("resvMake");
 		mav.addObject("mypoint", pservice.selectMyPoint((String)session.getAttribute("user_id")));
+		/*System.out.println(pservice.selectMyPoint((String)session.getAttribute("user_id")));*/
 		mav.addObject("parking_code", parking_code);
 		/*System.out.println("reservation maker view");*/
 		/*pointVO point = (pointVO)request.getAttribute("mypoint");*/
@@ -51,7 +64,13 @@ public class resvController {
 		service.insert(resv);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("mypoint", pservice.selectMyPoint(resv.getUser_id()));
+		/*(parkingjsonVO)paservice.getParkingJSON(resv.getParking_code())*/
+		parkingjsonVO par = new parkingjsonVO(200.0,"논현로22길(구)","1","현재~20분이내 연계데이터 존재(현재 주차대수 표현)",97.0,53.0,"2020-02-13 16:59:58","1040225","","","","","","","","");
+		System.out.println("reserve"+par);
+		mav.addObject("parkingInfo", par);
 		mav.setViewName("payMake");
 		return mav;
 	}
+	/*RATES, PARKING_NAME, QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
+	CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE,"","","","","","","",""*/
 }

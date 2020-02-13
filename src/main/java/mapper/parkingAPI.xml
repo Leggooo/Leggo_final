@@ -12,5 +12,9 @@
 			cur_parking= cur_parking+1
 		where parking_code = #{parking_code}
   	</update>
-  
+  	<select id="pNameAddr" parameterType="String" resultType="parkingInfoVO">
+		select parking_code, parking_name, addr
+		from parking_loc
+		where parking_code = #{parking_code}
+	</select>
   </mapper>

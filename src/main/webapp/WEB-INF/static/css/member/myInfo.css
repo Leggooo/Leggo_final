@@ -1537,9 +1537,9 @@ input::-moz-focus-inner {
 			
 
 
-/* Button */
+//* * Button */
 
-	input[type="submit"],
+/* 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
 	button,
@@ -1653,9 +1653,9 @@ input::-moz-focus-inner {
 		.button.fit {
 			width: 100%;
 		}
-		
-/* ====================================================================================================================================================== */
-			input[type="text"].fit.color2,
+		 */
+======================================================================================================================================================
+/* 			input[type="text"].fit.color2,
 			input[type="submit"].fit.color2,
 			input[type="reset"].fit.color2,
 			input[type="button"].fit.color2,
@@ -1682,9 +1682,9 @@ input::-moz-focus-inner {
 			button.quarter,
 			.button.quarter {
 				width: 25%;
-			}
-/* ====================================================================================================================================================== */
-
+			} */
+======================================================================================================================================================
+/* 
 		input[type="submit"].small,
 		input[type="reset"].small,
 		input[type="button"].small,
@@ -1778,7 +1778,7 @@ input::-moz-focus-inner {
 			cursor: default;
 			opacity: 0.5;
 		}
-
+ */ */
 /* Gallery */
 
 	@-moz-keyframes gallery-modal-spinner {

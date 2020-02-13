@@ -3,15 +3,17 @@ package com.iot.pay;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository("payDao")
 public class payDAOImpl implements payDAO {
+	@Autowired
 	SqlSession sqlsession;
 	@Override
 	public int insert(payVO pay) {
-		// TODO Auto-generated method stub
-		return sqlsession.insert("com.iot.pay.insert", pay);
+		System.out.println("dao"+pay);
+		return sqlsession.insert("com.iot.pay.payinsert", pay);
 	}
 
 	@Override
@@ -27,9 +29,9 @@ public class payDAOImpl implements payDAO {
 	}
 
 	@Override
-	public List<payVO> select(payVO pay) {
+	public List<payVO> select(String user_id) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList("com.iot.pay.select", pay);
+		return sqlsession.selectList("com.iot.pay.select", user_id);
 	}
 
 }

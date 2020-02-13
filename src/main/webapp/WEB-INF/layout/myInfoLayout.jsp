@@ -18,11 +18,11 @@
 				<!-- TOP -->
 				<tiles:insertAttribute name="top"></tiles:insertAttribute>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<!-- MENU -->
 				<tiles:insertAttribute name="menu"></tiles:insertAttribute>
 			</div>
-			<div class="col-xs-9" id="myInfoLayout-content">
+			<div class="col-xs-10" id="myInfoLayout-content">
 				<!-- CONTENT -->
 				<tiles:insertAttribute name="content"></tiles:insertAttribute>
 			</div>

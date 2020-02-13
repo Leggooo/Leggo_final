@@ -4,19 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.iot.pay">
-	  <insert id="insert" parameterType="payVO">
+	  <insert id="payinsert" parameterType="payVO">
 	  	insert into pay values(
-	  		#{pm_num},
+	  		pm_num_seq.nextVal,
 			#{rv_id},
 			#{user_id},
 			#{pm_method_code},
-			#{pm_price},
 			sysdate,
 			#{pm_price_plus},
 			#{use_point},
-			#{discount},
 			#{card_grant_num},
-			#{pm_confirm}
+			#{pm_confirm},
+			#{pm_price},
+			#{discount}
 	  	)
 	  </insert>
 	  
@@ -32,20 +32,7 @@
 		where pm_num = #{pm_num}
 	  </update>
 	  
-	  <select id="select" parameterType="payVO" resultType="payVO">
-	  	select * from pay where user_id = #{user_id}; 
+	  <select id="select" parameterType="String" resultType="payVO">
+	  	select * from pay where user_id = #{user_id}
 	  </select>
   </mapper>
-<!-- 
-  	private int pm_num;
-	private int rv_id;
-	private String user_id;
-	private int pm_method_code;
-	private int pm_price;
-	private Date pm_date;
-	private int pm_price_plus;
-	private int use_point;
-	private int discount;
-	private int card_grant_num;
-	private String pm_confirm;
--->

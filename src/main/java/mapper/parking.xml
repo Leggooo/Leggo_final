@@ -10,7 +10,4 @@
   		select parking_code ,parking_name, addr,lat, lng,parking_type,parking_type_nm,operation_rule,operation_rule_nm,tel
   		from parking_loc 
   	</select>
-
-  	
-
   </mapper>

@@ -18,7 +18,9 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 	@Qualifier("parkingSeatDao")
 	@Autowired
 	parkingSeatDAO dao;
-	
+	@Qualifier("parkingInfoDao")
+	@Autowired
+	parkingInfoDAO pinfo;
 	@Override
 	public String readURL(String parking_code) {
 		String key = "4f644f707579797935346a766e424c";
@@ -65,9 +67,19 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 				double CUR_PARKING = (Double)rowObject.get("CUR_PARKING");
 				String CUR_PARKING_TIME = (String)rowObject.get("CUR_PARKING_TIME");
 				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				/*
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
+				*/
 				
 				pVO = new parkingjsonVO(RATES, PARKING_NAME, QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
-						CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE);
+						CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE,"","","","","","","","");
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -78,5 +90,10 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 	@Override
 	public int updateParkingSeats(String parking_code) {
 		return dao.updateParkingSeats(parking_code);
+	}
+
+	@Override
+	public parkingInfoVO getNameAddr(String parking_code) {
+		return pinfo.getNameAddr(parking_code);
 	}
 }

@@ -10,11 +10,10 @@ import org.springframework.stereotype.Service;
 public class payServiceImpl implements payService {
 	@Autowired
 	@Qualifier("payDao")
-	payDAO pay;
+	payDAO dao;
 	@Override
 	public int insert(payVO pay) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.insert(pay);
 	}
 
 	@Override
@@ -30,9 +29,9 @@ public class payServiceImpl implements payService {
 	}
 
 	@Override
-	public List<payVO> select(payVO pay) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<payVO> select(String user_id) {
+		List<payVO> paylist = dao.select(user_id);
+		return paylist;
 	}
 
 }
