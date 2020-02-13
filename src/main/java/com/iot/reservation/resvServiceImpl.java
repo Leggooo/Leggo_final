@@ -32,4 +32,9 @@ public class resvServiceImpl implements resvService {
 		return dao.select(user_id);
 	}
 
+	@Override
+	public resvVO getResvInfo(String user_id) {
+		return dao.getResvInfo(user_id);
+	}
+
 }

@@ -6,6 +6,7 @@
   <mapper namespace="com.iot.reservation">
   	<!-- 예약내역 추가 -->
   	<insert id="resvInsert" parameterType="resvVO">
+
   		insert into reservation values(
 	  		rv_id_seq.nextVal,
 			#{user_id},
@@ -17,6 +18,20 @@
 			sysdate
 		)
   	</insert>
+  	<!-- <insert id="resvInsert" parameterType="resvVO">
+  		<![CDATA[
+  		insert into reservation values(
+	  		rv_id_seq.nextVal,
+			#{user_id},
+			#{parking_code},
+			#{rv_price},
+			#{license_plate},
+			0,
+			sysdate,
+			sysdate+(interval '#{rv_time}' minute)
+		)
+		]]> 
+  	</insert>-->
   	
   	<!-- 예약내역 삭제 -->
   	<delete id="resvDelete" parameterType="resvVO">
@@ -46,5 +61,16 @@
   		select parking_name, addr
   		from parking_loc
   		where parking_code = #{parking_code}
+  	</select>
+  	
+  	<!-- 특정 예약건 정보 조회 -->
+  	<select id="getResvInfo" resultType="resvVO" parameterType="String">
+  		select r.*
+  		from (select *
+  				from reservation
+  				where user_id = #{user_id}
+  				order by rv_date desc
+  			 ) r
+  		where rownum = 1
   	</select>
   </mapper>

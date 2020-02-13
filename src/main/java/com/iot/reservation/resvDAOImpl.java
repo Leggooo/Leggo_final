@@ -31,4 +31,9 @@ public class resvDAOImpl implements resvDAO {
 		return sqlsession.selectList("com.iot.reservation.resvSelect", user_id);
 	}
 
+	@Override
+	public resvVO getResvInfo(String user_id) {
+		return sqlsession.selectOne("com.iot.reservation.getResvInfo", user_id);
+	}
+
 }

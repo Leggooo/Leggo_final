@@ -35,7 +35,6 @@ public class parkingAPIController {
 			pVO = (parkingjsonVO)paservice.getParkingJSON(parking_code);
 			System.out.println("ajax_pVO:"+pVO);
 		}
-		
 		memberVO user = (memberVO)session.getAttribute("user");
 		List<resvVO> list = service.select(user.getUser_id());
 		List<parkingInfoVO> pinfolist = new ArrayList<parkingInfoVO>();

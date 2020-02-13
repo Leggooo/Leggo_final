@@ -6,17 +6,17 @@ public class resvVO {
 	private String rv_id;
 	private String user_id;
 	private String parking_code;
-	private int rv_price;
+	private double rv_price;
 	private String license_plate;
 	private String rv_code;
 	private Date rv_date;
-	private Date rv_time;
+	private String rv_time;
 	
 	public resvVO() {
+		super();
 	}
-	
-	public resvVO(String rv_id, String user_id, String parking_code, int rv_price, String license_plate,
-			String rv_code, Date rv_date, Date rv_time) {
+	public resvVO(String rv_id, String user_id, String parking_code, double rv_price, String license_plate,
+			String rv_code, Date rv_date, String rv_time) {
 		super();
 		this.rv_id = rv_id;
 		this.user_id = user_id;
@@ -48,7 +48,7 @@ public class resvVO {
 	public double getRv_price() {
 		return rv_price;
 	}
-	public void setRv_price(int rv_price) {
+	public void setRv_price(double rv_price) {
 		this.rv_price = rv_price;
 	}
 	public String getLicense_plate() {
@@ -69,10 +69,10 @@ public class resvVO {
 	public void setRv_date(Date rv_date) {
 		this.rv_date = rv_date;
 	}
-	public Date getRv_time() {
+	public String getRv_time() {
 		return rv_time;
 	}
-	public void setRv_time(Date rv_time) {
+	public void setRv_time(String rv_time) {
 		this.rv_time = rv_time;
 	}
 	@Override

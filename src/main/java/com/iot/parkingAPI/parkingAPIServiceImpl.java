@@ -69,19 +69,17 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 				double CUR_PARKING = (Double)rowObject.get("CUR_PARKING");
 				String CUR_PARKING_TIME = (String)rowObject.get("CUR_PARKING_TIME");
 				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				/*
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				String PARKING_CODE = (String)rowObject.get("PARKING_CODE");
-				*/
+				String night_free_open = (String)rowObject.get("NIGHT_FREE_OPEN");
+				String night_free_open_nm = (String)rowObject.get("NIGHT_FREE_OPEN_NM");
+				String weekday_begin_time = (String)rowObject.get("WEEKDAY_BEGIN_TIME");
+				String weekday_end_time = (String)rowObject.get("WEEKDAY_END_TIME");
+				String weekend_begin_time = (String)rowObject.get("WEEKEND_BEGIN_TIME");
+				String weekend_end_time = (String)rowObject.get("WEEKEND_END_TIME");
+				String holiday_begin_time = (String)rowObject.get("HOLIDAY_BEGIN_TIME");
+				String holiday_end_time = (String)rowObject.get("HOLIDAY_END_TIME");
 				
 				pVO = new parkingjsonVO(RATES, PARKING_NAME, QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
-						CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE,"","","","","","","","");
+						CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE,night_free_open,night_free_open_nm,weekday_begin_time,weekday_end_time,weekend_begin_time,weekend_end_time,holiday_begin_time,holiday_end_time);
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();

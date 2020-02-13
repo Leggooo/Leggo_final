@@ -12,7 +12,6 @@ public class payDAOImpl implements payDAO {
 	SqlSession sqlsession;
 	@Override
 	public int insert(payVO pay) {
-		System.out.println("dao"+pay);
 		return sqlsession.insert("com.iot.pay.payinsert", pay);
 	}
 

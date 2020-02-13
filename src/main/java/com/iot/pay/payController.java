@@ -31,9 +31,9 @@ public class payController {
 	
 	@RequestMapping(value="/pay.do", method=RequestMethod.POST)
 	public String payInsert(payVO pay) {
-		System.out.println("들어오나 마!"+pay);
+		/*System.out.println("들어오나 마!"+pay);*/
 		int result = service.insert(pay);
-		System.out.println("나갔디나?"+result);
+		/*System.out.println("나갔디나?"+result);*/
 		return "redirect:/paylist.do?user_id="+pay.getUser_id();
 	}
 	

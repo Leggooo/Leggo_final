@@ -1,3 +1,4 @@
+<%@page import="com.iot.reservation.resvVO"%>
 <%@page import="com.iot.parkingAPI.parkingjsonVO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.iot.point.pointVO"%>
@@ -48,9 +49,10 @@
 	</style>
 </head>
 <body>
-	<h2 style="margin-top: 0px;">결제하기</h2>
+	<h2>결제하기</h2>
 	<%pointVO point = (pointVO)request.getAttribute("mypoint");%>
-	<%parkingjsonVO paypoint = (parkingjsonVO)request.getAttribute("parkingInfo");%>
+	<%parkingjsonVO paypoint = (parkingjsonVO)session.getAttribute("resvPInfo");%>
+	<%resvVO resv = (resvVO)request.getAttribute("resv");%>
 	<div >
 		<form method="post" action="/leggo/pay.do">
 		<div id="myInfoBody" style="margin:auto">
@@ -64,24 +66,24 @@
 							</tr>
 							<tr class="even">
 								<td>주차장 이름</td>
-								<td colspan='2'><input type="text" id="park_id" name="park_id" value="<%=paypoint.getParking_name()%>"/></td>
+								<td colspan='2'><input type="text" id="park_id" disabled="disabled" value="<%=paypoint.getParking_name()%>"/></td>
 							</tr>
-						<%-- 	<tr>
+						 	<tr>
 								<td>예약시간</td>
-								<td colspan='2'><input type="time" id="resv_time" name="resv_time" value="<%=paypoint.get%>"/></td>
-							</tr> --%>
+								<td colspan='2'><input type="text" id="resv_time" disabled="disabled" value="결제 완료 시점에서 <%=resv.getRv_time()%> 분 후"/></td>
+							</tr> 
 							<tr class="even">
 								<td>보유포인트</td>
-								<td colspan='2'><input type="text" id="availpoint" name="availpoint" value="<%=point.getPointAvail()%>"/></td>
+								<td colspan='2'><input type="text" id="availpoint" disabled="disabled" value="<%=point.getPointAvail()%>"/></td>
 							</tr>
 							<tr>
 								<td>이용 요금</td>
-								<td colspan='2'><input type="text" id="paypoint" name="paypoint" value="<%=paypoint.getRates()%>"/></td>
+								<td colspan='2'><input type="text" id="paypoint" disabled="disabled" value="<%=(int)paypoint.getRates()%> 원(포인트)"/></td>
 							</tr>
 							<tr class="even">
 								<td>잔여 포인트</td><!-- 잔여포인트가 마이너스이면 충전 페이지로 넘어가기 -->
 								 <%double val = point.getPointAvail() - (double)paypoint.getRates();%>
-								<td colspan='2'><%if(val>=0){%><input type="text" id="leftpoint" name="leftpoint" value="<%=val%>"><%}
+								<td colspan='2'><%if(val>=0){%><input type="text" id="leftpoint" value="<%=(int)val%>"><%}
 												else{%>
 												<script type="text/javascript">alert("충전을 해주세요.");
 														document.location.href="point/chargePoint.do";
@@ -95,35 +97,29 @@
 								</script> <%}%>
 						<input type="submit" class="paybtn" value="결제취소" onclick="window.location.href='http://localhost:8088/leggo/navi.do'">
 					</div>
-					<input type="hidden" name="rv_id" value="1">
 					<input type="hidden" name="user_id" value="<%=point.getUser_id()%>"/>
 					<input type="hidden" name="pm_method_code" value="<%=paypoint.getParking_name()%>">
-					<input type="hidden" name="pm_price" value="1">
-					<!-- <input type="hidden" name="pm_date" value="20200213"> -->
-					<input type="hidden" name="pm_price_plus" value="1">
-					<input type="hidden" name="use_point" value="<%=paypoint.getRates()%>">
-					<input type="hidden" name="discount" value="1">
-					<input type="hidden" name="card_grant_num" value="1">
 					<input type="hidden" name="pm_confirm" value="0"/>
-					<%-- <input type="hidden" name="pointChange" value="<%=point.getPointChange()%>"/>
-					<input type="hidden" name="userGrade" value="<%=point.getUserGrade()%>"/> --%>
-					
-					
-					
-					
-					
+					<input type="hidden" name="rv_id" value="<%=resv.getRv_id() %>">
+					<input type="hidden" name="pm_price_plus" value="0">
+					<input type="hidden" name="pm_price" value="<%=resv.getRv_price()%>">
+					<input type="hidden" name="use_point" value="<%=(int)paypoint.getRates()%>">
+					<input type="hidden" name="discount" value="0">
+					<input type="hidden" name="card_grant_num" value="1">
+					<input type="hidden" name="pointChange" value="<%=point.getPointChange()%>"/>
+					<input type="hidden" name="userGrade" value="<%=point.getUserGrade()%>"/>
 				</div>
-				<%-- pm_num_seq.nextval,
-			#{rv_id},
-			#{user_id},
-			#{pm_method_code},
-			#{pm_price},
-			sysdate,
-			#{pm_price_plus},
-			#{use_point},
-			#{discount},
-			#{card_grant_num},
-			#{pm_confirm} --%>
+<%-- pm_num_seq.nextval,
+	#{rv_id},
+	#{user_id},
+	#{pm_method_code},
+	#{pm_price},
+	sysdate,
+	#{pm_price_plus},
+	#{use_point},
+	#{discount},
+	#{card_grant_num},
+	#{pm_confirm} --%>
 			</div>
 		</div>
 		</form>

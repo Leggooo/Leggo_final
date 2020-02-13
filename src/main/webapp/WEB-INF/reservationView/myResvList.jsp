@@ -40,7 +40,7 @@ if(request.getAttribute("resvlist")!=null){
 	<h2 style="margin-top: 0px;">예약정보</h2>
 		<table class="table table-bordered" id="parking_list" style="border: 1px solid; text-align: center">
 			<tr>
-				<th>번호</th>
+				<th>예약번호</th>
 				<th>주차장 이름</th>
 				<th>위치</th>
 				<th>금액</th>
@@ -50,10 +50,10 @@ if(request.getAttribute("resvlist")!=null){
 			<% int listSize = rlist.size(); %>
 			<%for(int i=listSize-1;i>=0;i--){ %>
 				<tr>
-					<td><%=i+1 %></td>
+					<td><%=rlist.get(i).getRv_id() %></td>
 					<td><%=pinfolist.get(i).getPARKING_NAME() %></td>
 					<td><%=pinfolist.get(i).getADDR() %></td>
-					<td><%=rlist.get(i).getRv_price() %></td>
+					<td><%=(int)rlist.get(i).getRv_price() %></td>
 					<td><%=rlist.get(i).getRv_date() %></td>
 					<td><%=rlist.get(i).getRv_time() %></td>
 				</tr>
@@ -63,6 +63,5 @@ if(request.getAttribute("resvlist")!=null){
 	<%}else{ %>
 	<h1>예약 내역이 없습니다.</h1>
 	<%} %>
-	<a href="/leggo/resvMake.do?parking_code=<%=1040225%>">예약하기</a>
 </body>
 </html>
