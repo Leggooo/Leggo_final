@@ -2,6 +2,8 @@ package com.iot.parking;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iot.lastmile.FavoriteVO;
+import com.iot.lastmile.RecentVO;
 import com.iot.parkingAPI.parkingAPIService;
 import com.iot.parkingAPI.parkingjsonVO;
 
@@ -72,4 +76,28 @@ public class parkingController {
 	      System.out.println("!!!!"+lati+"!!!!"+longi);
 	      return "success";
 	   }
+	   
+		//즐겨찾기(Favorite table) 불러오기
+		@RequestMapping(value="/parking/favorite.do")
+		public ModelAndView favoriteList(HttpSession session) {
+			ModelAndView mav = new ModelAndView();
+			String user_id = (String) session.getAttribute("user_id");
+			List<FavoriteVO> favoriteList = service.getFavoriteList(user_id);
+			
+			mav.addObject("favoriteList", favoriteList);
+			mav.setViewName("parking/favorite");
+			return mav;
+		}
+		
+		//최근 방문(Recent table) 불러오기
+		@RequestMapping(value="/parking/recent.do")
+		public ModelAndView RecentList(HttpSession session) {
+			ModelAndView mav = new ModelAndView();
+			String user_id = (String) session.getAttribute("user_id");
+			List<RecentVO> recentList = service.getRecentList(user_id);
+			
+			mav.addObject("recentList", recentList);
+			mav.setViewName("parking/recent");
+			return mav;
+		}
 }

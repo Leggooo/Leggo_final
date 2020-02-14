@@ -32,5 +32,6 @@
       <mapper resource="mapper/lastmile.xml"/>  
       <mapper resource="mapper/pay.xml"/>
       <mapper resource="mapper/parkingAPI.xml"/>
+      <mapper resource="mapper/navi.xml"/>
    </mappers>
 </configuration>

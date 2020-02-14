@@ -3,6 +3,9 @@ package com.iot.pay;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iot.parkingAPI.parkingAPIService;
 import com.iot.parkingAPI.parkingInfoVO;
 import com.iot.parkingAPI.parkingjsonVO;
+import com.iot.point.pointService;
+import com.iot.point.pointVO;
 import com.iot.reservation.resvService;
 import com.iot.reservation.resvVO;
 
@@ -23,6 +28,8 @@ public class payController {
 	resvService rservice;
 	@Autowired
 	parkingAPIService paservice;
+	@Autowired
+	pointService pointservice;
 	
 	@RequestMapping(value="/pay.do", method=RequestMethod.GET)
 	public String payView(payVO pay) {
@@ -30,9 +37,14 @@ public class payController {
 	}
 	
 	@RequestMapping(value="/pay.do", method=RequestMethod.POST)
-	public String payInsert(payVO pay) {
+	public String payInsert(payVO pay, HttpSession session) {
 		/*System.out.println("들어오나 마!"+pay);*/
 		int result = service.insert(pay);
+		if(result==1) {
+			pointVO pvo = pointservice.selectMyPoint(pay.getUser_id());
+			pvo.setPointChange(pay.getUse_point()*-1);
+			pointservice.chargePoint(pvo);
+		}
 		/*System.out.println("나갔디나?"+result);*/
 		return "redirect:/paylist.do?user_id="+pay.getUser_id();
 	}

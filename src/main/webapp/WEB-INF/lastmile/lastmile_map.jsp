@@ -69,13 +69,13 @@ body{
 	color: white;
 }
 
- /*    .overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; border-bottom: 2px solid #ddd;background-color:#fff;}
-    .overlay_info a {display: block; background: #d95050; background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center; text-decoration: none; color: #fff; padding:12px 36px 12px 14px; font-size: 14px; border-radius: 6px 6px 0 0}
-    .overlay_info a strong {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/place_icon.png) no-repeat; padding-left: 27px;}
-    .overlay_info .desc {padding:14px;position: relative; min-width: 190px; height: 56px}
-    .overlay_info img {vertical-align: top;}
-    .overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 80px; right: 14px; top: 24px; white-space: normal}
-    .overlay_info:after {content:'';position: absolute; margin-left: -11px; left: 50%; bottom: -12px; width: 22px; height: 12px; background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png) no-repeat 0 bottom;} */
+/*      .overlay_info {border-radius: 6px; margin-bottom: 12px; float:left;position: relative; border-bottom: 2px solid #ddd;background-color:#fff;}  */
+/*     .overlay_info a {display: block; background: #d95050; background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center; text-decoration: none; color: #fff; padding:12px 36px 12px 14px; font-size: 14px; border-radius: 6px 6px 0 0} */
+/*     .overlay_info a strong {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/place_icon.png) no-repeat; padding-left: 27px;} */
+/*     .overlay_info .desc {padding:14px;position: relative; min-width: 190px; height: 56px} */
+/*     .overlay_info img {vertical-align: top;} */
+/*     .overlay_info .address {font-size: 12px; color: #333; position: absolute; left: 80px; right: 14px; top: 24px; white-space: normal} */
+/*     .overlay_info:after {content:'';position: absolute; margin-left: -11px; left: 50%; bottom: -12px; width: 22px; height: 12px; background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png) no-repeat 0 bottom;}  */
 
 </style>
 
@@ -304,12 +304,11 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 			// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 			 var iwContent<%=i%> = 
 				 '<strong><%=splitName%></strong>' +
-				'<div class="overlay_info desc">' +
+				 '<div class="popupWindow">' +
 					'총 거치대 개수 : <%=vo.getRackTotCnt()%>개<br/>' +
 					'사용 가능 자전거 : <%=vo.getParkingBikeTotCnt()%>대<br/>' +
-					'<a href="/leggo/findRoad/endFromLastmile.do?lati=' + <%=vo.getStationLatitude()%> + '&longi=' + <%=vo.getStationLongitude()%> +
-					<%-- '&lastmileName=' + <%URLEncoder.encode(splitName)%> +  --%>'">' + 
-						'<input type="button" class="color2" value="도착" style="background-color: #ffffff;font-size: 5pt;"/>' + 
+					'<a href="/leggo/findRoad/endFromLastmile.do?lati=' + <%=vo.getStationLatitude()%> + '&longi=' + <%=vo.getStationLongitude()%> + '">' +
+					'<button id="btnStyle" style="color:white;">도착</button>' +
 					'</a>' + 
 				'</div>',
 			    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다

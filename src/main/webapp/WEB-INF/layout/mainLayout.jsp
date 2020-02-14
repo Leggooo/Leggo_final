@@ -14,7 +14,19 @@
 	
 	<!-- 카카오맵 -->
 	<script type="text/javascript" 
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be626cc1f959d4787a1d8381c33922e7&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be626cc1f959d4787a1d8381c33922e7&libraries=services,clusterer,drawing">
+	</script>
+	<style type="text/css">
+		body {
+			font-family: 배달의민족 한나는 열한살;				
+			/* background: #02AAB0;   */
+			/* background: -webkit-linear-gradient(to top, #00CDAC, #02AAB0);  */
+			background: linear-gradient(to top, #ede574, #e1f5c4); 
+			background-repeat: no-repeat;
+			background-size: cover;  
+			/* background-color: red; */    
+			}
+	</style>
 </head>
 <body>
 	<div class="container" id="navi">

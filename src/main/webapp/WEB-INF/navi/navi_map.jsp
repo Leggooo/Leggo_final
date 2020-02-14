@@ -11,7 +11,6 @@
     .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;margin-left:25px; background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-
 	body{
 		padding: 10px;
 	}
@@ -68,7 +67,6 @@
 		background-color: #365DA2;
 		color: white;
 	}
-
 	</style>
 	<script type="text/javascript" 
 	src="//dapi.kakao.com/v2/maps/sdk.js?
@@ -95,18 +93,15 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         disableDoubleClickZoom: true,
         level: 4 // 지도의 확대 레벨
     };  
-
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
-
 var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
     infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
     
 //일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다.
 var mapTypeControl = new kakao.maps.MapTypeControl();
-
 //마커가 표시될 위치입니다 
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -125,20 +120,17 @@ if (navigator.geolocation) {
 //kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 
 //정의하는데 TOPRIGHT은 오른쪽
 map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-
 //지도 확대 축소를 제어할 수 있는 줌 컨트롤을 생성합니다.
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.LEFT);
 //버튼 클릭에 따라 지도 확대,축소 기능을 막거나 풀고 싶은 경우에는
 //map.setZoomable함수를 사용합니다
-
 //마우스 휠로 지도 확대, 축소 가능여부를 설정하지 못하게 막습니다
 map.setZoomable(true);    
     
     
 //현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
 searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-
 //마커가 표시될 위치입니다 
 function currentLoc() {
 	if(navigator.geolocation) {
@@ -152,7 +144,6 @@ function currentLoc() {
 		});		    
 	}
 }
-
 //지도에 마커와 인포윈도우를 표시하는 함수이다.
 function displayMarker(locPosition) {		
 	// 클릭한 위치를 표시할 마커를 생성합니다
@@ -178,15 +169,12 @@ function displayMarker(locPosition) {
     // 마커를 클릭한 위치에 표시합니다 
     marker.setPosition(locPosition);
     marker.setMap(map);
-
     // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
     infowindow.setContent(message);
     infowindow.open(map, marker);
-
 	//지도 중심좌표를 접속위치로 변경한다.
 	map.setCenter(locPosition);	
 }
-
 //지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
@@ -226,39 +214,27 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
             // 마커를 클릭한 위치에 표시합니다 
             marker.setPosition(mouseEvent.latLng);
             marker.setMap(map);
-
             // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
             infowindow.setContent(content);
             infowindow.open(map, marker);
         }   
     });
 });
-
-
-
-
-
-
-
 kakao.maps.event.addListener(map, 'idle', function() {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 });
-
 function searchAddrFromCoords(coords, callback) {
     // 좌표로 행정동 주소 정보를 요청합니다
     geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
 }
-
 function searchDetailAddrFromCoords(coords, callback) {
     // 좌표로 법정동 상세 주소 정보를 요청합니다
     geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
 }
-
 // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
 function displayCenterInfo(result, status) {
     if (status === kakao.maps.services.Status.OK) {
         var infoDiv = document.getElementById('centerAddr');
-
         for(var i = 0; i < result.length; i++) {
             // 행정동의 region_type 값은 'H' 이므로
             if (result[i].region_type === 'H') {

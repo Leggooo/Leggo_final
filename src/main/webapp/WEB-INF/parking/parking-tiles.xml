@@ -16,4 +16,12 @@
 	
 	</definition>
 	
+		<definition name="parking/favorite" extends="parkingTemplate">
+		<put-attribute name="content" value="/WEB-INF/navi/naviFavorite.jsp" />
+	</definition>
+	
+	<definition name="parking/recent" extends="parkingTemplate">
+		<put-attribute name="content" value="/WEB-INF/navi/naviRecent.jsp" />
+	</definition>
+	
 </tiles-definitions>

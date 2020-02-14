@@ -10,7 +10,7 @@
 </head>
 <body>
 	<% ArrayList<FavoriteVO> favoriteList = (ArrayList<FavoriteVO>)request.getAttribute("favoriteList"); %>
-	<table class="hide" id="LastmileFavoriteTable">
+	<table class="hide" id="NaviFavoriteTable">
 	  	<thead>
 	    	<tr>
 		      	<th scope="col">이름</th>
@@ -20,11 +20,11 @@
 		      	<th scope="col">길찾기로 이동</th>
 	    	</tr>
 	  	</thead>
-	  	<tbody id="LastmileFavoriteTable_body">
+	  	<tbody id="NaviFavoriteTable_body">
 	  	<% for(int i=0;i<favoriteList.size();i++) { 
 	  		String name = favoriteList.get(i).getLocation_name();
 	  		String location_name = name.substring(name.lastIndexOf(".")+1);
-	  		String url = "/leggo/findRoad/endFromLastmile.do?lati=" + String.valueOf(favoriteList.get(i).getLatitude())
+	  		String url = "/leggo/findRoad/endFromNavi.do?lati=" + String.valueOf(favoriteList.get(i).getLatitude())
 	  				+ "&longi=" + String.valueOf(favoriteList.get(i).getLongitude());%>
 	    	<tr>
 	    		<form action="" method="">

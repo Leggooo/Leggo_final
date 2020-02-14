@@ -19,7 +19,7 @@
 			background: linear-gradient(to top, #00CDAD, #02AAB0); 
 			background-repeat: no-repeat;
 			background-size: cover;  
-			background-color: red;    
+			/* background-color: red;    */ 
 			}
 		.parkingLayout{
 			background-color: white;

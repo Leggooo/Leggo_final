@@ -32,7 +32,7 @@
 	<!-- Sidebar/menu -->
 	<div id="freesidebar">
 	 <div id="freemenubtn">
-		  	<form action="" method="get" class="searchBar">
+		  <!-- 	<form action="" method="get" class="searchBar">
 				<div class="w3-cell-row"">
 					<div class="w3-cell" id="search">
 				  		<input type="text"  placeholder="검색하세요"/>
@@ -41,11 +41,15 @@
 				  		<a href="#" onclick="" >검색</a>
 				  	</div>
 				</div>
-			</form>
+			</form> -->
 		 <button onclick="currentLoc()" class="w3-button">현재위치</button> 
+		  <a href="/leggo/parking/favorite.do"><button onclick="" class="w3-button">즐겨찾기</button></a>
+		  <a href="/leggo/parking/recent.do"><button onclick="" class="w3-button">최근 방문</button> </a>
 		  <button onclick="showMarkers()" class="w3-button">주변 주차장<br/>(감추기)</button>  
-		  <button onclick="" class="w3-button">최근 방문</button> 
-		  <button onclick="" class="w3-button">즐겨찾기</button>
+		   <a href="/leggo/navi.do"><button onclick="" class="w3-button">길찾기로 이동</button></a>
+		  <a href="/leggo/lastmile.do"><button onclick="" class="w3-button">라스트마일로 이동</button> </a>
+		 
+		  
 		  
 	  </div>
 	</div>

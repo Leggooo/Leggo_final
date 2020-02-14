@@ -23,7 +23,9 @@
 	  	<tbody id="LastmileRecentTable_body">
 	  	<% for(int i=0;i<recentList.size();i++) { 
 	  		String name = recentList.get(i).getLocation_name();
-	  		String location_name = name.substring(name.lastIndexOf(".")+1);%>
+	  		String location_name = name.substring(name.lastIndexOf(".")+1);
+	  		String url = "/leggo/findRoad/endFromLastmile.do?lati=" + String.valueOf(recentList.get(i).getLatitude())
+	  				+ "&longi=" + String.valueOf(recentList.get(i).getLongitude());%>
 	    	<tr>
 	    		<form action="" method="">
 		      		<td><%= location_name %></td>
@@ -31,8 +33,11 @@
 		      		<td><%= recentList.get(i).getLongitude() %></td>
 	    		</form>
 	    		
-	      		<td><input type="submit" class="w3-cell" id="setStartBtn" value="출발지"></input>
-	      		<input type="submit" class="w3-cell" id="setEndBtn" value="도착지"></input></td>
+	      		<td>
+	      			<a href="<%= url %>">
+	      				<button id="btnStyle" style="color:white;">도착</button>
+	      			</a>
+	      		</td>
 	    	</tr>
 	    <% } %>
 		</tbody>

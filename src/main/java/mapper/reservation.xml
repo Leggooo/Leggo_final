@@ -6,18 +6,17 @@
   <mapper namespace="com.iot.reservation">
   	<!-- 예약내역 추가 -->
   	<insert id="resvInsert" parameterType="resvVO">
-
-  		insert into reservation values(
-	  		rv_id_seq.nextVal,
-			#{user_id},
-			#{parking_code},
-			#{rv_price},
-			#{license_plate},
-			0,
-			sysdate,
-			sysdate
-		)
-  	</insert>
+        insert into reservation values(
+           rv_id_seq.nextVal,
+         #{user_id},
+         #{parking_code},
+         #{rv_price},
+         #{license_plate},
+         0,
+         sysdate,
+         sysdate+(#{rv_time})/(60*24)
+      )
+     </insert>
   	<!-- <insert id="resvInsert" parameterType="resvVO">
   		<![CDATA[
   		insert into reservation values(

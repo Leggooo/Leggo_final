@@ -29,15 +29,15 @@
 			<input type="hidden" name="userGrade" value="<%=point.getUserGrade() %>">
 		</div>
 		<div class="field">
-			<input type="submit" onclick="" id="submitBtn">
+			<input type="submit" id="submitBtn">
 		</div>
 	</form>
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 	$("#submitBtn").on("click",function(){
 		self.close();
 	})
 })
-</script>
+</script> -->
 </html>

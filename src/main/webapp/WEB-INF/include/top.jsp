@@ -6,20 +6,20 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
 	<title>LEGGO</title>
 	<style type="text/css">
 	#topSize{
 			height:100%;
-			margin-bottom: 30px;
+			padding-top:20px;
 			/* background-color: #365da2; */
 		
 		}
 		#topRight{
 			padding-top:20px;
+			padding-bottom:-20px;
 			text-align: right;
 			font-family: 배달의민족 한나는 열한살;
 			font-size: 20px;
@@ -28,12 +28,14 @@
 			
 		}
 		#topMiddle{
-			/* background-color: orange; */ 
+			/* background-color: orange; */
+			padding-bottom:-20px;
 		}
 		#topLeft{
 			padding-top:20px;
 			text-align:right;
-			 /* background-color: blue */; 
+			 /* background-color: blue ; */
+			 margin-bottom:-20px;
 		}
 		.username{
 			display: inline;
@@ -43,6 +45,13 @@
 		}
 		.imgClassLogo{
 			width: 100px;
+		}
+		#line{
+			width: 100%;
+			height: 40%;
+			/* background-color: red; */
+			margin-bottom: -50px;
+			margin-top: -50px;
 		}
 		
 	
@@ -83,6 +92,7 @@
 	    <%}%>
 	<%}%>
 	    </div>
+	    <span><br/><img id="line" src="/leggo/images/line2.png"></span>
 	  </div>
 	</div>
 </body>

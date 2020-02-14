@@ -46,7 +46,7 @@ body{
 	color: #00a0e9;
 }
 .popupWindow {
-	font-family: 배달의민족 한나는 열한살;
+	font-family: Adobe 명조 Std M;
    margin:0;
    width: 200px;
    /* height: 200px; */
@@ -149,7 +149,7 @@ body{
 			    curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
 			    curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 2);
 			         
-			    message='<div id="infoWindow">현재위치 ' + '</div>';
+			    message='<div id="infoWindow">현재위치 ';
 			
 			//인포윈도우에 표시할 내용
 			var iwContent = message,
@@ -261,8 +261,8 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
                 '</table>' +	
                 '<br/><a href="/leggo/getParkingJsonVO.do?parking_code=' + <%= jsonVO.getParking_code() %> + '"><button id="btnStyle" style="color:white;">예약하기</button></a>'+	
                 '<button style="background-color: #f95c4e;">'+	
-                   '<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=현재위치&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+	
-                   '</a></button></div>';
+                '<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=목적지&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+	
+                '</a></button></div>';
 
 			// 인포윈도우를 생성합니다
 			var infowindow<%=i%> = new kakao.maps.InfoWindow({

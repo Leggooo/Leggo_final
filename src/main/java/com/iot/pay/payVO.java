@@ -4,23 +4,23 @@ import java.sql.Date;
 
 public class payVO {
 	private int pm_num;
-	private int rv_id;
+	private String rv_id;
 	private String user_id;
-	private String pm_method_code;
-	private double pm_price;
+	private int pm_method_code;
+	private int pm_price;
 	private Date pm_date;
-	private double pm_price_plus;
+	private int pm_price_plus;
 	private int use_point;
 	private int discount;
-	private int card_grant_num;
+	private String card_grant_num;
 	private String pm_confirm;
 	
 	public payVO() {
 	
 	}
 
-	public payVO(int pm_num, int rv_id, String user_id, String pm_method_code, double pm_price, Date pm_date,
-			double pm_price_plus, int use_point, int discount, int card_grant_num, String pm_confirm) {
+	public payVO(int pm_num, String rv_id, String user_id, int pm_method_code, int pm_price, Date pm_date,
+			int pm_price_plus, int use_point, int discount, String card_grant_num, String pm_confirm) {
 		super();
 		this.pm_num = pm_num;
 		this.rv_id = rv_id;
@@ -43,11 +43,11 @@ public class payVO {
 		this.pm_num = pm_num;
 	}
 
-	public int getRv_id() {
+	public String getRv_id() {
 		return rv_id;
 	}
 
-	public void setRv_id(int rv_id) {
+	public void setRv_id(String rv_id) {
 		this.rv_id = rv_id;
 	}
 
@@ -59,19 +59,19 @@ public class payVO {
 		this.user_id = user_id;
 	}
 
-	public String getPm_method_code() {
+	public int getPm_method_code() {
 		return pm_method_code;
 	}
 
-	public void setPm_method_code(String pm_method_code) {
+	public void setPm_method_code(int pm_method_code) {
 		this.pm_method_code = pm_method_code;
 	}
 
-	public double getPm_price() {
+	public int getPm_price() {
 		return pm_price;
 	}
 
-	public void setPm_price(double pm_price) {
+	public void setPm_price(int pm_price) {
 		this.pm_price = pm_price;
 	}
 
@@ -83,11 +83,11 @@ public class payVO {
 		this.pm_date = pm_date;
 	}
 
-	public double getPm_price_plus() {
+	public int getPm_price_plus() {
 		return pm_price_plus;
 	}
 
-	public void setPm_price_plus(double pm_price_plus) {
+	public void setPm_price_plus(int pm_price_plus) {
 		this.pm_price_plus = pm_price_plus;
 	}
 
@@ -107,11 +107,11 @@ public class payVO {
 		this.discount = discount;
 	}
 
-	public int getCard_grant_num() {
+	public String getCard_grant_num() {
 		return card_grant_num;
 	}
 
-	public void setCard_grant_num(int card_grant_num) {
+	public void setCard_grant_num(String card_grant_num) {
 		this.card_grant_num = card_grant_num;
 	}
 
