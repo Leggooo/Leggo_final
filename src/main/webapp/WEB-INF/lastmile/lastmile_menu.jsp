@@ -10,7 +10,7 @@
 	<!-- Sidebar/menu -->
 	<div id="freesidebar">
 		<div id="freemenubtn">
-		 	<h2 class="w3-gray" style="text-shadow:1px 1px 0 #444;font-size:20px">서울시 강남구 역삼동</h2>
+		 	<button onclick="currentLoc()" class="w3-button">현재위치</button> 
 		 	
 	        <a href="/leggo/lastmile.do" id="around" class="w3-button">주변 lastmile</a>
 	        

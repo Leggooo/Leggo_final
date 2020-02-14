@@ -11,6 +11,64 @@
     .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;margin-left:25px; background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+
+	body{
+		padding: 10px;
+	}
+	.info {
+		position: relative;
+		top: 5px;
+		left: 5px;
+		border-radius: 6px;
+		border: 1px solid #ccc;
+		border-bottom: 2px solid #ddd;
+		font-size: 12px;
+		padding: 5px;
+		background: #fff;
+		list-style: none;
+		margin: 0;
+	}
+	
+	.info:nth-of-type(n) {
+		border: 0;
+		box-shadow: 0px 1px 2px #888;
+	}
+	
+	.info .label {
+		display: inline-block;
+		width: 50px;
+	}
+	
+	.number {
+		font-weight: bold;
+		color: #00a0e9;
+	}
+	
+	.popupWindow {
+		font-family: 배달의민족 한나는 열한살;
+	   margin:0;
+	   width: 200px;
+	   /* height: 200px; */
+	   text-align: center;
+	}
+	#infoWindow{
+	   font-family: 배달의민족 한나는 열한살;
+	   font-size: 18px;
+	   color:#ffff;
+	   width: 147px;
+	   margin: 0;
+	   height: 40px;
+	    padding: 5px;
+	    text-align: center; 
+	    background-color: orange;
+	}
+	
+	
+	#btnStyle {
+		background-color: #365DA2;
+		color: white;
+	}
+
 	</style>
 	<script type="text/javascript" 
 	src="//dapi.kakao.com/v2/maps/sdk.js?
@@ -102,10 +160,10 @@ function displayMarker(locPosition) {
 	//alert(locPosition.toCoords().toString());
 	curString = locPosition.toCoords().toString();
 	curSplit = curString.split(', ');
-	alert(curSplit);
+	//alert(curSplit);
 	curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
 	curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 1);
-	alert(curSplit);
+	//alert(curSplit);
 	//var strAddr = new String("서울 강남구 테헤란로 212");
 	
 	/* strAddr = '서울 강남구 테헤란로 212'; */
@@ -114,9 +172,8 @@ function displayMarker(locPosition) {
 	/* strAddr = encodeURI(addr); */
 	/* alert(strAddr) */
 	strAddr = '';
-	alert(strAddr)
-	message='<div style="color:fuchsia;">현재위치&nbsp;&nbsp;'+
-	'<input type="button" class="color2" value="출발" style="background-color: #006be0; font-size: 12pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+', '+strAddr+')"/></div>';
+	//alert(strAddr)
+	message='<div id="infoWindow">현재위치 ' + '</div>';
 	
     // 마커를 클릭한 위치에 표시합니다 
     marker.setPosition(locPosition);
@@ -148,13 +205,13 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
         	var desString = mouseEvent.latLng.toCoords().toString();
         	desSplit = desString.split(', ');
         	
-        	alert(desSplit)
+        	//alert(desSplit)
         	
         	desSplit[0] = desSplit[0].substring(1, desSplit[0].length - 1);
 			desSplit[1] = desSplit[1].substring(0, desSplit[1].length - 1);
 			/* endAddr = result[0].address.address_name; */
 			endAddr='';
-			alert(endAddr)
+			//alert(endAddr)
 			//alert(desSplit)
         	
 			content += '<div style="padding: 1px;color:fuchsia;padding-left:5px;">도착위치&nbsp;&nbsp;'+
@@ -195,7 +252,6 @@ function searchAddrFromCoords(coords, callback) {
 function searchDetailAddrFromCoords(coords, callback) {
     // 좌표로 법정동 상세 주소 정보를 요청합니다
     geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
-
 }
 
 // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
@@ -214,7 +270,7 @@ function displayCenterInfo(result, status) {
 }
 /*출발지 좌표*/
 function start(lati, longi, address) {
-	alert("!!!" + lati +" " + longi);
+	//alert("!!!" + lati +" " + longi);
 	$(document).ready(function() {
 		$.get("/leggo/findRoad/start.do",
 				{"lati":lati,
@@ -223,8 +279,8 @@ function start(lati, longi, address) {
 				 },
 				function(data) {
 					startStr = lati + ", " + longi;
-					alert("???????????? " + startStr)
-					alert("출발지를 선택하셨습니다.")
+					//alert("???????????? " + startStr)
+					//alert("출발지를 선택하셨습니다.")
 					$('#input_start_lat').val(lati);
 					$('#input_start_lng').val(longi);
 					$('#input_start').val(startStr);
@@ -236,7 +292,7 @@ function start(lati, longi, address) {
 }
 /*도착지 좌표*/
 function end(lati, longi, address) {
-	alert("!!!" + lati +" " + longi);
+	//alert("!!!" + lati +" " + longi);
 	$(document).ready(function() {
 		$.get("/leggo/findRoad/end.do",
 				{"lati":lati,
@@ -244,8 +300,8 @@ function end(lati, longi, address) {
 				 },
 				function(data) {
 					endStr = lati + ", " + longi;
-					alert("???????????? " + endStr)
-					alert("도착지를 선택하셨습니다.")
+					//alert("???????????? " + endStr)
+					//alert("도착지를 선택하셨습니다.")
 					$('#input_end_lat').val(lati);
 					$('#input_end_lng').val(longi);
 					$('#input_end').val(endStr);

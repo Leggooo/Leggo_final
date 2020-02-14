@@ -149,8 +149,7 @@ body{
 			    curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
 			    curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 2);
 			         
-			    message='<div id="infoWindow">현재위치 '+
-			    '<input type="button" value="출발" style="background-color: skyblue; font-size: 12pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+')"/></div>';
+			    message='<div id="infoWindow">현재위치 ' + '</div>';
 			
 			//인포윈도우에 표시할 내용
 			var iwContent = message,
@@ -315,19 +314,6 @@ kakao.maps.event.addListener(marker<%=i%>, 'click', function() {
 		}
 	}
 /*===============================================출발도착 메서드=================================================  */
-    function start(lati, longi) {
-        //alert("!!!" + lati +" " + longi);
-        $.get("/leggo/findRoadP/start.do",
-              {"lati":lati,
-               "longi":longi},
-              function(data) {
-                 startStr = lati + ", " + longi;
-                 alert("출발지를 선택하셨습니다");
-                 $('#input_start_lat').val(lati);
-                 $('#input_start_lng').val(longi);      
-              },
-        "text")
-     }
      
      function end(lati, longi) {
         //alert("!!!" + lati +" " + longi);
