@@ -6,7 +6,7 @@ public class payVO {
 	private int pm_num;
 	private String rv_id;
 	private String user_id;
-	private int pm_method_code;
+	private String pm_method_code;
 	private int pm_price;
 	private Date pm_date;
 	private int pm_price_plus;
@@ -19,7 +19,7 @@ public class payVO {
 	
 	}
 
-	public payVO(int pm_num, String rv_id, String user_id, int pm_method_code, int pm_price, Date pm_date,
+	public payVO(int pm_num, String rv_id, String user_id, String pm_method_code, int pm_price, Date pm_date,
 			int pm_price_plus, int use_point, int discount, String card_grant_num, String pm_confirm) {
 		super();
 		this.pm_num = pm_num;
@@ -59,11 +59,11 @@ public class payVO {
 		this.user_id = user_id;
 	}
 
-	public int getPm_method_code() {
+	public String getPm_method_code() {
 		return pm_method_code;
 	}
 
-	public void setPm_method_code(int pm_method_code) {
+	public void setPm_method_code(String pm_method_code) {
 		this.pm_method_code = pm_method_code;
 	}
 

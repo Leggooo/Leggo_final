@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iot.comment.cmtService;
 import com.iot.comment.cmtVO;
+import com.iot.member.memberService;
+import com.iot.member.memberVO;
 
 @Controller
 public class freeboardController {
@@ -17,11 +20,9 @@ public class freeboardController {
 	 freeboardService service;
 	@Autowired
 	 cmtService cmtservice;
-	
-	
 	//자유게시판 메인화면
 	@RequestMapping(value="/freeboardmain.do")
-	public ModelAndView freeboardmain(){
+	public ModelAndView freeboardmain(String boardlist){
 		List<freeboardVO> list = service.boardList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardlist",list);

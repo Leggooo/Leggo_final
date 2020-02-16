@@ -97,15 +97,16 @@
 								</script> <%}%>
 						<input type="submit" class="paybtn" value="결제취소" onclick="window.location.href='http://localhost:8088/leggo/navi.do'">
 					</div>
+					<input type="hidden" name="rv_id" value="<%=resv.getRv_id() %>"/>
 					<input type="hidden" name="user_id" value="<%=point.getUser_id()%>"/>
-					<input type="hidden" name="pm_method_code" value="<%=paypoint.getParking_name()%>">
+					<input type="hidden" name="rv_id" value="<%=resv.getRv_id() %>"/>
 					<input type="hidden" name="pm_confirm" value="0"/>
-					<input type="hidden" name="rv_id" value="<%=resv.getRv_id() %>">
-					<input type="hidden" name="pm_price_plus" value="0">
-					<input type="hidden" name="pm_price" value="<%=resv.getRv_price()%>">
-					<input type="hidden" name="use_point" value="<%=(int)paypoint.getRates()%>">
-					<input type="hidden" name="discount" value="0">
-					<input type="hidden" name="card_grant_num" value="1">
+					<input type="hidden" name="pm_method_code" value="<%=paypoint.getParking_name()%>"/>
+					<input type="hidden" name="pm_price_plus" value="0"/>
+					<input type="hidden" name="pm_price" value="<%=(int)resv.getRv_price()%>"/>
+					<input type="hidden" name="use_point" value="<%=(int)paypoint.getRates()%>"/>
+					<input type="hidden" name="discount" value="0"/>
+					<input type="hidden" name="card_grant_num" value="10"/>
 					<input type="hidden" name="pointChange" value="<%=point.getPointChange()%>"/>
 					<input type="hidden" name="userGrade" value="<%=point.getUserGrade()%>"/>
 				</div>

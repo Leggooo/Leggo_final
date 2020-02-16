@@ -5,9 +5,9 @@
   
   <mapper namespace="com.iot.pay">
 	  <insert id="payinsert" parameterType="payVO">
-        insert into pay values(
+	  insert into pay values(
            pm_num_seq.nextVal,
-         #{rv_id},
+         '83',
          #{user_id},
          #{pm_method_code},
          #{pm_price},
@@ -19,7 +19,7 @@
          #{pm_confirm}
         )<!-- 순서 변경 -->
      </insert>
-	  
+        
 	  <delete id="delete" parameterType="payVO">
 	  	delete pay where pm_num = #{pm_num}
 	  </delete>

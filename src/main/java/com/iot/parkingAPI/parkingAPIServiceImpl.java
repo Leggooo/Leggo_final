@@ -80,6 +80,7 @@ public class parkingAPIServiceImpl implements parkingAPIService {
 				
 				pVO = new parkingjsonVO(RATES, PARKING_NAME, QUE_STATUS, QUE_STATUS_NM, CAPACITY, 
 						CUR_PARKING, CUR_PARKING_TIME, PARKING_CODE,night_free_open,night_free_open_nm,weekday_begin_time,weekday_end_time,weekend_begin_time,weekend_end_time,holiday_begin_time,holiday_end_time);
+				System.out.println("주차장 생성자 확인 :"+pVO);
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();

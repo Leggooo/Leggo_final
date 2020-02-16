@@ -1,9 +1,7 @@
 package com.iot.pay;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iot.parkingAPI.parkingAPIService;
-import com.iot.parkingAPI.parkingInfoVO;
-import com.iot.parkingAPI.parkingjsonVO;
 import com.iot.point.pointService;
 import com.iot.point.pointVO;
 import com.iot.reservation.resvService;
-import com.iot.reservation.resvVO;
 
 @Controller
 public class payController {
@@ -38,14 +33,15 @@ public class payController {
 	
 	@RequestMapping(value="/pay.do", method=RequestMethod.POST)
 	public String payInsert(payVO pay, HttpSession session) {
-		/*System.out.println("들어오나 마!"+pay);*/
+		System.out.println("pay.do!"+pay);
 		int result = service.insert(pay);
+		System.out.println("Insert결과:"+result);
 		if(result==1) {
 			pointVO pvo = pointservice.selectMyPoint(pay.getUser_id());
 			pvo.setPointChange(pay.getUse_point()*-1);
 			pointservice.chargePoint(pvo);
 		}
-		/*System.out.println("나갔디나?"+result);*/
+		System.out.println("나갔디나?"+result);
 		return "redirect:/paylist.do?user_id="+pay.getUser_id();
 	}
 	

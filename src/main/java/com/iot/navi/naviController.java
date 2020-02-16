@@ -62,6 +62,18 @@ public class naviController {
 		return "success";
 	}
 	
+	@RequestMapping("/findRoad/endFromLastmile.do")
+	public ModelAndView endFromLastmile(String lati, String longi, String lastmileName) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("endLati", lati);
+		mav.addObject("endLongi", longi);
+		mav.addObject("endName", lastmileName);
+		mav.setViewName("navi");
+		
+		return mav;
+	}
+	
 
 	@RequestMapping("/findRoad/endFromParking.do")
 	public ModelAndView endFromParking(String lati, String longi, String naviName) {
@@ -70,18 +82,6 @@ public class naviController {
 		mav.addObject("endLati", lati);
 		mav.addObject("endLongi", longi);
 		mav.addObject("endName", naviName);
-		mav.setViewName("navi");
-		
-		return mav;
-	}
-	
-	@RequestMapping("/findRoad/endFromLastmile.do")
-	public ModelAndView endFromLastmile(String lati, String longi, String lastmileName) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("endLati", lati);
-		mav.addObject("endLongi", longi);
-		mav.addObject("endName", lastmileName);
 		mav.setViewName("navi");
 		
 		return mav;

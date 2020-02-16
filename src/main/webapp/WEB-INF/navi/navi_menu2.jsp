@@ -49,26 +49,28 @@
 				
 		  	<form action="/leggo/findmap.do" method="post" class="searchBar">
 				<div class="w3-cell-row"">
-					<div class="w3-cell" id="search">
+					<!-- <div class="w3-cell" id="search">
 				  		<input type="text"  placeholder="출발지"/>
 				  		<input type="text"  placeholder="도착지"/>
-				  	</div>
-				  	<div class="w3-cell" id="searchClick">
+				  	</div> -->
+				  	<div class="w3-cell" id="search">
 				  		
-				  		<input type="hidden" id="input_start_lat" name="input_start_lat" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; disabled"/>
-						<input type="hidden" id="input_start_lng" name="input_start_lng" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; disabled"/>
-						<input type="hidden" id="input_end_lat" name="input_end_lat" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt; disabled"/>
-						<input type="hidden" id="input_end_lng" name="input_end_lng" class="color2" value="도착" style="background-color: #ffffff;font-size: 14pt; disabled"/>
+				  		<input type="hidden" id="input_start_lat" name="input_start_lat" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; readonly"/>
+						<input type="hidden" id="input_start_lng" name="input_start_lng" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; readonly"/>
+						<input type="text" id="input_start" name="input_start" class="color2" placeholder="출발지" style="background-color: #ffffff;font-size: 11pt; readonly"/>
+						<input type="hidden" id="input_end_lat" name="input_end_lat" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt; readonly"/>
+						<input type="hidden" id="input_end_lng" name="input_end_lng" class="color2" value="도착" style="background-color: #ffffff;font-size: 14pt; readonly"/>
+						<input type="text" id="input_end" name="input_end" class="color2" placeholder="도착지" style="background-color: #ffffff; font-size: 11pt; readonly"/>
 						<!-- <input type="submit" type="submit" onclick="" value="길찾기"> -->
-						<button type="button" id="searchClick">GO!</button>
+						<input type="submit" id="searchClick"value="길찾기" />
 						<!-- <input type="submit" id="searchClick" value="길찾기" style="background-color: #ffffff; font-size: 14pt;" /> -->
 				  	</div>
 				</div>
 			</form>
 		 <button onclick="currentLoc()" class="w3-button">현재위치</button>
-		  <a href="/leggo/navi/favorite.do"><button class="w3-button">즐겨찾기</button> </a>
-		  <a href="/leggo/navi/recent.do"><button class="w3-button">최근방문</button> </a>
-		  <a href="/leggo/parking.do"><button class="w3-button">주차장으로 이동</button></a>
+		  <a href="/leggo/navi/favorite.do"><button class="w3-button">즐겨찾기</button> </a>	
+		  <a href="/leggo/navi/recent.do"><button class="w3-button">최근방문</button> </a>	
+		  <a href="/leggo/parking.do"><button class="w3-button">주차장으로 이동</button></a>	
 		  <a href="/leggo/lastmile.do"><button class="w3-button">라스트마일로 이동</button> </a>
 		  
 	  </div>

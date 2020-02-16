@@ -9,7 +9,7 @@ public class freeboardVO {
 	String brd_num;
 	String title;
 	String content;
-	Date update_date;
+	String update_date;
 	String user_id;
 	String img_path;
 
@@ -17,7 +17,7 @@ public freeboardVO() {
 		
 	}
 
-	public freeboardVO(int brd_type_num, String brd_num, String title, String content, Date update_date, String user_id,
+/*	public freeboardVO(int brd_type_num, String brd_num, String title, String content, Date update_date, String user_id,
 			String img_path) {
 		super();
 		this.brd_type_num = brd_type_num;
@@ -28,10 +28,23 @@ public freeboardVO() {
 		this.user_id = user_id;
 		this.img_path = img_path;
 	}
+*/
 
 	public int getBrd_type_num() {
 		return brd_type_num;
 	}
+
+	public freeboardVO(int brd_type_num, String brd_num, String title, String content, String update_date, String user_id,
+		String img_path) {
+	super();
+	this.brd_type_num = brd_type_num;
+	this.brd_num = brd_num;
+	this.title = title;
+	this.content = content;
+	this.update_date = update_date;
+	this.user_id = user_id;
+	this.img_path = img_path;
+}
 
 	public void setBrd_type_num(int brd_type_num) {
 		this.brd_type_num = brd_type_num;
@@ -61,16 +74,25 @@ public freeboardVO() {
 		this.content = content;
 	}
 
-	public Date getUpdate_date() {
+/*	public Date getUpdate_date() {
 		return update_date;
 	}
 
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
-	}
-
+	}*/
+	
+	
 	public String getUser_id() {
 		return user_id;
+	}
+
+	public String getUpdate_date() {
+		return update_date;
+	}
+
+	public void setUpdate_date(String update_date) {
+		this.update_date = update_date;
 	}
 
 	public void setUser_id(String user_id) {

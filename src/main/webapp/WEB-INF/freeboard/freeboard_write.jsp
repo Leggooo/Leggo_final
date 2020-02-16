@@ -36,10 +36,6 @@
 						<th class="title">글내용</th>
 						<td><textarea class="boardwritecontent" rows="10" name="content"></textarea></td>
 					</tr>
-					<tr>
-						<th class="title">첨부파일</th>
-						<td><input type="file" name="">※용량 : 5MB 미만</td>
-					</tr>
 				</tbody>
 				<tfoot>
 					<tr>

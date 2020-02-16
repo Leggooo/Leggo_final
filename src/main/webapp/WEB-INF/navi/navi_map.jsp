@@ -11,6 +11,7 @@
     .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;margin-left:25px; background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+	#des{color:fuchsia; text-align:center;}
 	body{
 		padding: 10px;
 	}
@@ -76,7 +77,7 @@
 </head>
 <body>
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:90%;position:relative;overflow:hidden;"></div>
+    <div id="map" style="width:100%;height:110%;position:relative;overflow:hidden;"></div>
     <div class="hAddr">
         <span class="title">지도중심기준 행정동 주소정보</span>
         <span id="centerAddr"></span>
@@ -147,7 +148,11 @@ function currentLoc() {
 //지도에 마커와 인포윈도우를 표시하는 함수이다.
 function displayMarker(locPosition) {		
 	// 클릭한 위치를 표시할 마커를 생성합니다
-	
+	var marker = new kakao.maps.Marker({
+		map: map,
+		position : locPosition 
+	});
+	var infowindow = new kakao.maps.InfoWindow({zindex:1});
 	//alert(locPosition.toCoords().toString());
 	curString = locPosition.toCoords().toString();
 	curSplit = curString.split(', ');
@@ -164,7 +169,9 @@ function displayMarker(locPosition) {
 	/* alert(strAddr) */
 	strAddr = '';
 	//alert(strAddr)
-	message='<div id="infoWindow">현재위치 ' + '</div>';
+	message='<div style="color:fuchsia; padding-left:20px;">현재위치&nbsp;&nbsp;'+
+	'<input type="button" class="color2" value="출발" style="background-color: #006be0; font-size: 12pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+', '+strAddr+')"/></div>';
+	
 	
     // 마커를 클릭한 위치에 표시합니다 
     marker.setPosition(locPosition);
@@ -180,15 +187,13 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
         if (status === kakao.maps.services.Status.OK) {
             var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-            detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
-            
-            var content = '<div class="bAddr">' +
-                            '<span class="title">법정동 주소정보</span>' + 
-                            detailAddr + 
-                        '</div><br/>';         
-          	content += '<div class="bAddr">'+ 
+            detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';        
+            var content = '<div class="bAddr"><pre id="des">도착위치</pre>' +
+                            '<span class="title" style="text-align:center;">법정동 주소정보</span>' + 
+                            detailAddr + '</div>';         
+          	/* content += '<div class="bAddr">'+ 
           	mouseEvent.latLng.getLat() + ', ' +
-        	mouseEvent.latLng.getLng() + '</div><br/>';
+        	mouseEvent.latLng.getLng() + '</div><br/>'; */
         	
         	var desString = mouseEvent.latLng.toCoords().toString();
         	desSplit = desString.split(', ');
@@ -202,14 +207,14 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 			//alert(endAddr)
 			//alert(desSplit)
         	
-			content += '<div style="padding: 1px;color:fuchsia;padding-left:5px;">도착위치&nbsp;&nbsp;'+
-	            		'<input type="button" class="color2" value="도착" style="background-color: #f95c4e;font-size: 10pt;" onclick="end('+desSplit[0]+', '+desSplit[1]+', '+endAddr+')"/></div>'+
+			/* onclick="end('+desSplit[0]+', '+desSplit[1]+', '+endAddr+')" */
+			content += '<div style="padding: 1px; text-align:center;">&nbsp;&nbsp;'+
+	            		'<input type="button" class="color2" value="도착" style="background-color: #f95c4e;font-size: 12pt;" onclick="end('+desSplit[0]+', '+desSplit[1]+', '+endAddr+')"/>'+
 	            				/*'<button><a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="text-decoration:none">길찾기'+
 	            				'</a></button></div>'; */
-	            		'<button onclick="end('+desSplit[0]+', '+desSplit[1]+', '+endAddr+')" style="background-color: #f95c4e;">'+
-	            		'<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName='+ endAddr +'&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName='+strAddr+'" target="_blank" style="font-size: 12pt; text-decoration:none">도착'+
+	            		'<button style="background-color: #f95c4e;">'+
+	            		'<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName='+ endAddr +'&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName='+strAddr+'" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+
 	            		'</a></button></div>';
-        	       
             //클릭한 위도, 경도 정보를 가져옵니다
             // 마커를 클릭한 위치에 표시합니다 
             marker.setPosition(mouseEvent.latLng);
@@ -256,7 +261,7 @@ function start(lati, longi, address) {
 				function(data) {
 					startStr = lati + ", " + longi;
 					//alert("???????????? " + startStr)
-					//alert("출발지를 선택하셨습니다.")
+					alert("출발지를 선택하셨습니다.")
 					$('#input_start_lat').val(lati);
 					$('#input_start_lng').val(longi);
 					$('#input_start').val(startStr);
@@ -277,7 +282,7 @@ function end(lati, longi, address) {
 				function(data) {
 					endStr = lati + ", " + longi;
 					//alert("???????????? " + endStr)
-					//alert("도착지를 선택하셨습니다.")
+					alert("도착지를 선택하셨습니다.")
 					$('#input_end_lat').val(lati);
 					$('#input_end_lng').val(longi);
 					$('#input_end').val(endStr);
