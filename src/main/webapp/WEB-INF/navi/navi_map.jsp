@@ -110,9 +110,17 @@ if (navigator.geolocation) {
 		var lng = position.coords.longitude; //경도
 		var locPosition = new kakao.maps.LatLng(lat, lng);//마커가 표시될 위치
 				
+		//출발지를 현재위치로 고정
+		curString = locPosition.toCoords().toString();
+		curSplit = curString.split(', ');
+		//alert(curSplit);
+		curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
+		curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 1);
+		$('#input_start_lat').val(curSplit[0]);
+		$('#input_start_lng').val(curSplit[1]);
+		
 		//마커와 인포윈도우를 표시한다.
 		displayMarker(locPosition);
-				
 	});
 } else {
 	consol.log("Geolocation을 지원하지 않는 브라우저 입니다.");
@@ -139,6 +147,16 @@ function currentLoc() {
 		lat = position.coords.latitude; //위도
 		lng = position.coords.longitude; //경도
 		locPosition = new kakao.maps.LatLng(lat, lng), //마커가 표시될 위치
+		
+		//출발지를 현재위치로 고정
+		curString = locPosition.toCoords().toString();
+		curSplit = curString.split(', ');
+		//alert(curSplit);
+		curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
+		curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 1);
+		$('#input_start_lat').val(curSplit[0]);
+		$('#input_start_lng').val(curSplit[1]);
+		
 		//message = '';
 		//마커와 인포윈도우를 표시한다.
 		displayMarker(locPosition);
@@ -169,8 +187,10 @@ function displayMarker(locPosition) {
 	/* alert(strAddr) */
 	strAddr = '';
 	//alert(strAddr)
-	message='<div style="color:fuchsia; padding-left:20px;">현재위치&nbsp;&nbsp;'+
-	'<input type="button" class="color2" value="출발" style="background-color: #006be0; font-size: 12pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+', '+strAddr+')"/></div>';
+	message='<div id="infoWindow">현재위치 ' + '</div>';
+	/* !!!!!!!!!!!!!!!!!!!!1 */
+/* 	message='<div style="color:fuchsia; padding-left:20px;">현재위치&nbsp;&nbsp;'+
+	'<input type="button" class="color2" value="출발" style="background-color: #006be0; font-size: 12pt;" onclick="start('+curSplit[0]+', '+curSplit[1]+', '+strAddr+')"/></div>'; */
 	
 	
     // 마커를 클릭한 위치에 표시합니다 
@@ -213,7 +233,7 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 	            				/*'<button><a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="text-decoration:none">길찾기'+
 	            				'</a></button></div>'; */
 	            		'<button style="background-color: #f95c4e;">'+
-	            		'<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName='+ endAddr +'&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName='+strAddr+'" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+
+	            		'<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName='+ endAddr +'&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=현재위치" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+
 	            		'</a></button></div>';
             //클릭한 위도, 경도 정보를 가져옵니다
             // 마커를 클릭한 위치에 표시합니다 

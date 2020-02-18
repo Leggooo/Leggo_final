@@ -1,6 +1,7 @@
 package com.iot.navi;
 
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,14 +34,10 @@ public class naviController {
 	}
 	
 	@RequestMapping(value="/findmap.do", method=RequestMethod.POST)
-	public ModelAndView findmap(String input_start_lat, String input_start_lng, String input_end_lat, String input_end_lng) {
+	public ModelAndView findmap(String input_start_lat, String input_start_lng, String input_end_lat, String input_end_lng, String input_end) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(input_start_lat);
-		System.out.println(input_start_lng);
-		System.out.println(input_end_lat);
-		System.out.println(input_end_lng);
 		
-		String url = "https://map.kakao.com/?eX="+input_end_lat+"&eY="+input_end_lng+"&eName=아가방빌딩&sX="+input_start_lat+"&sY="+input_start_lng+"&sName=멀티캠퍼스 역삼";
+		String url = "https://map.kakao.com/?eX="+input_end_lat+"&eY="+input_end_lng+"&eName="+input_end+"&sX="+input_start_lat+"&sY="+input_start_lng+"&sName=현재위치";
 		mav.addObject("findmap", url);
 		mav.setViewName("navi_findRoad");
 		return mav;
@@ -58,30 +55,17 @@ public class naviController {
 			method=RequestMethod.GET,
 			produces="application/text;charset=utf-8")
 	public @ResponseBody String end(String lati,String longi) {
-		System.out.println("!!!!"+lati+"!!!!"+longi);
+		//System.out.println("!!!!"+lati+"!!!!"+longi);
 		return "success";
 	}
 	
-	@RequestMapping("/findRoad/endFromLastmile.do")
-	public ModelAndView endFromLastmile(String lati, String longi, String lastmileName) {
+	@RequestMapping("/findRoad/setEnd.do")
+	public ModelAndView endFromLastmile(String lati, String longi, String name) {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("endLati", lati);
 		mav.addObject("endLongi", longi);
-		mav.addObject("endName", lastmileName);
-		mav.setViewName("navi");
-		
-		return mav;
-	}
-	
-
-	@RequestMapping("/findRoad/endFromParking.do")
-	public ModelAndView endFromParking(String lati, String longi, String naviName) {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("endLati", lati);
-		mav.addObject("endLongi", longi);
-		mav.addObject("endName", naviName);
+		mav.addObject("endName", URLDecoder.decode(name));
 		mav.setViewName("navi");
 		
 		return mav;

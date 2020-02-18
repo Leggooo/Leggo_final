@@ -217,14 +217,7 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 		        position: markerPosition<%=i%>,
 		        image: markerImage // 마커이미지 설정 
 		     });
-/*==========================================주차장 info window==============================================*/    		
-		 // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-			// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-			var desString = markerPosition<%=i%>.toCoords().toString();
-            desSplit = desString.split(', ');
-            
-            desSplit[0] = desSplit[0].substring(1, desSplit[0].length - 1);
-            desSplit[1] = desSplit[1].substring(0, desSplit[1].length - 2);
+/*==========================================주차장 info window==============================================*/ 
 
             var iwContent<%=i%> = 	
                 '<div class="popupWindow">'+	
@@ -261,7 +254,7 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
                 '</table>' +	
                 '<br/><a href="/leggo/getParkingJsonVO.do?parking_code=' + <%= jsonVO.getParking_code() %> + '"><button id="btnStyle" style="color:white;">예약하기</button></a>'+	
                 '<button style="background-color: #f95c4e;">'+	
-                '<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=목적지&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="font-size: 12pt; text-decoration:none">길찾기'+	
+                '<a href="/leggo/findRoad/setEnd.do?lati='+<%=lat%>+'&longi='+<%=lng%>+'&name='+encodeURI(encodeURIComponent("<%= name %>"))+'">길찾기'+	
                 '</a></button></div>';
 
 			// 인포윈도우를 생성합니다

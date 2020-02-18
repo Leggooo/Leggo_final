@@ -36,10 +36,26 @@
 	</style>
 	
 	<script type="text/javascript">
-		function findmap() {
-			start = $('#input_start').val();
-			end = $('#input_end').val();
-		}
+		$(document).ready(function() {			//라스트마일, 주차장에서 도착지 받기
+			lastmileLati = "${endLati}";
+			lastmileLongi = "${endLongi}";
+			lastmileName = "${endName}";
+			
+			if(lastmileLati != null && lastmileLongi != null) {
+				var locPosition = new kakao.maps.LatLng(lastmileLati, lastmileLongi);
+				
+				//출발지를 현재위치로 고정
+				curString = locPosition.toCoords().toString();
+				curSplit = curString.split(', ');
+				//alert(curSplit);
+				curSplit[0] = curSplit[0].substring(1, curSplit[0].length - 1);
+				curSplit[1] = curSplit[1].substring(0, curSplit[1].length - 1);
+				
+				$('#input_end_lat').val(curSplit[0]);
+				$('#input_end_lng').val(curSplit[1]);
+				$('#input_end').val(lastmileName);
+			}
+		});
 	</script>
 </head>
 <body>
@@ -57,7 +73,7 @@
 				  		
 				  		<input type="hidden" id="input_start_lat" name="input_start_lat" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; readonly"/>
 						<input type="hidden" id="input_start_lng" name="input_start_lng" class="color2" value="출발" style="background-color: #ffffff;font-size: 14pt; readonly"/>
-						<input type="text" id="input_start" name="input_start" class="color2" placeholder="출발지" style="background-color: #ffffff;font-size: 11pt; readonly"/>
+						<input type="text" id="input_start" name="input_start" class="color2" placeholder="현재 위치" style="background-color: #ffffff;font-size: 11pt; readonly"/>
 						<input type="hidden" id="input_end_lat" name="input_end_lat" class="color2" value="도착" style="background-color: #ffffff; font-size: 14pt; readonly"/>
 						<input type="hidden" id="input_end_lng" name="input_end_lng" class="color2" value="도착" style="background-color: #ffffff;font-size: 14pt; readonly"/>
 						<input type="text" id="input_end" name="input_end" class="color2" placeholder="도착지" style="background-color: #ffffff; font-size: 11pt; readonly"/>

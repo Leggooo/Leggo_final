@@ -1,5 +1,6 @@
 <%@page import="com.iot.lastmile.LastmileVO"%>
 <%@page import="java.util.List"%>
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -84,8 +85,8 @@ body{
 <!--======================================================HTML===================================================-->
 	<div id="map" style="width: 100%; height: 500px;"></div>
 	<p>
-		<button onclick="currentLoc()">현재위치</button>
-		<button onclick="showMarkers()">주변 주차장</button>
+		<!-- <button onclick="currentLoc()">현재위치</button>
+		<button onclick="showMarkers()">주변 주차장</button> -->
 		<!-- <button onclick="hideMarkers()">주변 주차장 감추기</button> -->
 		<!-- button onclick="removeCircles()">반경 모두 지우기</button> -->
 		<br>
@@ -307,7 +308,8 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 				 '<div class="popupWindow">' +
 					'총 거치대 개수 : <%=vo.getRackTotCnt()%>개<br/>' +
 					'사용 가능 자전거 : <%=vo.getParkingBikeTotCnt()%>대<br/>' +
-					'<a href="/leggo/findRoad/endFromLastmile.do?lati=' + <%=vo.getStationLatitude()%> + '&longi=' + <%=vo.getStationLongitude()%> + '">' +
+					'<a href="/leggo/findRoad/setEnd.do?lati=' + <%=vo.getStationLatitude()%> 
+								+ '&longi=' + <%=vo.getStationLongitude()%> + '&name=' + encodeURI(encodeURIComponent("<%= splitName %>")) + '">' +
 					'<button id="btnStyle" style="color:white;">도착</button>' +
 					'</a>' + 
 				'</div>',
@@ -326,76 +328,20 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),<
 
  // 마커에 클릭이벤트를 등록합니다
 		kakao.maps.event.addListener(marker<%=i%>, 'click', function() {
-		    <%-- searchDetailAddrFromCoords(marker<%=i%>, function(result, status) {
-    	        if (status === kakao.maps.services.Status.OK) {
-    	            var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-    	            detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
-
-    	        	alert(result[0].road_address.address_name);
-    	            var content = '<div class="bAddr">' +
-    	                            '<span class="title">법정동 주소정보</span>' + 
-    	                            detailAddr + 
-    	                        '</div><br/>';         
-    	          	content += '<div class="bAddr">'+ 
-    	          	mouseEvent.latLng.getLat() + ', ' +
-    	        	mouseEvent.latLng.getLng() + '</div><br/>';
-    	        	
-    	        	var desString = mouseEvent.latLng.toCoords().toString();
-    	        	desSplit = desString.split(', ');
-    	        	
-    	        	alert(desSplit)
-    	        	
-    	        	desSplit[0] = desSplit[0].substring(1, desSplit[0].length - 1);
-    				desSplit[1] = desSplit[1].substring(0, desSplit[1].length - 1);
-    				/* endAddr = result[0].address.address_name; */
-    				endAddr='';
-    				alert(endAddr)
-    				//alert(desSplit)
-    	        	
-    				content += '<div style="padding: 1px;color:fuchsia;padding-left:5px;">도착위치&nbsp;&nbsp;'+
-    		            		'<input type="button" class="color2" value="도착" style="background-color: #f95c4e;font-size: 10pt;" onclick="end('+desSplit[0]+', '+desSplit[1]+', '+endAddr+')"/></div>'+
-    		            				/*'<button><a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName=아가방빌딩&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName=멀티캠퍼스 역삼" target="_blank" style="text-decoration:none">길찾기'+
-    		            				'</a></button></div>'; */
-    		            		'<button onclick="end('+desSplit[0]+', '+desSplit[1]+', '+endAddr+')" style="background-color: #f95c4e;">'+
-    		            		'<a href="https://map.kakao.com/?eX='+desSplit[0]+'&eY='+desSplit[1]+'&eName='+ endAddr +'&sX='+curSplit[0]+'&sY='+curSplit[1]+'&sName='+strAddr+'" target="_blank" style="font-size: 12pt; text-decoration:none">도착'+
-    		            		'</a></button></div>';
-    	        	       
-    	            //클릭한 위도, 경도 정보를 가져옵니다
-    	            // 마커를 클릭한 위치에 표시합니다 
-    	            marker.setPosition(mouseEvent.latLng);
-    	            marker.setMap(map);
-    	            
-    	            // 마커 위에 인포윈도우를 표시합니다
-    	            if(open==false){
-    	            	infowindow<%=i%>.open(map, marker<%=i%>);
-    	            	open=true;
-       	            	// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-    	            	infowindow<%=i%>.setContent(content);
-    	            	infowindow<%=i%>.open(map, marker);
-    	            }
-    	            else{
-    	            	infowindow<%=i%>.close(map, marker<%=i%>); 
-    	            	open=false;
-    	            }
-
-    	            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-    	            infowindow.setContent(content);
-    	            infowindow.open(map, marker);
-    	        }   
-    	    }); 	 --%>
     	
-          // 마커 위에 인포윈도우를 표시합니다
-          if(open==false){
-          infowindow<%=i%>.open(map, marker<%=i%>);
-          open=true;
-          }
-          else{
-          infowindow<%=i%>.close(map, marker<%=i%>); 
-          open=false;
-          }
-    });
+	          // 마커 위에 인포윈도우를 표시합니다
+	          if(open==false){
+		          infowindow<%=i%>.open(map, marker<%=i%>);
+		          open=true;
+	          }
+	          else{
+		          infowindow<%=i%>.close(map, marker<%=i%>); 
+		          open=false;
+	          }
+    	});
+ 
     	function closeall(map){
-    	infowindow<%=i%>.close(map, marker<%=i%>); 
+    		infowindow<%=i%>.close(map, marker<%=i%>); 
     	}
     <%}%>
 	
